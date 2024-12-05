@@ -21,8 +21,7 @@ function App() {
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		// setPassword(randomPassword(length));
-		setPassword('haYLE3LiNdaB76');
+		setPassword(randomPassword(length));
 	};
 
 	return (
