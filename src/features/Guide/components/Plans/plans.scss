@@ -1,0 +1,30 @@
+#plans {
+	height: calc(100vh - 194px);
+	display: flex;
+	flex-direction: column;
+	padding: var(--spacing);
+
+	.plan-list {
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		gap: 20px;
+
+		h3 {
+			cursor: pointer;
+
+			&.be {
+				color: #20bacd;
+			}
+
+			&.bc {
+				color: #d1d40d;
+			}
+
+			&.ec {
+				color: #65bea6;
+			}
+		}
+	}
+}
