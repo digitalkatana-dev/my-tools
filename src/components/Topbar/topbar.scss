@@ -1,0 +1,13 @@
+#topbar {
+	width: 100%;
+	height: 56px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: var(--card-background);
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+
+	&.dark {
+		box-shadow: 0 4px 8px rgba(211, 211, 211, 0.3);
+	}
+}
