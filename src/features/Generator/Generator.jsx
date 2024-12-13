@@ -40,14 +40,14 @@ const Generator = () => {
 	const handlePassSubmit = (e) => {
 		e.preventDefault();
 		// setPassOutput(randomPassword(passLength));
-		setPassOutput('haYLE3LiNdaB76');
-		// setPassOutput('d9lCltr$0!lB');
+		// setPassOutput('haYLE3LiNdaB76');
+		setPassOutput('d9lCltr$0!lB');
 	};
 
 	const handlePinSubmit = (e) => {
 		e.preventDefault();
-		// setPinOutput(randomPin(pinLength));
-		setPinOutput('330622076');
+		setPinOutput(randomPin(pinLength));
+		// setPinOutput('330622076');
 	};
 
 	const handleCloseDialog = () => {
