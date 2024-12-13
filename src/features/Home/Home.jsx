@@ -122,10 +122,9 @@ const Home = () => {
 						Desk: {phoneFormatter(phoneNumber)} Ext: {phoneExt}
 					</h3>
 					<h3>
-						Confrence Bridge: {phoneFormatter(bridgeNumber)} Ext: {bridgeExt}{' '}
-						Pin: {bridgePin}
+						Bridge: {phoneFormatter(bridgeNumber)} Ext: {bridgeExt} Pin:{' '}
+						{bridgePin}
 					</h3>
-					<h3>App Pin: {appPin}</h3>
 				</div>
 			)}
 			{show && (
