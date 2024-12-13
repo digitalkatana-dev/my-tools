@@ -1,0 +1,65 @@
+:root {
+	--home-txt: #f5f5f5;
+	--background: #f5f5f5;
+	--txt-primary: #16161a;
+	--txt-secondary: rgba(0, 0, 0, 0.6);
+	--btn-background: #65bea6;
+	--highlight: #2cb67d;
+	--highlight-shadow: rgba(44, 182, 125, 0.2);
+	--selected: rgb(0, 132, 255);
+	--selected-shadow: rgba(204, 230, 255, 0.2);
+	--reply: #4fc4cf;
+	--reply-shadow: rgba(79, 196, 207, 0.2);
+	--pin: dodgerblue;
+	--pin-shadow: rgba(30, 144, 255, 0.2);
+	--muted: rgba(255, 255, 255, 0.34);
+	--muted-shadow: rgba(255, 255, 255, 0.06);
+	--elevation: 0px 6px 6px -3px rgba(0, 0, 0, 0.2),
+		0px 10px 14px 1px rgba(0, 0, 0, 0.14), 0px 4px 18px 3px rgba(0, 0, 0, 0.12);
+	--error: rgb(220, 20, 60);
+	--error-shadow: rgba(220, 20, 60, 0.2);
+	--spacing: 15px;
+}
+
+[data-theme='dark'] {
+	--background: #16161a;
+	--card-background: #242629;
+	--txt-primary: #f5f5f5;
+	--txt-secondary: rgba(255, 255, 255, 0.34);
+	--btn-background: #20bacd;
+	--txt-heading: #65bea6;
+	--txt-heading-shadow: rgba(101, 190, 166, 0.2);
+	--elevation: 0px 6px 6px -3px rgba(211, 211, 211, 0.2),
+		0px 10px 14px 1px rgba(211, 211, 211, 0.14),
+		0px 4px 18px 3px rgba(211, 211, 211, 0.12);
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	scrollbar-width: none;
+	&::-webkit-scrollbar {
+		display: none;
+	}
+}
+
+body {
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+		'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+		sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	scroll-behavior: smooth;
+}
+
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+/* For Firefox */
+input[type='number'] {
+	-moz-appearance: textfield;
+}
