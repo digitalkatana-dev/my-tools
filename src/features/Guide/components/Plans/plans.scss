@@ -1,8 +1,7 @@
 #plans {
-	height: calc(100vh - 194px);
+	height: 100%;
 	display: flex;
 	flex-direction: column;
-	padding: var(--spacing);
 
 	.plan-list {
 		flex: 1;

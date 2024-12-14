@@ -14,11 +14,11 @@ const Plans = () => {
 	return (
 		<div id='plans'>
 			{view === 'be' ? (
-				<BusinessEssentials />
+				<BusinessEssentials goBack={() => setView('index')} />
 			) : view === 'bc' ? (
-				<BusinessComplete />
+				<BusinessComplete goBack={() => setView('index')} />
 			) : view === 'ec' ? (
-				<EnterpriseComplete />
+				<EnterpriseComplete goBack={() => setView('index')} />
 			) : (
 				view === 'index' && (
 					<div className='plan-list'>
