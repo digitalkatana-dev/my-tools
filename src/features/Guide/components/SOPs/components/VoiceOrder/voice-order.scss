@@ -1,0 +1,13 @@
+#voice-order {
+	flex: 1;
+	flex-direction: column;
+	position: relative;
+
+	.back-link {
+		position: absolute;
+		top: 0;
+		left: 10px;
+		color: #f5f5f5;
+		cursor: pointer;
+	}
+}
