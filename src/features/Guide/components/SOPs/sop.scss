@@ -1,0 +1,17 @@
+#sop {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+
+	.sop-list {
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		gap: 20px;
+
+		h3 {
+			cursor: pointer;
+		}
+	}
+}
