@@ -75,6 +75,7 @@ const Home = () => {
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
+		dispatch(setFirstName(nameInput));
 		dispatch(setPhoneNumber(phoneInput));
 		dispatch(setPhoneExt(phoneExtInput));
 		dispatch(setBridgeNumber(bridgeInput));
