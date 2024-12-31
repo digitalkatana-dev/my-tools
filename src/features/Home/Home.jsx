@@ -1,7 +1,9 @@
+import { Typography } from '@mui/material';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
 	setShowForm,
+	setFirstName,
 	setPhoneNumber,
 	setPhoneExt,
 	setBridgeNumber,
@@ -16,6 +18,7 @@ import Button from '../../components/Button';
 const Home = () => {
 	const {
 		showForm,
+		firstName,
 		phoneNumber,
 		phoneExt,
 		bridgeNumber,
@@ -24,6 +27,7 @@ const Home = () => {
 	} = useSelector((state) => state.app);
 	const { windows, warden, appPin } = useSelector((state) => state.security);
 	const [show, setShow] = useState(false);
+	const [nameInput, setNameInput] = useState('');
 	const [phoneInput, setPhoneInput] = useState('');
 	const [phoneExtInput, setPhoneExtInput] = useState('');
 	const [bridgeInput, setBridgeInput] = useState('');
@@ -36,6 +40,7 @@ const Home = () => {
 	};
 
 	const handleClear = () => {
+		dispatch(setFirstName(''));
 		dispatch(setPhoneNumber(''));
 		dispatch(setPhoneExt(''));
 		dispatch(setBridgeNumber(''));
@@ -46,6 +51,7 @@ const Home = () => {
 
 	const handleChange = (input, value) => {
 		const actionMap = {
+			name: setNameInput,
 			phone: setPhoneInput,
 			phoneExt: setPhoneExtInput,
 			bridge: setBridgeInput,
@@ -59,6 +65,7 @@ const Home = () => {
 	};
 
 	const clearForm = () => {
+		setNameInput('');
 		setPhoneInput('');
 		setPhoneExtInput('');
 		setBridgeInput('');
@@ -81,8 +88,19 @@ const Home = () => {
 		<div id='home'>
 			<button className='reveal-btn' onClick={handleReveal} />
 			<button className='clear-btn' onClick={handleClear} />
+			{firstName && (
+				<Typography variant='h5' sx={{ mb: 2, textAlign: 'center' }}>
+					Hello {firstName}, Welcome back! 👋
+				</Typography>
+			)}
 			{showForm ? (
 				<form onSubmit={handleSubmit}>
+					<TextInput
+						// label='Phone Number'
+						placeholder='Enter First Name'
+						value={nameInput}
+						onChange={(e) => handleChange('name', e.target.value)}
+					/>
 					<TextInput
 						// label='Phone Number'
 						placeholder='Enter Phone Number'
