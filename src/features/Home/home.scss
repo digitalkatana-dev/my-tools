@@ -17,6 +17,14 @@
 		// border: 2px solid crimson;
 	}
 
+	.greeting {
+		position: absolute;
+		top: 10px;
+		text-align: center;
+		margin-bottom: 16px;
+		color: var(--txt-primary);
+	}
+
 	.reveal-btn,
 	.clear-btn {
 		width: 50px;
