@@ -19,6 +19,7 @@ const appPersistConfig = {
 	whitelist: [
 		'theme',
 		'showForm',
+		'firstName',
 		'phoneNumber',
 		'phoneExt',
 		'bridgeNumber',

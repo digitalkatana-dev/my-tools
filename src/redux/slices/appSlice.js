@@ -5,6 +5,7 @@ const initialState = appAdapter.getInitialState({
 	loading: false,
 	theme: 'light',
 	showForm: true,
+	firstName: '',
 	phoneNumber: '',
 	phoneExt: '',
 	bridgeNumber: '',
@@ -22,6 +23,9 @@ export const appSlice = createSlice({
 		},
 		setShowForm: (state) => {
 			state.showForm = !state.showForm;
+		},
+		setFirstName: (state, action) => {
+			state.firstName = action.payload;
 		},
 		setPhoneNumber: (state, action) => {
 			state.phoneNumber = action.payload;
@@ -47,6 +51,7 @@ export const appSlice = createSlice({
 export const {
 	setTheme,
 	setShowForm,
+	setFirstName,
 	setPhoneNumber,
 	setPhoneExt,
 	setBridgeNumber,
