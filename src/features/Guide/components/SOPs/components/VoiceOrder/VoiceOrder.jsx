@@ -1,8 +1,11 @@
+import { useSelector } from 'react-redux';
 // import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import Tooltip from '../../../../../../components/Tooltip';
 import './voice-order.scss';
 
 const VoiceOrder = ({ goBack }) => {
+	const { firstName } = useSelector((state) => state.app);
+
 	return (
 		<div id='voice-order'>
 			<h3 className='back-link' onClick={goBack}>
@@ -73,8 +76,8 @@ const VoiceOrder = ({ goBack }) => {
 					<span className='identifier'>i.</span>
 					<p className='level2-txt'>
 						Public Folders -> All Public Folders -> Clients -> Current Orders ->
-						"TPC Name" -> Folder Name -> = Client Name Listed in Homir
-						(Location)
+						{firstName ? firstName : 'TPC Name'} -> Folder Name -> = Client Name
+						Listed in Homir (Location)
 					</p>
 				</div>
 				<div className='level1'>
@@ -96,6 +99,62 @@ const VoiceOrder = ({ goBack }) => {
 			</section>
 			<section>
 				<div className='section-title'>2. Optional Items</div>
+				<div className='level1'>
+					<span className='identifier'>a.</span>
+					<p className='level1-txt'>
+						<span className='section-subtitle'>Sales Handoff:</span> Channel
+						Sales Manager may request a handoff with the new order.
+					</p>
+				</div>
+				<div className='level2'>
+					<span className='identifier'>i.</span>
+					<p className='level2-txt'>
+						If a sales handoff is requested with a new order submittal, Order
+						Processing will schedule the handoff when the order is processed and
+						assigned to the{' '}
+						<Tooltip
+							title='Technical Project Coordinator'
+							placement='top-start'
+							arrow
+						>
+							TPC
+						</Tooltip>
+						.
+					</p>
+				</div>
+			</section>
+			<section>
+				<div className='section-title'>3. Initiation Phase</div>
+				<div className='level1'>
+					<span className='identifier'>a.</span>
+					<p className='level1-txt'>
+						<span className='section-subtitle'>Review your new order!</span>
+					</p>
+				</div>
+				<div className='level2'>
+					<span className='identifier'>i.</span>
+					<p className='level2-txt'>
+						Note any questions you may have that were not answered from the
+						details included in the New Order Email.
+					</p>
+				</div>
+				<div className='level2'>
+					<span className='identifier'>ii.</span>
+					<p className='level2-txt'>
+						Review{' '}
+						<Tooltip title='Service Order Form' placement='top-start' arrow>
+							SOF
+						</Tooltip>{' '}
+						for Special Notes (these are found on the signature page)
+					</p>
+				</div>
+				<div className='level1'>
+					<span className='identifier'>b.</span>
+					<p className='level1-txt'>
+						(Optional to frontload) Prepare Billing Closeout and save in client
+						folder on the share drive (found in templates folder).
+					</p>
+				</div>
 			</section>
 		</div>
 	);
