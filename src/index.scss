@@ -42,6 +42,17 @@
 	&::-webkit-scrollbar {
 		display: none;
 	}
+
+	input[type='number']::-webkit-inner-spin-button,
+	input[type='number']::-webkit-outer-spin-button {
+		-webkit-appearance: none;
+		margin: 0;
+	}
+
+	/* For Firefox */
+	input[type='number'] {
+		-moz-appearance: textfield;
+	}
 }
 
 body {
@@ -51,15 +62,4 @@ body {
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	scroll-behavior: smooth;
-}
-
-input[type='number']::-webkit-inner-spin-button,
-input[type='number']::-webkit-outer-spin-button {
-	-webkit-appearance: none;
-	margin: 0;
-}
-
-/* For Firefox */
-input[type='number'] {
-	-moz-appearance: textfield;
 }
