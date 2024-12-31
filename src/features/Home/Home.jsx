@@ -90,7 +90,10 @@ const Home = () => {
 			<button className='reveal-btn' onClick={handleReveal} />
 			<button className='clear-btn' onClick={handleClear} />
 			{firstName && (
-				<Typography variant='h5' sx={{ mb: 2, textAlign: 'center' }}>
+				<Typography
+					variant='h5'
+					sx={{ mb: 2, textAlign: 'center', color: 'var(--txt-primary)' }}
+				>
 					Hello {firstName}, Welcome back! 👋
 				</Typography>
 			)}
