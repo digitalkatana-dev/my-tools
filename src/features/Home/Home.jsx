@@ -92,7 +92,7 @@ const Home = () => {
 			{firstName && (
 				<Typography
 					variant='h5'
-					sx={{ mb: 2, textAlign: 'center', color: 'var(--txt-primary)' }}
+					className='greeting'
 				>
 					Hello {firstName}, Welcome back! 👋
 				</Typography>
