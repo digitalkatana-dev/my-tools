@@ -76,8 +76,8 @@ const VoiceOrder = ({ goBack }) => {
 					<span className='identifier'>i.</span>
 					<p className='level2-txt'>
 						Public Folders -> All Public Folders -> Clients -> Current Orders ->
-						{firstName ? firstName : 'TPC Name'} -> Folder Name -> = Client Name
-						Listed in Homir (Location)
+						{firstName ? firstName : '"TPC Name"'} -> Folder Name -> = Client
+						Name Listed in Homir (Location)
 					</p>
 				</div>
 				<div className='level1'>
