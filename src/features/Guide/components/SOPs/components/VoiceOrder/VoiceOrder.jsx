@@ -156,6 +156,9 @@ const VoiceOrder = ({ goBack }) => {
 					</p>
 				</div>
 			</section>
+			<section>
+				<div className='section-title'>4. Design & Planning</div>
+			</section>
 		</div>
 	);
 };

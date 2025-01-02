@@ -1,4 +1,4 @@
-import { Typography } from '@mui/material';
+import { FormControl, Typography } from '@mui/material';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
@@ -90,52 +90,63 @@ const Home = () => {
 			<button className='reveal-btn' onClick={handleReveal} />
 			<button className='clear-btn' onClick={handleClear} />
 			{firstName && (
-				<Typography
-					variant='h5'
-					className='greeting'
-				>
+				<Typography variant='h5' className='greeting'>
 					Hello {firstName}, Welcome back! 👋
 				</Typography>
 			)}
 			{showForm ? (
 				<form onSubmit={handleSubmit}>
-					<TextInput
-						// label='Phone Number'
-						placeholder='Enter First Name'
-						value={nameInput}
-						onChange={(e) => handleChange('name', e.target.value)}
-					/>
-					<TextInput
-						// label='Phone Number'
-						placeholder='Enter Phone Number'
-						value={phoneInput}
-						onChange={(e) => handleChange('phone', e.target.value)}
-					/>
-					<TextInput
-						// label='Phone Ext'
-						placeholder='Enter Ext'
-						value={phoneExtInput}
-						onChange={(e) => handleChange('phoneExt', e.target.value)}
-					/>
-					<TextInput
-						// label='Conference Bridge'
-						placeholder='Enter Bridge Number'
-						value={bridgeInput}
-						onChange={(e) => handleChange('bridge', e.target.value)}
-					/>
-					<TextInput
-						// label='Conference Bridge Ext'
-						placeholder='Enter Bridge Ext'
-						value={bridgeExtInput}
-						onChange={(e) => handleChange('bridgeExt', e.target.value)}
-					/>
-					<TextInput
-						// label='Conference Bridge Pin'
-						placeholder='Enter Bridge Pin'
-						value={bridgePinInput}
-						onChange={(e) => handleChange('bridgePin', e.target.value)}
-					/>
-					<Button type='submit'>Submit</Button>
+					<FormControl>
+						<TextInput
+							// label='Phone Number'
+							placeholder='Enter First Name'
+							value={nameInput}
+							onChange={(e) => handleChange('name', e.target.value)}
+						/>
+					</FormControl>
+					<FormControl>
+						<TextInput
+							// label='Phone Number'
+							placeholder='Enter Phone Number'
+							value={phoneInput}
+							onChange={(e) => handleChange('phone', e.target.value)}
+						/>
+					</FormControl>
+					<FormControl>
+						<TextInput
+							// label='Phone Ext'
+							placeholder='Enter Ext'
+							value={phoneExtInput}
+							onChange={(e) => handleChange('phoneExt', e.target.value)}
+						/>
+					</FormControl>
+					<FormControl>
+						<TextInput
+							// label='Conference Bridge'
+							placeholder='Enter Bridge Number'
+							value={bridgeInput}
+							onChange={(e) => handleChange('bridge', e.target.value)}
+						/>
+					</FormControl>
+					<FormControl>
+						<TextInput
+							// label='Conference Bridge Ext'
+							placeholder='Enter Bridge Ext'
+							value={bridgeExtInput}
+							onChange={(e) => handleChange('bridgeExt', e.target.value)}
+						/>
+					</FormControl>
+					<FormControl>
+						<TextInput
+							// label='Conference Bridge Pin'
+							placeholder='Enter Bridge Pin'
+							value={bridgePinInput}
+							onChange={(e) => handleChange('bridgePin', e.target.value)}
+						/>
+					</FormControl>
+					<FormControl>
+						<Button type='submit'>Submit</Button>
+					</FormControl>
 				</form>
 			) : (
 				<div className='my-info'>
