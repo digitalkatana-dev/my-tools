@@ -1,3 +1,4 @@
+import { FormControl } from '@mui/material';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { setAppPin } from '../../redux/slices/securitySlice';
@@ -57,24 +58,28 @@ const Generator = () => {
 		<div id='generator'>
 			<div className='pass-gen'>
 				<form onSubmit={handlePassSubmit}>
-					<TextInput
-						type='number'
-						placeholder='Enter Password length'
-						value={passLength}
-						onChange={(e) => setPassLength(e.target.value)}
-					/>
+					<FormControl>
+						<TextInput
+							type='number'
+							placeholder='Enter Password length'
+							value={passLength}
+							onChange={(e) => setPassLength(e.target.value)}
+						/>
+					</FormControl>
 					<Button type='submit'>Generate</Button>
 				</form>
 				{passOutput && <h3 onClick={handlePassClick}>{passOutput}</h3>}
 			</div>
 			<div className='pin-gen'>
 				<form onSubmit={handlePinSubmit}>
-					<TextInput
-						type='number'
-						placeholder='Enter Pin Length'
-						value={pinLength}
-						onChange={(e) => handleChange('pin', e.target.value)}
-					/>
+					<FormControl>
+						<TextInput
+							type='number'
+							placeholder='Enter Pin Length'
+							value={pinLength}
+							onChange={(e) => handleChange('pin', e.target.value)}
+						/>
+					</FormControl>
 					<Button type='submit'>Generate</Button>
 				</form>
 				{pinOutput && <h3 onClick={handlePinClick}>{pinOutput}</h3>}
