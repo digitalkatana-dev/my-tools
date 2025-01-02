@@ -1,3 +1,4 @@
+import { Stack } from '@mui/material';
 import { useSelector } from 'react-redux';
 // import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import Tooltip from '../../../../../../components/Tooltip';
@@ -158,6 +159,51 @@ const VoiceOrder = ({ goBack }) => {
 			</section>
 			<section>
 				<div className='section-title'>4. Design & Planning</div>
+				<div className='level1'>
+					<span className='identifier'>a.</span>
+					<p className='level1-txt'>
+						<span className='section-subtitle'>Send Intro Email</span>
+					</p>
+				</div>
+				<div className='level2'>
+					<span className='identifier'>i.</span>
+					<p className='level2-txt'>
+						Using Homir email templates, send an intro email to the contact(s)
+						that were noted in the New Order email you received within 24 hours
+						of assignment.
+					</p>
+				</div>
+				<div className='level2'>
+					<span className='identifier'>ii.</span>
+					<p className='level2-txt'>
+						If you do not receive a response to your intro email within 24
+						hours, attempt to call the contact and document the attempts in the
+						notes section of the Homir order page. Escalate after 3 failed
+						contact attmepts over a 72 hour peroid.
+					</p>
+				</div>
+				<div className='level1'>
+					<span className='identifier'>b.</span>
+					<p className='level1-txt'>Conduct Intro Call</p>
+				</div>
+				<div className='level2'>
+					<span className='identifier'>i.</span>
+					<p className='level2-txt'>
+						Schedule the Intro Call via an Outlook calendar invitation.
+					</p>
+				</div>
+				<div className='level3'>
+					<span className='identifier'>•</span>
+					<Stack direction='column'>
+						<p className='level3-txt'>
+							Title = Client Name | Verve - Project Introduction
+						</p>
+						<p className='level3-txt'>
+							Provide your conference bridge or add a Teams meeting (add to body
+							and location field)
+						</p>
+					</Stack>
+				</div>
 			</section>
 		</div>
 	);
