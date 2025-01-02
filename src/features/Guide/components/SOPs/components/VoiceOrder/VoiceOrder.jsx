@@ -204,6 +204,34 @@ const VoiceOrder = ({ goBack }) => {
 						</p>
 					</Stack>
 				</div>
+				<div className='level2'>
+					<span className='identifier'>ii.</span>
+					<p className='level2-txt'>Before the intro call:</p>
+				</div>
+				<div className='level3'>
+					<span className='identifier'>•</span>
+					<p className='level3-txt'>
+						Review all details provided by the contact in response to your intro
+						email. Note questions and review your calendar for date/time
+						availability to conduct survey and design meeting.
+					</p>
+				</div>
+				<div className='level3'>
+					<span className='identifier'>•</span>
+					<p className='level3-txt'>
+						Using Homir email templates, prep Intro Call Follow Up Email
+						template (use this during the intro call as an outline for the
+						conversation).
+					</p>
+				</div>
+				<div className='level2'>
+					<span className='identifier'>iii.</span>
+					<p className='level2-txt'>During intro call:</p>
+				</div>
+				<div className='level3'>
+					<span className='identifier'>•</span>
+					<p className='level3-txt'>Review the order and discuss next steps.</p>
+				</div>
 			</section>
 		</div>
 	);
