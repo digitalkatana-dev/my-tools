@@ -561,9 +561,12 @@ const VoiceOrder = ({ goBack }) => {
 				<div className='level-2'>
 					<span className='identifier'>ii.</span>
 					<p className='level-2-txt'>
-						Schedule dispatch for Testing/Install of Equipment/Phones via OTRS
-						ticket.
+						Schedule dispatch for Testing/Install of Equipment/Phones:
 					</p>
+				</div>
+				<div className='level-3>
+					<span className='identifier'>•</span>
+					<p className='level-3-txt>(If <span style={{fontWeight: 'bold', color: 'green'}}>internal</span>) Via OTRS ticket</p>
 				</div>
 				<div className='level-3'>
 					<span className='identifier'>•</span>
