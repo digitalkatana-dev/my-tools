@@ -311,7 +311,7 @@ const VoiceOrder = ({ goBack }) => {
 					</p>
 				</div>
 				<div className='level-2'>
-					<span className='identifier'>ii.</span>
+					<span className='identifier'>iii.</span>
 					<p className='level-2-txt'>Submit Dispatch Ticket Via OTRS</p>
 				</div>
 				<div className='level-3'>
