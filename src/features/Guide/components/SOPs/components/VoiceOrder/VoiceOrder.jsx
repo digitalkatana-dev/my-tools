@@ -445,6 +445,147 @@ const VoiceOrder = ({ goBack }) => {
 				</div>
 				<div className='level-1'>
 					<span className='identifier'>d.</span>
+					<p className='section-subtitle'>Conduct Design Meeting</p>
+				</div>
+				<div className='level-2'>
+					<span className='identifier'>i.</span>
+					<p className='level-2-txt'>
+						Send Calendar Invite to Client for Design Meeting
+					</p>
+				</div>
+				<div className='level-3'>
+					<span className='identifier'>•</span>
+					<p className='level-3-txt'>
+						Title = Client Name | Verve - Design Meeting
+					</p>
+				</div>
+				<div className='level-3'>
+					<span className='identifier'>•</span>
+					<p className='level-3-txt'>
+						Include link to Design Document in body of invitation (Don't forget
+						to change display text of link!).
+					</p>
+				</div>
+				<div className='level-3'>
+					<span className='identifier'>•</span>
+					<p className='level-3-txt'>
+						Provide conference bridge or Teams meeting information.
+					</p>
+				</div>
+				<div className='level-2'>
+					<span className='identifier'>ii.</span>
+					<p className='level-2-txt'>Complete Design Meeting</p>
+				</div>
+				<div className='level-3'>
+					<span className='identifier'>•</span>
+					<p className='level-3-txt'>Review & complete design document</p>
+				</div>
+				<div className='level-3'>
+					<span className='identifier'>•</span>
+					<p className='level-3-txt'>
+						(If applicable) Review the numbers provided on the design document
+						in comparison to the numbers provided on the porting documents.
+					</p>
+				</div>
+				<div className='level-3'>
+					<span className='identifier'>•</span>
+					<p className='level-3-txt'>
+						Review the design to determine any recordings that will be needed,
+						ensure this is relayed to the client and propose options for getting
+						this completed.
+					</p>
+				</div>
+				<div className='level-3'>
+					<span className='identifier'>•</span>
+					<p className='level-3-txt'>
+						Schedule follow-up Design Meeting if needed.
+					</p>
+				</div>
+				<div className='level-3'>
+					<span className='identifier'>•</span>
+					<p className='level-3-txt'>
+						Send summary of any open/pending items and reestablish timeline and
+						next steps.
+					</p>
+				</div>
+				<div className='level-1'>
+					<span className='identifier'>e.</span>
+					<p className='section-subtitle'>Confirm Agreed Upon Schedule</p>
+				</div>
+				<div className='level-2'>
+					<span className='identifier'>i.</span>
+					<p className='level-2-txt'>
+						Ensure a schedule has been established and relayed to the client
+						(sent via follow-up eamil).
+					</p>
+				</div>
+				<div className='level-2'>
+					<span className='identifier'>ii.</span>
+					<p className='level-2-txt'>
+						Copy details of this schedule into the Homir order for reference.
+					</p>
+				</div>
+				<div className='level-2'>
+					<span className='identifier'>iii.</span>
+					<p className='level-2-txt'>Update dates in Homir order page.</p>
+				</div>
+				<div className='level-1'>
+					<span className='identifier'>f.</span>
+					<p className='section-subtitle'>Schedule the Installation</p>
+				</div>
+				<div className='level-2'>
+					<span className='identifier'>i.</span>
+					<p className='level-2-txt'>
+						Ensure calendar invites are sent to the client for all of the
+						following dates as applicable:
+					</p>
+				</div>
+				<div className='level-2'>
+					<span className='identifier'>Title:</span>
+					<p className='level-2-txt'>Verve | Client Name - Scheduled Item</p>
+				</div>
+				<div className='level-3'>
+					<span className='identifier'>•</span>
+					<p className='level-3-txt'>Interop Test/Hardware Intall</p>
+				</div>
+				<div className='level-3'>
+					<span className='identifier'>•</span>
+					<p className='level-3-txt'>
+						Voice Training (if desired by client/using portal)
+					</p>
+				</div>
+				<div className='level-3'>
+					<span className='identifier'>•</span>
+					<p className='level-3-txt'>Voice Install/Porting Date</p>
+				</div>
+				<div className='level-2'>
+					<span className='identifier'>ii.</span>
+					<p className='level-2-txt'>
+						Schedule dispatch for Testing/Install of Equipment/Phones via OTRS
+						ticket.
+					</p>
+				</div>
+				<div className='level-3'>
+					<span className='identifier'>•</span>
+					<p className='level-3-txt'>
+						(If{' '}
+						<span style={{ fontWeight: 'bold', color: 'crimson' }}>
+							Field Nation
+						</span>
+						) Create Field Nation Work Order (see{' '}
+						<a
+							href='http://localhost:3000/Appendix 6.pdf'
+							target='_blank'
+							rel='noreferrer'
+						>
+							Appendix 6 - Field Nation Directions
+						</a>
+						)
+					</p>
+				</div>
+				<div className='level-1'>
+					<span className='identifier'>g.</span>
+					<p className='section-subtitle'>Create Domain in Homir</p>
 				</div>
 			</section>
 		</div>
