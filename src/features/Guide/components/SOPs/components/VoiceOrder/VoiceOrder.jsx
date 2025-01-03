@@ -387,6 +387,65 @@ const VoiceOrder = ({ goBack }) => {
 						Title = Client Name | Verve - Site Survey
 					</p>
 				</div>
+				<div className='level-3'>
+					<span className='identifier'>•</span>
+					<p className='level-3-txt'>
+						Specify what access will be needed in the body of the calendar
+						invite. (<span style={{ fontWeight: 'bold' }}>Suggested:</span>{' '}
+						Please make sure there is access to your suite's server room and the
+						building's{' '}
+						<Tooltip
+							title='Main Point of Entry (main telecommunications room where cables enter the building from the street)'
+							placement='top-start'
+							arrow
+						>
+							MPOE
+						</Tooltip>
+						.)
+					</p>
+				</div>
+				<div className='level-2'>
+					<span className='identifier'>v.</span>
+					<p className='level-2-txt'>Complete Site Survey</p>
+				</div>
+				<div className='level-3'>
+					<span className='identifier'>•</span>
+					<p className='level-3-txt'>
+						Review results of the survey with the tech while they are on site.
+					</p>
+				</div>
+				<div className='level-3'>
+					<span className='identifier'>•</span>
+					<p className='level-3-txt'>
+						Add photos to the customer folder in "Survey Photos" folder.
+					</p>
+				</div>
+				<div className='level-3'>
+					<span className='identifier'>•</span>
+					<p className='level-3-txt'>
+						(If{' '}
+						<span style={{ fontWeight: 'bold', color: 'crimson' }}>
+							Field Nation
+						</span>
+						) Complete Tech Review in OTRS ticket that was opened for the
+						requested dispatch within 24 hours of completed dispatch.
+					</p>
+				</div>
+				<div className='level-2'>
+					<span className='identifier'>vi.</span>
+					<p className='level-2-txt'>
+						Relay survey results to the client and address any issues/questions.
+					</p>
+				</div>
+				<div className='level-3'>
+					<span className='identifier'>•</span>
+					<p className='level-3-txt'>
+						Ensure to establish an understanding of the next steps of the order.
+					</p>
+				</div>
+				<div className='level-1'>
+					<span className='identifier'>d.</span>
+				</div>
 			</section>
 		</div>
 	);
