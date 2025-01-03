@@ -76,8 +76,8 @@ const VoiceOrder = ({ goBack }) => {
 					<span className='identifier'>i.</span>
 					<p className='level-2-txt'>
 						Public Folders ➜ All Public Folders ➜ Clients ➜ Current Orders ➜
-						{firstName ? firstName : '"TPC Name"'} ➜ Folder Name ➜ = Client
-						Name Listed in Homir (Location)
+						{firstName ? firstName : '"TPC Name"'} ➜ Folder Name ➜ = Client Name
+						Listed in Homir (Location)
 					</p>
 				</div>
 				<div className='level-1'>
@@ -183,7 +183,7 @@ const VoiceOrder = ({ goBack }) => {
 				</div>
 				<div className='level-1'>
 					<span className='identifier'>b.</span>
-					<p className='level-1-txt'>Conduct Intro Call</p>
+					<p className='section-subtitle'>Conduct Intro Call</p>
 				</div>
 				<div className='level-2'>
 					<span className='identifier'>i.</span>
@@ -262,20 +262,129 @@ const VoiceOrder = ({ goBack }) => {
 				</div>
 				<div className='level-1'>
 					<span className='identifier'>c.</span>
-					<p className='level-1-txt'>Conduct Site Survey</p>
+					<p className='section-subtitle'>Conduct Site Survey</p>
 				</div>
 				<div className='level-2'>
 					<p className='level-2-txt'>
 						We conduct both internal and Field Nation surveys - verify with a
-						supervisor which method to use. (see Appendix 11 - Dispatching
-						Guidelines)
+						supervisor which method to use. (see{' '}
+						<a
+							href='http://localhost:3000/Appendix 11.pdf'
+							target='_blank'
+							rel='noreferrer'
+						>
+							Appendix 11 - Dispatching Guidelines
+						</a>
+						)
 					</p>
 				</div>
 				<div className='level-2'>
 					<span className='identifier'>i.</span>
 					<p className='level-2-txt'>
-						(If <span style={{ color: 'crimson' }}>Field Nation</span>) Create
-						Field Nation Work Order. (see Appendix 6 - Field Nation Directions)
+						(If{' '}
+						<span style={{ color: 'crimson', fontWeight: 'bold' }}>
+							Field Nation
+						</span>
+						) Create Field Nation Work Order. (see{' '}
+						<a
+							href='http://localhost:3000/Appendix 6.pdf'
+							target='_blank'
+							rel='noreferrer'
+						>
+							Appendix 6 - Field Nation Directions
+						</a>
+						)
+					</p>
+				</div>
+				<div className='level-2'>
+					<span className='identifier'>ii.</span>
+					<p className='level-2-txt'>
+						<a
+							href='http://localhost:3000/Site Survey'
+							target='_blank'
+							rel='noreferrer'
+						>
+							Complete Site Survey Template
+						</a>{' '}
+						- this will be attached to the OTRS ticket when you submit the
+						dispatch request.
+					</p>
+				</div>
+				<div className='level-2'>
+					<span className='identifier'>ii.</span>
+					<p className='level-2-txt'>Submit Dispatch Ticket Via OTRS</p>
+				</div>
+				<div className='level-3'>
+					<span className='identifier'>•</span>
+					<p className='level-3-txt'>"Take Phone Call"</p>
+				</div>
+				<div className='level-3'>
+					<span className='identifier'>•</span>
+					<p className='level-3-txt'>Type - Unclassified</p>
+				</div>
+				<div className='level-3'>
+					<span className='identifier'>•</span>
+					<p className='level-3-txt'>
+						Customer User - enter the customers OTRS email (found in contacts on
+						Client page in Homir)
+					</p>
+				</div>
+				<div className='level-3'>
+					<span className='identifier'>•</span>
+					<p className='level-3-txt'>Customer Name - leave blank</p>
+				</div>
+				<div className='level-3'>
+					<span className='identifier'>•</span>
+					<p className='level-3-txt'>Queue - Service Delivery ➜ Provisioning</p>
+				</div>
+				<div className='level-3'>
+					<span className='identifier'>•</span>
+					<p className='level-3-txt'>
+						Owner and Responsible - Provisioning OTRS
+					</p>
+				</div>
+				<div className='level-3'>
+					<span className='identifier'>•</span>
+					<p className='level-3-txt'>
+						Select appropriate Text Template - choose either Internal or Field
+						Nation
+					</p>
+				</div>
+				<div className='level-3'>
+					<span className='identifier'>•</span>
+					<p className='level-3-txt'>
+						Under the Communication section in the From field, remove the email
+						address for the client and add your email address
+					</p>
+				</div>
+				<div className='level-3'>
+					<span className='identifier'>•</span>
+					<p className='level-3-txt'>Update Subject line</p>
+				</div>
+				<div className='level-3'>
+					<span className='identifier'>•</span>
+					<p className='level-3-txt'>
+						Fill out the information in the Body and attach the Site Survey
+						Template to the ticket
+					</p>
+				</div>
+				<div className='level-3'>
+					<span className='identifier'>•</span>
+					<p className='level-3-txt'>
+						Enter Homir Order URL (this will link the ticket to your order in
+						Homir)
+					</p>
+				</div>
+				<div className='level-2'>
+					<span className='identifier'>iv.</span>
+					<p className='level-2-txt'>
+						Send Calendar Invite to Client for Survey
+					</p>
+				</div>
+				<div className='level-3'>
+					<span className='identifier'>•</span>
+					<p className='level-3-txt'>
+						Title = Client Name | Verve - Site Survey
 					</p>
 				</div>
 			</section>
