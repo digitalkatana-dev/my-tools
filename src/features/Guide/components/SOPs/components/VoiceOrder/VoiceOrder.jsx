@@ -300,7 +300,7 @@ const VoiceOrder = ({ goBack }) => {
 					<span className='identifier'>ii.</span>
 					<p className='level-2-txt'>
 						<a
-							href='http://localhost:3000/Site Survey'
+							href='http://localhost:3000/Site Survey.pdf'
 							target='_blank'
 							rel='noreferrer'
 						>
