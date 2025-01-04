@@ -266,8 +266,13 @@ const VoiceOrder = ({ goBack }) => {
 				</div>
 				<div className='level-2'>
 					<p className='level-2-txt'>
-						We conduct both internal and Field Nation surveys - verify with a
-						supervisor which method to use. (see{' '}
+						We conduct both{' '}
+						<span style={{ fontWeight: 'bold', color: 'green' }}>internal</span>{' '}
+						and{' '}
+						<span style={{ fontWeight: 'bold', color: 'crimson' }}>
+							Field Nation
+						</span>{' '}
+						surveys - verify with a supervisor which method to use. (see{' '}
 						<a
 							href='https://my-tools-nvxu.onrender.com/Appendix 11.pdf'
 							target='_blank'
@@ -346,8 +351,12 @@ const VoiceOrder = ({ goBack }) => {
 				<div className='level-3'>
 					<span className='identifier'>•</span>
 					<p className='level-3-txt'>
-						Select appropriate Text Template - choose either Internal or Field
-						Nation
+						Select appropriate Text Template - choose either{' '}
+						<span style={{ fontWeight: 'bold', color: 'green' }}>internal</span>{' '}
+						or{' '}
+						<span style={{ fontWeight: 'bold', color: 'crimson' }}>
+							Field Nation
+						</span>
 					</p>
 				</div>
 				<div className='level-3'>
@@ -593,6 +602,23 @@ const VoiceOrder = ({ goBack }) => {
 				<div className='level-1'>
 					<span className='identifier'>g.</span>
 					<p className='section-subtitle'>Create Domain in Homir</p>
+				</div>
+				<div className='level-2'>
+					<span className='identifier'>i.</span>
+					<p className='level-2-txt'>
+						In Homir, find E911 number for your client and make note of it.
+					</p>
+				</div>
+				<div className='level-3'>
+					<span className='identifier'>•</span>
+					<p className='level-3-txt'>
+						Voice ➜ Numbers Search ➜ Number Type: E911 ➜ Number Status:
+						Unassigned ➜ Search
+					</p>
+				</div>
+				<div className='level-2'>
+					<span className='identifier'>ii.</span>
+					<p className='level-2-txt'></p>
 				</div>
 			</section>
 		</div>
