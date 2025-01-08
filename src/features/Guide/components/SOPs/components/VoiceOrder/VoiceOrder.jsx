@@ -590,7 +590,7 @@ const VoiceOrder = ({ goBack }) => {
 						</span>
 						) Create Field Nation Work Order (see{' '}
 						<a
-							href='http://localhost:3000/Appendix 6.pdf'
+							href='https://my-tools-nvxu.onrender.com/Appendix 6.pdf'
 							target='_blank'
 							rel='noreferrer'
 						>
