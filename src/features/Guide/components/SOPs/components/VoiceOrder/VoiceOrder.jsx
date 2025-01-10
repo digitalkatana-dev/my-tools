@@ -618,7 +618,42 @@ const VoiceOrder = ({ goBack }) => {
 				</div>
 				<div className='level-2'>
 					<span className='identifier'>ii.</span>
-					<p className='level-2-txt'></p>
+					<p className='level-2-txt'>
+						In Homir, navigate to Voice ➜ Domains ➜ Select: Add New Voice Domain
+					</p>
+				</div>
+				<div className='level-2'>
+					<span className='identifier'>iii.</span>
+					<p className='level-2-txt'>
+						Select the Voice Server you are building voice services on and
+						complete all form fields.
+					</p>
+				</div>
+				<div className='level-3'>
+					<span className='identifier'>•</span>
+					<p className='level-3-txt'>Domain Name:</p>
+				</div>
+				<div className='level-4'>
+					<span className='identifier'>⁃</span>
+					<p className='level-4-txt'>
+						Enter the [clientName] (typically match client email domain)
+					</p>
+				</div>
+				<div className='level-4'>
+					<span className='identifier'>🚫</span>
+					<p className='level-4-txt'>
+						No capital letters, special characters, or spaces allowed.
+					</p>
+				</div>
+				<div className='level-4'>
+					<span className='identifier'>❗</span>
+					<p className='level-4-txt'>
+						Domain name cannot be changed! - Verify correct spelling.
+					</p>
+				</div>
+				<div className='level-1'>
+					<span className='identifier'>h.</span>
+					<p className='section-subtitle'>Create Domain in the NMS Portal</p>
 				</div>
 			</section>
 		</div>
