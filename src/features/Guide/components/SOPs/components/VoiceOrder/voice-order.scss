@@ -44,7 +44,8 @@
 
 		.level-1,
 		.level-2,
-		.level-3 {
+		.level-3,
+		.level-4 {
 			display: flex;
 			margin-bottom: 5px;
 		}
@@ -59,6 +60,10 @@
 
 		.level-3 {
 			margin-left: 40px;
+		}
+
+		.level-4 {
+			margin-left: 60px;
 		}
 	}
 }
