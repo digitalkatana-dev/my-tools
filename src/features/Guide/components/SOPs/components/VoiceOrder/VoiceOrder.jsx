@@ -640,7 +640,7 @@ const VoiceOrder = ({ goBack }) => {
 					</p>
 				</div>
 				<div className='level-4'>
-					<span className='identifier'>🚫</span>
+					<span className='identifier'>❗</span>
 					<p className='level-4-txt'>
 						No capital letters, special characters, or spaces allowed.
 					</p>
@@ -653,7 +653,48 @@ const VoiceOrder = ({ goBack }) => {
 				</div>
 				<div className='level-1'>
 					<span className='identifier'>h.</span>
-					<p className='section-subtitle'>Create Domain in the NMS Portal</p>
+					<p className='section-subtitle'>
+						Create Domain in the NMS Portal{' '}
+						<span>(ONLY If not building on Verve Servers!)</span>
+					</p>
+				</div>
+				<div className='level-2'>
+					<span className='identifier'>i.</span>
+					<p className='level-2-txt'>Navigate to the NMS portal.</p>
+				</div>
+				<div className='level-2'>
+					<span className='identifier'>ii.</span>
+					<p className='level-2-txt'>Select Domains at top of the screen.</p>
+				</div>
+				<div className='level-2'>
+					<span className='identifier'>iii.</span>
+					<p className='level-2-txt'>
+						Select Add Domain at top right under navigation bar.
+					</p>
+				</div>
+				<div className='level-2'>
+					<span className='identifier'>iv.</span>
+					<p className='level-2-txt'>
+						A pop up will open and allow you to set the default settings for the
+						domain.
+					</p>
+				</div>
+				<div className='level-2'>
+					<span className='identifier'>v.</span>
+					<p className='level-2-txt'>Basic Tab</p>
+				</div>
+				<div className='level-3'>
+					<span className='identifier'>•</span>
+					<p className='level-3-txt'>
+						Name - This is the name of the new domain:{' '}
+						<span className='underline'>
+							Needs to match what was created in Homir. Recommend copying and
+							pasting.
+						</span>{' '}
+						<span className='bold' style={{ color: 'red' }}>
+							This cannot be edited after creation in the portal!
+						</span>
+					</p>
 				</div>
 			</section>
 		</div>
