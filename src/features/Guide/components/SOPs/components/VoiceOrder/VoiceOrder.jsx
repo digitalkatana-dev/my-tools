@@ -798,7 +798,7 @@ const VoiceOrder = ({ goBack }) => {
 					<span className='identifier'>•</span>
 					<p className='level-3-txt'>Select Change Assignments</p>
 				</div>
-				<Level1 identifier='i.' txt='Numbers' />
+				<Level1 identifier='i.' text='Numbers' />
 				<div className='level-2'>
 					<span className='identifier'>i.</span>
 					<p className='level-2-txt'>
