@@ -2,6 +2,7 @@ import { Stack } from '@mui/material';
 import { useSelector } from 'react-redux';
 import Tooltip from '../../../../../../components/Tooltip';
 import './voice-order.scss';
+import Level1 from '../../../../../../components/Level-1';
 
 const VoiceOrder = ({ goBack }) => {
 	const { firstName } = useSelector((state) => state.app);
@@ -16,25 +17,22 @@ const VoiceOrder = ({ goBack }) => {
 			</div>
 			<section>
 				<div className='section-title'>1. Order Processing Setup</div>
-				<div className='level-1'>
-					<span className='identifier'>a.</span>
-					<p className='level-1-txt'>
-						When a{' '}
-						<Tooltip
-							title='Technical Project Coordinator'
-							placement='top-start'
-							arrow
-						>
-							TPC
-						</Tooltip>{' '}
-						is assigned a voice order, they will receive an email with order
-						details and a{' '}
-						<Tooltip title='Service Order Form' placement='top-start' arrow>
-							SOF
-						</Tooltip>{' '}
-						attached.
-					</p>
-				</div>
+				<Level1 identifier='a.'>
+					When a{' '}
+					<Tooltip
+						title='Technical Project Coordinator'
+						placement='top-start'
+						arrow
+					>
+						TPC
+					</Tooltip>{' '}
+					is assigned a voice order, they will receive an email with order
+					details and a{' '}
+					<Tooltip title='Service Order Form' placement='top-start' arrow>
+						SOF
+					</Tooltip>{' '}
+					attached.
+				</Level1>
 				<div className='level-1'>
 					<span className='identifier'>b.</span>
 					<p className='level-1-txt'>
@@ -695,6 +693,121 @@ const VoiceOrder = ({ goBack }) => {
 							This cannot be edited after creation in the portal!
 						</span>
 					</p>
+				</div>
+				<div className='level-3'>
+					<span className='identifier'>•</span>
+					<p className='level-3-txt'>
+						Reseller - Select applicable (typically NextLevel)
+					</p>
+				</div>
+				<div className='level-2'>
+					<span className='identifier'>vi.</span>
+					<p className='level-2-txt'>Defaults Tab</p>
+				</div>
+				<div className='level-3'>
+					<span className='identifier'>•</span>
+					<p className='level-3-txt'>Dial Permission - US Canada and Mexico</p>
+				</div>
+				<div className='level-4'>
+					<span className='identifier'>⁃</span>
+					<p className='level-4-txt'>
+						International requires a specific process to enable (see supervisor)
+					</p>
+				</div>
+				<div className='level-3'>
+					<span className='identifier'>•</span>
+					<p className='level-3-txt'>
+						Time Zone - Select the time zone for the client's main office as
+						default.
+					</p>
+				</div>
+				<div className='level-3'>
+					<span className='identifier'>•</span>
+					<p className='level-3-txt'>
+						Area Code - Set the area code for the client's main office as
+						default.
+					</p>
+				</div>
+				<div className='level-3'>
+					<span className='identifier'>•</span>
+					<p className='level-3-txt'>
+						Caller Name - Set the company requested name as caller ID name.
+					</p>
+				</div>
+				<div className='level-3'>
+					<span className='identifier'>•</span>
+					<p className='level-3-txt'>
+						Caller ID - Set the client's main office number as default.
+					</p>
+				</div>
+				<div className='level-2'>
+					<span className='identifier'>vii.</span>
+					<p className='level-2-txt'>Limitations</p>
+				</div>
+				<div className='level-3'>
+					<span className='identifier'>•</span>
+					<p className='level-3-txt'>
+						Active Call Limit - External Call Limit and Max Users should be set
+						to 10x the user/seat count.
+					</p>
+				</div>
+				<div className='level-2'>
+					<span className='identifier'>viii.</span>
+					<p className='level-2-txt'>
+						Recording - Level all as default values.
+					</p>
+				</div>
+				<div className='level-2'>
+					<span className='identifier'>ix.</span>
+					<p className='level-2-txt'>
+						Emergency - Emergency Caller ID - Set the E911 number for the
+						client's main office number as default.
+					</p>
+				</div>
+				<div className='level-2'>
+					<span className='identifier'>x.</span>
+					<p className='level-2-txt'>
+						Assign E911 number in HOMIR (after domain is created)
+					</p>
+				</div>
+				<div className='level-3'>
+					<span className='identifier'>•</span>
+					<p className='level-3-txt'>
+						Voice ➜ Number Search ➜ Number Type: E911 ➜ Number Status:
+						Unassigned ➜ Search
+					</p>
+				</div>
+				<div className='level-3'>
+					<span className='identifier'>•</span>
+					<p className='level-3-txt'>
+						Find client name and verify address is correct and address says it
+						is provisioned.
+					</p>
+				</div>
+				<div className='level-3'>
+					<span className='identifier'>•</span>
+					<p className='level-3-txt'>On right side of screen, select Assign.</p>
+				</div>
+				<div className='level-3'>
+					<span className='identifier'>•</span>
+					<p className='level-3-txt'>
+						Select the recently created domain from the drop-down menu.
+					</p>
+				</div>
+				<div className='level-3'>
+					<span className='identifier'>•</span>
+					<p className='level-3-txt'>Select Change Assignments</p>
+				</div>
+				<Level1 identifier='i.' txt='Numbers' />
+				<div className='level-2'>
+					<span className='identifier'>i.</span>
+					<p className='level-2-txt'>
+						(New numbers) Submit request for new number(s) via an OTRS ticket.
+					</p>
+				</div>
+				<div className='level-3'>
+					<span className='identifier'>•</span>
+					<p className='level-3-txt'></p>
 				</div>
 			</section>
 		</div>
