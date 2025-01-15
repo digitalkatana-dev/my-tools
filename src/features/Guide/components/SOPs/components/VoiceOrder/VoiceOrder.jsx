@@ -120,7 +120,7 @@ const VoiceOrder = ({ goBack }) => {
 				<Level1 identifier='b.'>
 					(Optional to frontload) Prepare{' '}
 					<a
-						href='http://localhost:3000/Billing_2024.xlsx'
+						href='https://my-tools-nvxu.onrender.com/Billing_2024.xlsx'
 						target='_blank'
 						rel='noreferrer'
 					>
