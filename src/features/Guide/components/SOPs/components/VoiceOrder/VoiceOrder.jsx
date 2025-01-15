@@ -118,8 +118,16 @@ const VoiceOrder = ({ goBack }) => {
 					for Special Notes (these are found on the signature page)
 				</Level2>
 				<Level1 identifier='b.'>
-					(Optional to frontload) Prepare Billing Closeout and save in client
-					folder on the share drive (found in templates folder).
+					(Optional to frontload) Prepare{' '}
+					<a
+						href='http://localhost:3000/Billing_2024.xlsx'
+						target='_blank'
+						rel='noreferrer'
+					>
+						Billing Closeout
+					</a>{' '}
+					and save in client folder on the share drive (also found in templates
+					folder).
 				</Level1>
 			</section>
 			<section>
