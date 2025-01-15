@@ -183,7 +183,7 @@ const VoiceOrder = ({ goBack }) => {
 					</span>{' '}
 					surveys - verify with a supervisor which method to use. (see{' '}
 					<a
-						href='http://localhost:3000/Appendix 11.pdf'
+						href='https://my-tools-nvxu.onrender.com/Appendix 11.pdf'
 						target='_blank'
 						rel='noreferrer'
 					>
@@ -198,7 +198,7 @@ const VoiceOrder = ({ goBack }) => {
 					</span>
 					) Create Field Nation Work Order. (see{' '}
 					<a
-						href='http://localhost:3000/Appendix 6.pdf'
+						href='https://my-tools-nvxu.onrender.com/Appendix 6.pdf'
 						target='_blank'
 						rel='noreferrer'
 					>
@@ -208,7 +208,7 @@ const VoiceOrder = ({ goBack }) => {
 				</Level2>
 				<Level2 identifier='ii.'>
 					<a
-						href='http://localhost:3000/Site Survey.pdf'
+						href='https://my-tools-nvxu.onrender.com/Site Survey.pdf'
 						target='_blank'
 						rel='noreferrer'
 					>
@@ -362,7 +362,7 @@ const VoiceOrder = ({ goBack }) => {
 					</span>
 					) Create Field Nation Work Order (see{' '}
 					<a
-						href='http://localhost:3000/Appendix 6.pdf'
+						href='https://my-tools-nvxu.onrender.com/Appendix 6.pdf'
 						target='_blank'
 						rel='noreferrer'
 					>
