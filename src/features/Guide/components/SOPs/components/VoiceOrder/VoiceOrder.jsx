@@ -216,7 +216,7 @@ const VoiceOrder = ({ goBack }) => {
 				</Level2>
 				<Level2 identifier='ii.'>
 					Complete <a
-						href='http://localhost:3000/Site Survey.pdf'
+						href='https://my-tools-nvxu.onrender.com/Site Survey.pdf'
 						target='_blank'
 						rel='noreferrer'
 					>
