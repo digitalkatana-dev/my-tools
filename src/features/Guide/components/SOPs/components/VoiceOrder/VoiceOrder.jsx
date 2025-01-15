@@ -68,7 +68,7 @@ const VoiceOrder = ({ goBack }) => {
 					.
 				</Level1>
 				<Level2 identifier='i.'>
-					Public Folders ➜ All Public Folders ➜ Clients ➜ Current Orders ➜ $
+					Public Folders ➜ All Public Folders ➜ Clients ➜ Current Orders ➜{' '}
 					{firstName ? firstName : '"TPC Name"'} ➜ Folder Name ➜ = Client Name
 					Listed in Homir (Location)
 				</Level2>
