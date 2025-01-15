@@ -120,7 +120,7 @@ const VoiceOrder = ({ goBack }) => {
 				<Level1 identifier='b.'>
 					(Optional to frontload) Prepare{' '}
 					<a
-						href='http://localhost:3000/Billing_2024.xlsx'
+						href='https://my-tools-nvxu.onrender.com/Billing_2024.xlsx'
 						target='_blank'
 						rel='noreferrer'
 					>
@@ -191,7 +191,7 @@ const VoiceOrder = ({ goBack }) => {
 					</span>{' '}
 					surveys - verify with a supervisor which method to use. (see{' '}
 					<a
-						href='http://localhost:3000/Appendix 11.pdf'
+						href='https://my-tools-nvxu.onrender.com/Appendix 11.pdf'
 						target='_blank'
 						rel='noreferrer'
 					>
@@ -206,7 +206,7 @@ const VoiceOrder = ({ goBack }) => {
 					</span>
 					) Create Field Nation Work Order. (see{' '}
 					<a
-						href='http://localhost:3000/Appendix 6.pdf'
+						href='https://my-tools-nvxu.onrender.com/Appendix 6.pdf'
 						target='_blank'
 						rel='noreferrer'
 					>
@@ -370,7 +370,7 @@ const VoiceOrder = ({ goBack }) => {
 					</span>
 					) Create Field Nation Work Order (see{' '}
 					<a
-						href='http://localhost:3000/Appendix 6.pdf'
+						href='https://my-tools-nvxu.onrender.com/Appendix 6.pdf'
 						target='_blank'
 						rel='noreferrer'
 					>
