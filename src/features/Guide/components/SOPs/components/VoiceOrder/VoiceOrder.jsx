@@ -215,12 +215,12 @@ const VoiceOrder = ({ goBack }) => {
 					)
 				</Level2>
 				<Level2 identifier='ii.'>
-					<a
-						href='https://my-tools-nvxu.onrender.com/Site Survey.pdf'
+					Complete <a
+						href='http://localhost:3000/Site Survey.pdf'
 						target='_blank'
 						rel='noreferrer'
 					>
-						Complete Site Survey Template
+						Site Survey Template
 					</a>{' '}
 					- this will be attached to the OTRS ticket when you submit the
 					dispatch request.
@@ -277,7 +277,7 @@ const VoiceOrder = ({ goBack }) => {
 					</Tooltip>
 					.)
 				</Level3>
-				<Level2 identifier='v.'>Complete Site Survey'</Level2>
+				<Level2 identifier='v.'>Complete Site Survey</Level2>
 				<Level3 identifier='•'>
 					Review results of the survey with the tech while they are on site.
 				</Level3>
