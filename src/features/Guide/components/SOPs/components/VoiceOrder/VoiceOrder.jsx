@@ -6,6 +6,7 @@ import Level1 from '../../../../../../components/Level-1';
 import Level2 from '../../../../../../components/Level-2';
 import Level3 from '../../../../../../components/Level-3';
 import Level4 from '../../../../../../components/Level-4';
+import Level5 from '../../../../../../components/Level-5';
 
 const VoiceOrder = ({ goBack }) => {
 	const { firstName } = useSelector((state) => state.app);
@@ -119,11 +120,7 @@ const VoiceOrder = ({ goBack }) => {
 				</Level2>
 				<Level1 identifier='b.'>
 					(Optional to frontload) Prepare{' '}
-					<a
-						href='https://my-tools-nvxu.onrender.com/Billing_2024.xlsx'
-						target='_blank'
-						rel='noreferrer'
-					>
+					<a href='Billing_2024.xlsx' target='_blank' rel='noreferrer'>
 						Billing Closeout
 					</a>{' '}
 					and save in client folder on the share drive (also found in templates
@@ -190,11 +187,7 @@ const VoiceOrder = ({ goBack }) => {
 						Field Nation
 					</span>{' '}
 					surveys - verify with a supervisor which method to use. (see{' '}
-					<a
-						href='https://my-tools-nvxu.onrender.com/Appendix 11.pdf'
-						target='_blank'
-						rel='noreferrer'
-					>
+					<a href='Appendix 11.pdf' target='_blank' rel='noreferrer'>
 						Appendix 11 - Dispatching Guidelines
 					</a>
 					)
@@ -205,21 +198,14 @@ const VoiceOrder = ({ goBack }) => {
 						Field Nation
 					</span>
 					) Create Field Nation Work Order. (see{' '}
-					<a
-						href='https://my-tools-nvxu.onrender.com/Appendix 6.pdf'
-						target='_blank'
-						rel='noreferrer'
-					>
+					<a href='Appendix 6.pdf' target='_blank' rel='noreferrer'>
 						Appendix 6 - Field Nation Directions
 					</a>
 					)
 				</Level2>
 				<Level2 identifier='ii.'>
-					Complete <a
-						href='https://my-tools-nvxu.onrender.com/Site Survey.pdf'
-						target='_blank'
-						rel='noreferrer'
-					>
+					Complete{' '}
+					<a href='Site Survey.pdf' target='_blank' rel='noreferrer'>
 						Site Survey Template
 					</a>{' '}
 					- this will be attached to the OTRS ticket when you submit the
@@ -369,11 +355,7 @@ const VoiceOrder = ({ goBack }) => {
 						Field Nation
 					</span>
 					) Create Field Nation Work Order (see{' '}
-					<a
-						href='https://my-tools-nvxu.onrender.com/Appendix 6.pdf'
-						target='_blank'
-						rel='noreferrer'
-					>
+					<a href='Appendix 6.pdf' target='_blank' rel='noreferrer'>
 						Appendix 6 - Field Nation Directions
 					</a>
 					)
@@ -481,10 +463,324 @@ const VoiceOrder = ({ goBack }) => {
 				</Level3>
 				<Level3 identifier='•'>Select Change Assignments</Level3>
 				<Level1 identifier='i.' subtitle='Numbers' />
-				<Level2 identifier='i.'>
-					(New numbers) Submit request for new number(s) via an OTRS ticket.
+				<Level2 identifier='i.'>New numbers</Level2>
+				<Level3 identifier='•'>
+					Submit request for new number(s) via an OTRS ticket.
+				</Level3>
+				<Level4 identifier='⁃'>Queue - Provisioning</Level4>
+				<Level4 identifier='⁃'>Owner/Responsible - Provisioning OTRS</Level4>
+				<Level4 identifier='⁃'>Select appropriate text template</Level4>
+				<Level3 image>
+					<div className='img-container'>
+						<img src='new_number.png' alt='' />
+					</div>
+				</Level3>
+				<Level2 identifier='ii.'>Porting</Level2>
+				<Level3 identifier='•'>
+					Ontain Port Docs, E911 and Phone Bill/CSR (preference for LOA's to be
+					completed via DocuSign)
+				</Level3>
+				<Level4 identifier='a.'>
+					LOA's - 3 different types (in Templates folder)
+				</Level4>
+				<Level5 identifier='i.'>TN (verify whether SMS is needed)</Level5>
+				<Level5 identifier='ii.'>Fax</Level5>
+				<Level5 identifier='iii.'>Toll Free</Level5>
+				<Level4 identifier='b.'>
+					E911 - this document needs to be completed for each physical location
+					where phones will be placed.
+				</Level4>
+				<Level4 identifier='c.'>
+					CSR - Customer Service Record/Bill (CSR is preferred, rejections can
+					be disputed with CSRs)
+				</Level4>
+				<Level4 identifier='d.'>
+					Update date in Homir once all docs have been received.
+				</Level4>
+				<Level3 identifier='•'>Submit Port Request via OTRS</Level3>
+				<Level4 identifier='a.'>Queue - Provisioning</Level4>
+				<Level4 identifier='b.'>Owner/Responsible - Provisioning OTRS</Level4>
+				<Level4 identifier='c.'>Select appropriate text template</Level4>
+				<Level3 image>
+					<div className='img-container'>
+						<img src='port_number.png' alt='' />
+					</div>
+				</Level3>
+				<Level3 identifier='•'>
+					Ports Submitted to Number Vendors (
+					<span style={{ color: 'red' }}>Provisioning Team Responsible</span>)
+				</Level3>
+				<Level4 identifier='a.'>
+					Calendar invitation sent for each port by provisioning once sent to
+					vendor.
+				</Level4>
+				<Level4 identifier='b.'>
+					A weekly summary is sent via Homir for each{' '}
+					<Tooltip
+						title='Technical Project Coordinator'
+						placement='top-start'
+						arrow
+					>
+						TPC
+					</Tooltip>{' '}
+					to review active ports.
+				</Level4>
+				<Level3 identifier='•'>
+					Confirm Port{' '}
+					<Tooltip title='Firm Order Confirmation' placement='top-start' arrow>
+						FOC
+					</Tooltip>{' '}
+					Received (
+					<span className='underline' style={{ color: 'red' }}>
+						Critical Date
+					</span>
+					)
+				</Level3>
+				<Level4 identifier='a.'>
+					Update Homir order page with{' '}
+					<Tooltip title='Firm Order Confirmation' placement='top-start' arrow>
+						FOC
+					</Tooltip>{' '}
+					date
+				</Level4>
+				<Level4 identifier='b.'>
+					Communicate{' '}
+					<Tooltip title='Firm Order Confirmation' placement='top-start' arrow>
+						FOC
+					</Tooltip>{' '}
+					received to client.
+				</Level4>
+				<Level4 identifier='c.'>
+					If Rejection - address rejection with client and update OTRS ticket
+					with new information once received. Use email function on ticket.
+				</Level4>
+				<Level4 identifier='d.'>
+					Advise if schedule adjustments are needed to work through porting
+					rejections.
+				</Level4>
+				<Level5 identifier='i.'>
+					Each time a rejection is received, the installation date should be
+					adjusted to be no sooner than 9 - 10 business days in the future. This
+					will allow 3 - 4 days to push corresponding ports if additional
+					rejection is received.
+				</Level5>
+				<Level1 identifier='j.'>
+					<span className='bold'>
+						(If applicable) Order Network Equipment [see{' '}
+						<a href='Appendix 12.pdf' target='_blank' rel='noreferrer'>
+							Appendix 12 - Equipment Matrix
+						</a>
+						]
+					</span>
+				</Level1>
+				<Level2 identifier='i.'>Submit equipment request via OTRS</Level2>
+				<Level3 identifier='•'>Queue - Provisioning</Level3>
+				<Level3 identifier='•'>Owner/Responsibile - Provisioning OTRS</Level3>
+				<Level3 identifier='•'>Select appropriate text template</Level3>
+				<Level3 image>
+					<div className='img-container'>
+						<img src='order_equipment.png' alt='' />
+					</div>
+				</Level3>
+			</section>
+			<section>
+				<div className='section-title'>5. Execution</div>
+				<Level1
+					identifier='a.'
+					subtitle='(If Applicable) Configure Equipment'
+				/>
+				<Level2 identifier='i.'>Create and Apply Configuration Template</Level2>
+				<Level3 identifier='•'>
+					Locate templates in share drive (Service
+					Delivery\Templates\Configurations)
+				</Level3>
+				<Level4 identifier='a.'>
+					Save equipment template(s) to client folder before modifying to ensure
+					you do not overwrite the shared template.
+				</Level4>
+				<Level3 identifier='•'>
+					Fill in [bracketed] information in equipment template(s)
+				</Level3>
+				<Level3 identifier='•'>Apply configuration to equipment</Level3>
+				<Level2 identifier='ii.'>
+					Tier 2 Config Review (Optional per lead/supervisor)
 				</Level2>
-				<Level3 identifier='•'></Level3>
+				<Level2 identifier='iii.'>Tier Config Review</Level2>
+				<Level3 identifier='•'>
+					Create Config Review document based on OTRS template
+				</Level3>
+				<Level3 identifier='•'>Submit via OTRS ticket</Level3>
+				<Level4 identifier='a.'>
+					Queue - Engineering - Provisioning - Tier 3 Configuration Review
+				</Level4>
+				<Level4 identifier='b.'>Owner/Responsible - NLI Engineering</Level4>
+				<Level4 identifier='c.'>Select appropriate text template</Level4>
+				<Level3 image>
+					<div className='img-container'>
+						<img src='config_equip.png' alt='' />
+					</div>
+				</Level3>
+				<Level1
+					identifier='b.'
+					subtitle='Build Voice Services (Training will be provided)'
+				/>
+				<Level2 identifier='i.'>
+					Using the Design Document that you completed with the client, build in
+					the NMS portal.
+				</Level2>
+				<Level3 identifier='•'>Preferred Build Order:</Level3>
+				<Level4 identifier='a.'>Users</Level4>
+				<Level4 identifier='b.'>Conference Bridges</Level4>
+				<Level4 identifier='c.'>Call Queues</Level4>
+				<Level4 identifier='d.'>Auto Attendants</Level4>
+				<Level4 identifier='e.'>Timeframes</Level4>
+				<Level4 identifier='f.'>Answering Rules</Level4>
+				<Level2 identifier='ii.'>
+					Point DIDs and verify E911 assignment in Homir
+				</Level2>
+				<Level3 identifier='•'>
+					E911 is always assigned to an extension that is most likely to be
+					answered. If E911 call gets disconnected, emergency services will call
+					our E911 number to get the client back.
+				</Level3>
+				<Level3 identifier='•'>
+					The E911 number should never be pointed to voicemail, an auto
+					attendant, or a call queue.
+				</Level3>
+				<Level2 identifier='iii.'>
+					Test - Numbers, Queues, Forwarding, Translations
+				</Level2>
+				<Level3 identifier='•'>
+					You can assign a temp number from the "tempforward" domain to test the
+					call flow, reassign to this domain when testing is complete.
+				</Level3>
+				<Level1 identifier='c.' subtitle='Phones' />
+				<Level2 identifier='i.'>(If Rentals and/or Purchase)</Level2>
+				<Level3 identifier='•'>Submit phone order via OTRS</Level3>
+				<Level4 identifier='a.'>Queue - Provisioning</Level4>
+				<Level4 identifier='b.'>Owner/Responsible - Provisioning OTRS</Level4>
+				<Level4 identifier='c.'>Select appropriate text template</Level4>
+				<Level3 image>
+					<div className='img-container'>
+						<img src='order_phone.png' alt='' />
+					</div>
+				</Level3>
+				<Level3 identifier='•'>
+					Provisioning will update the ticket with shipping information once
+					received from phone vendor.
+				</Level3>
+				<Level2 identifier='iv.'>(If client owned phones)</Level2>
+				<Level3 identifier='•'>Obtain MAC and Make/Model information</Level3>
+				<Level3 identifier='•'>Ensure phones are supported models.</Level3>
+				<Level3 identifier='•'>
+					Submit list of phones (Make, Model, MAC) for provisioning via an OTRS
+					ticket for addition to our provisioning server - include extension
+					assignment. (See example below)
+				</Level3>
+				<Level1
+					identifier='d.'
+					subtitle='Ship Equipment or Stage in S&R Room'
+				/>
+				<Level2 identifier='i.'>(If Shipping) Submit via an OTRS ticket</Level2>
+				<Level3 image>
+					<div className='img-container'>
+						<img src='ship_equip.png' alt='' />
+					</div>
+				</Level3>
+				<Level1 identifier='e.' subtitle='Test Phones Onsite' />
+				<Level2 identifier='i.'>
+					When installing with Verve network equipment, test when network
+					equipment is installed.
+				</Level2>
+				<Level2 identifier='ii.'>
+					If installing on client network, coordinate site visit or onsite
+					contact to test in advance (If porting, allow for enough time to
+					postpone the port if testing fails.3 - 4 business days minimum,
+					ideally 1 week or more in advance)
+				</Level2>
+				<Level1 identifier='f.' subtitle='Installation' />
+				<Level2 identifier='i.'>
+					Work with the technician to install and test all equipment/phones.
+				</Level2>
+				<Level2 identifier='ii.'>
+					Contact provisioning via Slack when ready to activate ports.
+				</Level2>
+				<Level2 identifier='iii.'>Test numbers, E911/Call 933</Level2>
+				<Level2 identifier='iv.'>
+					Using Homir email templates, send Service Activation Email -{' '}
+					<span className='underline'>
+						This is required to be sent within 24 hours after installation is
+						complete.
+					</span>
+				</Level2>
+				<Level2 identifier='v.'>
+					Add installation photos to client folder.
+				</Level2>
+				<Level1 identifier='g.' subtitle='Closeout Order' />
+				<Level2 identifier='i.'>
+					Update Homir with any non-standard configuration or call flow
+					information.
+				</Level2>
+				<Level2 identifier='ii.'>
+					Submit billing via OTRS ticket -{' '}
+					<span className='underline'>
+						This should be submitted ASAP, no more than 5 business days. If the
+						end of the month, it needs to be immediate.
+					</span>{' '}
+					Much of the legwork for billings can be done in advance to allow for
+					quicker submittal.
+				</Level2>
+				<Level3 identifier='a.'>
+					Queue - Order Processing - TPC Order Completion
+				</Level3>
+				<Level3 identifier='b.'>Owner/Responsible - Order Processing</Level3>
+				<Level3 identifier='c.'>Select appropriate text template</Level3>
+				<Level3 image>
+					<div className='img-container'>
+						<img src='ship_equip.png' alt='' />
+					</div>
+				</Level3>
+				<Level2 identifier='iii.'>Clear Billing Discrepancies in Homir</Level2>
+				<Level2 identifier='iv.'>
+					If{' '}
+					<span style={{ color: 'red', fontWeight: 'bold' }}>Field Nation</span>{' '}
+					completed the installation, provide a review on the OTRS ticket within
+					24 hours of completed dispatch.
+				</Level2>
+				<Level2 identifier='v.'>
+					Using Homir email templates, submit C-SAT Survey Email
+				</Level2>
+				<Level2 identifier='vi.'>
+					Using Homir email templates, submit Support Handoff email to client
+					after Go-Live support phase completes
+				</Level2>
+				<Level2 identifier='vii.'>
+					(Optional) Send High Touch Support Handoff email to support team (in
+					Email Templates folder)
+				</Level2>
+				<Level2 identifier='viii.'>
+					Verify L: drive client folder is in order.
+				</Level2>
+				<Level2 identifier='ix.'>
+					Verify Homir order information is complete.
+				</Level2>
+				<Level3 identifier='1.'>Ops Contact</Level3>
+				<Level3 identifier='2.'>Billing Contact</Level3>
+				<Level3 identifier='3.'>
+					IP field (Type <span className='bold'>N/A</span> if not applicable)
+				</Level3>
+				<Level3 identifier='4.'>
+					Update Homir Order Status to "
+					<span className='bold'>Ops Items Complete</span>"
+				</Level3>
+				<Level4 identifier='i.'>
+					If no C-SAT is being sent due to partner being the contact, update to
+					"<span className='bold'>Ops Items Complete, No CSAT</span>"
+				</Level4>
+				<Level3 identifier='5.'>Order dates</Level3>
+				<Level2 identifier='x.'>
+					Move the Outlook Public folder to the correct alpha folder.
+				</Level2>
 			</section>
 		</div>
 	);
