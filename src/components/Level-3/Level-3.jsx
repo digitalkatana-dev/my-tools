@@ -1,11 +1,11 @@
 import React from 'react';
 import './level-3.scss';
 
-const Level3 = ({ identifier, children }) => {
+const Level3 = ({ identifier, image, children }) => {
 	return (
 		<div className='level-3'>
 			<span className='level-3-identifier'>{identifier}</span>
-			<p className='level-3-txt'>{children}</p>
+			{image ? <>{children}</> : <p className='level-3-txt'>{children}</p>}
 		</div>
 	);
 };
