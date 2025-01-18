@@ -1,26 +1,37 @@
-import { FormControl } from '@mui/material';
+import { FormControl, Stack, Typography } from '@mui/material';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { setAppPin } from '../../redux/slices/securitySlice';
 import { randomPassword, randomPin } from '../../util/helpers';
 import './generator.scss';
+import Switch from '../../components/Switch';
 import TextInput from '../../components/TextInput';
 import Button from '../../components/Button';
 import SecurityDialog from './components/SecurityDialog';
 
 const Generator = () => {
-	const [pinLength, setPinLength] = useState('');
-	const [pinOutput, setPinOutput] = useState('');
+	const [manualPass, setManualPass] = useState(false);
+	const [manualPin, setManualPin] = useState(false);
 	const [passLength, setPassLength] = useState('');
 	const [passOutput, setPassOutput] = useState('');
+	const [pinLength, setPinLength] = useState('');
+	const [pinOutput, setPinOutput] = useState('');
 	const [showDialog, setShowDialog] = useState(false);
 
 	const dispatch = useDispatch();
 
+	const handleSwitch = (input) => {
+		if (input === 'pass') {
+			setManualPass(!manualPass);
+		} else if (input === 'pin') {
+			setManualPin(!manualPin);
+		}
+	};
+
 	const handleChange = (input, value) => {
 		const actionMap = {
-			pin: setPinLength,
 			pass: setPassLength,
+			pin: setPinLength,
 		};
 
 		const action = actionMap[input];
@@ -57,13 +68,18 @@ const Generator = () => {
 	return (
 		<div id='generator'>
 			<div className='pass-gen'>
+				<Stack direction='row' alignItems='center' alignSelf='flex-end'>
+					<Typography>Gen</Typography>
+					<Switch checked={manualPass} onChange={() => handleSwitch('pass')} />
+					<Typography>Manual</Typography>
+				</Stack>
 				<form onSubmit={handlePassSubmit}>
 					<FormControl>
 						<TextInput
 							type='number'
 							placeholder='Enter Password length'
 							value={passLength}
-							onChange={(e) => setPassLength(e.target.value)}
+							onChange={(e) => handleChange('pass', e.target.value)}
 						/>
 					</FormControl>
 					<Button type='submit'>Generate</Button>
@@ -71,6 +87,11 @@ const Generator = () => {
 				{passOutput && <h3 onClick={handlePassClick}>{passOutput}</h3>}
 			</div>
 			<div className='pin-gen'>
+				<Stack direction='row' alignItems='center' alignSelf='flex-end'>
+					<Typography>Gen</Typography>
+					<Switch checked={manualPin} onChange={() => handleSwitch('pin')} />
+					<Typography>Manual</Typography>
+				</Stack>
 				<form onSubmit={handlePinSubmit}>
 					<FormControl>
 						<TextInput

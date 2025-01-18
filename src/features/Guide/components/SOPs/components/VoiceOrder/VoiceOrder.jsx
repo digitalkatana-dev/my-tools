@@ -1,7 +1,7 @@
 import { Stack } from '@mui/material';
 import { useSelector } from 'react-redux';
 import Tooltip from '../../../../../../components/Tooltip';
-import './voice-order.scss';
+import './voice.scss';
 import Level1 from '../../../../../../components/Level-1';
 import Level2 from '../../../../../../components/Level-2';
 import Level3 from '../../../../../../components/Level-3';
@@ -12,7 +12,7 @@ const VoiceOrder = ({ goBack }) => {
 	const { firstName } = useSelector((state) => state.app);
 
 	return (
-		<div id='voice-order'>
+		<div id='voice'>
 			<h3 className='back-link' onClick={goBack}>
 				Back
 			</h3>

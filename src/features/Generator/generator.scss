@@ -9,7 +9,10 @@
 
 	.pin-gen,
 	.pass-gen {
-		width: 80%;
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
 
 		form {
 			display: flex;
@@ -17,6 +20,7 @@
 			align-items: center;
 			justify-content: center;
 			gap: 15px;
+			margin-top: 15px;
 			margin-bottom: 25px;
 
 			input {

@@ -35,13 +35,13 @@ const Settings = () => {
 			>
 				<div className='greeting-container'>
 					<h3 className='greeting'>
-						Hi,{firstName ? `${firstName} ` : ' '}Welcome back 👋
+						Hi,{firstName ? ` ${firstName}!  ` : ' '}Welcome Back! 👋
 					</h3>
 				</div>
 				<Divider>
 					<Chip label='Theme' size='small' className='divider-chip' />
 				</Divider>
-				<Stack direction='row' alignContent='center' alignSelf='center'>
+				<Stack direction='row' alignItems='center' alignSelf='center'>
 					<Typography>Light</Typography>
 					<Switch
 						checked={theme === 'light' ? false : true}
@@ -52,7 +52,7 @@ const Settings = () => {
 				<Divider>
 					<Chip label='Home' size='small' className='divider-chip' />
 				</Divider>
-				<Stack direction='row' alignContent='center' alignSelf='center'>
+				<Stack direction='row' alignItems='center' alignSelf='center'>
 					<Typography>Hide</Typography>
 					<Switch checked={showHome} onChange={() => handleDisplay('home')} />
 					<Typography>Show</Typography>
@@ -60,7 +60,7 @@ const Settings = () => {
 				<Divider>
 					<Chip label='Generator' size='small' className='divider-chip' />
 				</Divider>
-				<Stack direction='row' alignContent='center' alignSelf='center'>
+				<Stack direction='row' alignItems='center' alignSelf='center'>
 					<Typography>Hide</Typography>
 					<Switch
 						checked={showGenerator}
