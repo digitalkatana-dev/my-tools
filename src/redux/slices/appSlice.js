@@ -4,6 +4,8 @@ export const appAdapter = createEntityAdapter();
 const initialState = appAdapter.getInitialState({
 	loading: false,
 	theme: 'light',
+	showHome: true,
+	showGenerator: true,
 	showForm: true,
 	firstName: '',
 	phoneNumber: '',
@@ -20,6 +22,12 @@ export const appSlice = createSlice({
 	reducers: {
 		setTheme: (state, action) => {
 			state.theme = action.payload;
+		},
+		setShowHome: (state) => {
+			state.showHome = !state.showHome;
+		},
+		setShowGenerator: (state) => {
+			state.showGenerator = !state.showGenerator;
 		},
 		setShowForm: (state) => {
 			state.showForm = !state.showForm;
@@ -50,6 +58,8 @@ export const appSlice = createSlice({
 
 export const {
 	setTheme,
+	setShowHome,
+	setShowGenerator,
 	setShowForm,
 	setFirstName,
 	setPhoneNumber,

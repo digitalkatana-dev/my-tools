@@ -8,18 +8,37 @@ import Guide from './features/Guide';
 import Settings from './features/Settings';
 
 function App() {
-	const { theme } = useSelector((state) => state.app);
+	const { theme, showHome, showGenerator } = useSelector((state) => state.app);
 
 	return (
 		<div className='app' data-theme={theme}>
 			<Router>
 				<Routes>
-					<Route path='/' element={<MainLayout children={<Home />} />} />
 					<Route
-						path='/generator'
-						element={<MainLayout children={<Generator />} />}
+						path='/'
+						element={
+							showHome ? (
+								<MainLayout children={<Home />} />
+							) : !showHome && showGenerator ? (
+								<MainLayout children={<Generator />} />
+							) : (
+								!showHome &&
+								!showGenerator && <MainLayout children={<Guide />} />
+							)
+						}
 					/>
-					<Route path='/guides' element={<MainLayout children={<Guide />} />} />
+					{showHome && (
+						<Route
+							path='/generator'
+							element={<MainLayout children={<Generator />} />}
+						/>
+					)}
+					{(showHome || showGenerator) && (
+						<Route
+							path='/guides'
+							element={<MainLayout children={<Guide />} />}
+						/>
+					)}
 					<Route
 						path='/settings'
 						element={<MainLayout children={<Settings />} />}

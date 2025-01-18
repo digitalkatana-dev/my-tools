@@ -18,6 +18,8 @@ const appPersistConfig = {
 	storage,
 	whitelist: [
 		'theme',
+		'showHome',
+		'showGenerator',
 		'showForm',
 		'firstName',
 		'phoneNumber',
