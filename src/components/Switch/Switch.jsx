@@ -1,7 +1,7 @@
 import { alpha, styled } from '@mui/material/styles';
-import { Switch } from '@mui/material';
+import { Switch as BaseSwitch } from '@mui/material';
 
-const ThemeSwitch = styled(Switch)(({ theme }) => ({
+const Switch = styled(BaseSwitch)(({ theme }) => ({
 	'& .MuiSwitch-switchBase.Mui-checked': {
 		color: '#daa520',
 		'&:hover': {
@@ -13,4 +13,4 @@ const ThemeSwitch = styled(Switch)(({ theme }) => ({
 	},
 }));
 
-export default ThemeSwitch;
+export default Switch;

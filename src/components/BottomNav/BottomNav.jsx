@@ -5,42 +5,50 @@ import { isIOS, isSafari } from 'react-device-detect';
 import './btmNav.scss';
 
 const BottomNav = () => {
-	const { theme } = useSelector((state) => state.app);
+	const { theme, showHome, showGenerator } = useSelector((state) => state.app);
 	const location = useLocation();
 	const navigate = useNavigate();
 	const currentLocation = location.pathname.split('/')[1];
 
 	console.log('Location', currentLocation);
 
-	const handleNavigation = (route) => {
-		navigate(`/${route}`);
+	const handleClick = (route) => {
+		if (route) {
+			navigate(`/${route}`);
+		} else {
+			navigate('/');
+		}
 	};
 
 	return (
 		<div id='bottom-nav' className={theme === 'dark' ? 'dark' : ''}>
-			<IconButton
-				className={currentLocation === '' ? 'nav-btn active' : 'nav-btn'}
-				onClick={() => handleNavigation('')}
-			>
-				<p className={isIOS || isSafari ? '' : 'noto-color-emoji-regular'}>
-					🏠
-				</p>
-				<h6>Home</h6>
-			</IconButton>
-			<IconButton
-				className={
-					currentLocation === 'generator' ? 'nav-btn active' : 'nav-btn'
-				}
-				onClick={() => handleNavigation('generator')}
-			>
-				<p className={isIOS || isSafari ? '' : 'noto-color-emoji-regular'}>
-					🔐
-				</p>
-				<h6>Generator</h6>
-			</IconButton>
+			{showHome && (
+				<IconButton
+					className={currentLocation === '' ? 'nav-btn active' : 'nav-btn'}
+					onClick={() => handleClick()}
+				>
+					<p className={isIOS || isSafari ? '' : 'noto-color-emoji-regular'}>
+						🏠
+					</p>
+					<h6>Home</h6>
+				</IconButton>
+			)}
+			{showGenerator && (
+				<IconButton
+					className={
+						currentLocation === 'generator' ? 'nav-btn active' : 'nav-btn'
+					}
+					onClick={() => handleClick(showHome ? 'generator' : '')}
+				>
+					<p className={isIOS || isSafari ? '' : 'noto-color-emoji-regular'}>
+						🔐
+					</p>
+					<h6>Generator</h6>
+				</IconButton>
+			)}
 			<IconButton
 				className={currentLocation === 'guides' ? 'nav-btn active' : 'nav-btn'}
-				onClick={() => handleNavigation('guides')}
+				onClick={() => handleClick(showHome || showGenerator ? 'guides' : '')}
 			>
 				<p className={isIOS || isSafari ? '' : 'noto-color-emoji-regular'}>
 					📖
@@ -51,7 +59,7 @@ const BottomNav = () => {
 				className={
 					currentLocation === 'settings' ? 'nav-btn active' : 'nav-btn'
 				}
-				onClick={() => handleNavigation('settings')}
+				onClick={() => handleClick('settings')}
 			>
 				<p className={isIOS || isSafari ? '' : 'noto-color-emoji-regular'}>
 					⚙️
