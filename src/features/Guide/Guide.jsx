@@ -3,9 +3,9 @@ import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import './guide.scss';
 import TabPanel from './components/TabPanel';
-import Glossary from './components/Glossary';
-import Plans from './components/Plans';
 import SOPs from './components/SOPs';
+import Plans from './components/Plans';
+import Glossary from './components/Glossary';
 
 const Guide = () => {
 	const { theme } = useSelector((state) => state.app);
@@ -33,7 +33,7 @@ const Guide = () => {
 					indicatorColor='secondary'
 				>
 					<Tab
-						label='Glossary'
+						label='SOPs'
 						{...a11yProps(0)}
 						className={theme === 'dark' ? 'label dark' : 'label'}
 					/>
@@ -43,16 +43,16 @@ const Guide = () => {
 						className={theme === 'dark' ? 'label dark' : 'label'}
 					/>
 					<Tab
-						label='SOPs'
+						label='Glossary'
 						{...a11yProps(2)}
 						className={theme === 'dark' ? 'label dark' : 'label'}
 					/>
 				</Tabs>
 			</Box>
 			<div className='tab-data'>
-				<TabPanel value={value} index={0} children={<Glossary />} />
+				<TabPanel value={value} index={0} children={<SOPs />} />
 				<TabPanel value={value} index={1} children={<Plans />} />
-				<TabPanel value={value} index={2} children={<SOPs />} />
+				<TabPanel value={value} index={2} children={<Glossary />} />
 			</div>
 		</div>
 	);
