@@ -11,7 +11,9 @@ import SecurityDialog from './components/SecurityDialog';
 
 const Generator = () => {
 	const [manualPass, setManualPass] = useState(false);
+	const [manualPassInput, setManualPassInput] = useState('');
 	const [manualPin, setManualPin] = useState(false);
+	const [manualPinInput, setManualPinInput] = useState('');
 	const [passLength, setPassLength] = useState('');
 	const [passOutput, setPassOutput] = useState('');
 	const [pinLength, setPinLength] = useState('');
@@ -30,6 +32,8 @@ const Generator = () => {
 
 	const handleChange = (input, value) => {
 		const actionMap = {
+			manPass: setManualPassInput,
+			manPin: setManualPinInput,
 			pass: setPassLength,
 			pin: setPinLength,
 		};
@@ -45,22 +49,26 @@ const Generator = () => {
 
 	const handlePinClick = () => {
 		dispatch(setAppPin(pinOutput));
+		setManualPinInput('');
 		setPinLength('');
 		setPinOutput('');
+		setManualPin(false);
 	};
 
 	const handlePassSubmit = (e) => {
 		e.preventDefault();
-		setPassOutput(randomPassword(passLength));
+		setPassOutput(manualPass ? manualPassInput : randomPassword(passLength));
 	};
 
 	const handlePinSubmit = (e) => {
 		e.preventDefault();
-		setPinOutput(randomPin(pinLength));
+		setPinOutput(manualPin ? manualPinInput : randomPin(pinLength));
 	};
 
 	const handleCloseDialog = () => {
 		setShowDialog(false);
+		setManualPass(false);
+		setManualPassInput('');
 		setPassLength('');
 		setPassOutput('');
 	};
@@ -75,14 +83,22 @@ const Generator = () => {
 				</Stack>
 				<form onSubmit={handlePassSubmit}>
 					<FormControl>
-						<TextInput
-							type='number'
-							placeholder='Enter Password length'
-							value={passLength}
-							onChange={(e) => handleChange('pass', e.target.value)}
-						/>
+						{manualPass ? (
+							<TextInput
+								placeholder='Enter Password'
+								value={manualPassInput}
+								onChange={(e) => handleChange('manPass', e.target.value)}
+							/>
+						) : (
+							<TextInput
+								type='number'
+								placeholder='Enter Password length'
+								value={passLength}
+								onChange={(e) => handleChange('pass', e.target.value)}
+							/>
+						)}
 					</FormControl>
-					<Button type='submit'>Generate</Button>
+					<Button type='submit'>{manualPass ? 'Submit' : 'Generate'}</Button>
 				</form>
 				{passOutput && <h3 onClick={handlePassClick}>{passOutput}</h3>}
 			</div>
@@ -94,14 +110,22 @@ const Generator = () => {
 				</Stack>
 				<form onSubmit={handlePinSubmit}>
 					<FormControl>
-						<TextInput
-							type='number'
-							placeholder='Enter Pin Length'
-							value={pinLength}
-							onChange={(e) => handleChange('pin', e.target.value)}
-						/>
+						{manualPin ? (
+							<TextInput
+								placeholder='Enter Pin'
+								value={manualPinInput}
+								onChange={(e) => handleChange('manPin', e.target.value)}
+							/>
+						) : (
+							<TextInput
+								type='number'
+								placeholder='Enter Pin Length'
+								value={pinLength}
+								onChange={(e) => handleChange('pin', e.target.value)}
+							/>
+						)}
 					</FormControl>
-					<Button type='submit'>Generate</Button>
+					<Button type='submit'>{manualPin ? 'Submit' : 'Generate'}</Button>
 				</form>
 				{pinOutput && <h3 onClick={handlePinClick}>{pinOutput}</h3>}
 			</div>
