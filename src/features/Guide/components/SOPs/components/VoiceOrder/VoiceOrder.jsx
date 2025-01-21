@@ -643,7 +643,7 @@ const VoiceOrder = ({ goBack }) => {
 				<Level2 identifier='ii.'>
 					Tier 2 Config Review (Optional per lead/supervisor)
 				</Level2>
-				<Level2 identifier='iii.'>Tier Config Review</Level2>
+				<Level2 identifier='iii.'>Tier 3 Config Review</Level2>
 				<Level3 identifier='•'>
 					Create Config Review document based on OTRS template
 				</Level3>
