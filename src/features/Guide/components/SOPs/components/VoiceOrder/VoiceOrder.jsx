@@ -372,19 +372,57 @@ const VoiceOrder = ({ goBack }) => {
 					In Homir, navigate to Voice ➜ Domains ➜ Select: Add New Voice Domain
 				</Level2>
 				<Level2 identifier='iii.'>
-					Select the Voice Server you are building voice services on and
-					complete all form fields.
+					Select the Voice Server you are building voice services on (default is
+					nms.myvrv.com) and complete all form fields.
 				</Level2>
-				<Level3 identifier='•'>Domain Name:</Level3>
-				<Level4 identifier='⁃'>
-					Enter the [clientName] (typically match client email domain)
-				</Level4>
+				<Level3 image>
+					<div className='img-container'>
+						<img src='create_domain.png' alt='' />
+					</div>
+				</Level3>
+				<Level3 identifier='•'>
+					Domain: - Enter the [clientName] (typically match client email domain)
+				</Level3>
 				<Level4 identifier='❗'>
 					No capital letters, special characters, or spaces allowed.
 				</Level4>
 				<Level4 identifier='❗'>
 					Domain name cannot be changed! - Verify correct spelling.
 				</Level4>
+				<Level3 identifier='•'>
+					Client: - Select client name from drop-down
+				</Level3>
+				<Level2>
+					<span
+						className='bold'
+						style={{
+							backgroundColor: 'yellow',
+							color: 'black',
+						}}
+					>
+						Note: The following are Domain Defaults and can be adjusted per user
+						once domain is created in NMS.
+					</span>
+				</Level2>
+				<Level3 identifier='•'>
+					Area Code: - Set the area code for the client's main office as default
+				</Level3>
+				<Level3 identifier='•'>
+					Caller Name: - Set the company requested name as caller ID name
+				</Level3>
+				<Level3 identifier='•'>
+					Emergency Caller Number: - Set the E911 number for the client's main
+					office number as default
+				</Level3>
+				<Level3 identifier='•'>
+					Caller Number: - Set the client's main office number as default
+				</Level3>
+				<Level3 identifier='•'>Active Call Limit: - 10x the user count</Level3>
+				<Level3 identifier='•'>
+					External Call Limit: - 10x the user count
+				</Level3>
+				<Level3 identifier='•'>Max Users: - user count + 5</Level3>
+				<Level2 identifier='iv.'>Click Create</Level2>
 				<Level1 identifier='h.'>
 					<span className='bold'>
 						Create Domain in the NMS Portal{' '}
@@ -638,12 +676,12 @@ const VoiceOrder = ({ goBack }) => {
 				<Level2 identifier='ii.'>
 					Point DIDs and verify E911 assignment in Homir
 				</Level2>
-				<Level3 identifier='•'>
+				<Level3 identifier='❗'>
 					E911 is always assigned to an extension that is most likely to be
 					answered. If E911 call gets disconnected, emergency services will call
 					our E911 number to get the client back.
 				</Level3>
-				<Level3 identifier='•'>
+				<Level3 identifier='❗'>
 					The E911 number should never be pointed to voicemail, an auto
 					attendant, or a call queue.
 				</Level3>
