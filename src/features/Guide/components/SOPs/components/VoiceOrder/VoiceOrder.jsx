@@ -481,8 +481,8 @@ const VoiceOrder = ({ goBack }) => {
 					Recording - Level all as default values.
 				</Level2>
 				<Level2 identifier='ix.'>
-					Emergency - Emergency Caller ID - Set the E911 number for the client's
-					main office number as default.
+					Emergency - Emergency Caller ID - Set to the E911 number for the
+					client's main office number as default.
 				</Level2>
 				<Level2 identifier='x.'>
 					Assign E911 number in HOMIR (after domain is created)
@@ -677,7 +677,7 @@ const VoiceOrder = ({ goBack }) => {
 					Point DIDs and verify E911 assignment in Homir
 				</Level2>
 				<Level3 identifier='❗'>
-					E911 is always assigned to an extension that is most likely to be
+					E911 is always pointed to an extension that is most likely to be
 					answered. If E911 call gets disconnected, emergency services will call
 					our E911 number to get the client back.
 				</Level3>
