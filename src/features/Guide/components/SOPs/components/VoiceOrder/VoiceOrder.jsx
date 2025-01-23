@@ -28,12 +28,12 @@ const VoiceOrder = ({ goBack }) => {
 						placement='top-start'
 						arrow
 					>
-						<span>TPC</span>
+						TPC
 					</Tooltip>{' '}
 					is assigned a voice order, they will receive an email with order
 					details and a{' '}
 					<Tooltip title='Service Order Form' placement='top-start' arrow>
-						<span>SOF</span>
+						SOF
 					</Tooltip>{' '}
 					attached.
 				</Level1>
@@ -44,7 +44,7 @@ const VoiceOrder = ({ goBack }) => {
 						placement='top-start'
 						arrow
 					>
-						<span>TPC</span>
+						TPC
 					</Tooltip>{' '}
 					in Homir, this will be where the{' '}
 					<Tooltip
@@ -52,7 +52,7 @@ const VoiceOrder = ({ goBack }) => {
 						placement='top-start'
 						arrow
 					>
-						<span>TPC</span>
+						TPC
 					</Tooltip>{' '}
 					will keep a record of all notes and dates for the order.
 				</Level1>
@@ -64,7 +64,7 @@ const VoiceOrder = ({ goBack }) => {
 						placement='top-start'
 						arrow
 					>
-						<span>TPC</span>
+						TPC
 					</Tooltip>
 					.
 				</Level1>
@@ -99,7 +99,7 @@ const VoiceOrder = ({ goBack }) => {
 						placement='top-start'
 						arrow
 					>
-						<span>TPC</span>
+						TPC
 					</Tooltip>
 					.
 				</Level2>
@@ -114,7 +114,7 @@ const VoiceOrder = ({ goBack }) => {
 				<Level2 identifier='ii.'>
 					Review{' '}
 					<Tooltip title='Service Order Form' placement='top-start' arrow>
-						<span>SOF</span>
+						SOF
 					</Tooltip>{' '}
 					for Special Notes (these are found on the signature page)
 				</Level2>
@@ -259,7 +259,7 @@ const VoiceOrder = ({ goBack }) => {
 						placement='top-start'
 						arrow
 					>
-						<span>MPOE</span>
+						MPOE
 					</Tooltip>
 					.)
 				</Level3>
@@ -559,14 +559,14 @@ const VoiceOrder = ({ goBack }) => {
 						placement='top-start'
 						arrow
 					>
-						<span>TPC</span>
+						TPC
 					</Tooltip>{' '}
 					to review active ports.
 				</Level4>
 				<Level3 identifier='•'>
 					Confirm Port{' '}
 					<Tooltip title='Firm Order Confirmation' placement='top-start' arrow>
-						<span>FOC</span>
+						FOC
 					</Tooltip>{' '}
 					Received (
 					<span className='underline' style={{ color: 'red' }}>
@@ -577,14 +577,14 @@ const VoiceOrder = ({ goBack }) => {
 				<Level4 identifier='a.'>
 					Update Homir order page with{' '}
 					<Tooltip title='Firm Order Confirmation' placement='top-start' arrow>
-						<span>FOC</span>
+						FOC
 					</Tooltip>{' '}
 					date
 				</Level4>
 				<Level4 identifier='b.'>
 					Communicate{' '}
 					<Tooltip title='Firm Order Confirmation' placement='top-start' arrow>
-						<span>FOC</span>
+						FOC
 					</Tooltip>{' '}
 					received to client.
 				</Level4>
