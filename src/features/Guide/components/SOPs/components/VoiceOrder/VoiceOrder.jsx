@@ -220,9 +220,8 @@ const VoiceOrder = ({ goBack }) => {
 				</Level3>
 				<Level3 identifier='•'>Customer Name - leave blank</Level3>
 				<Level3 identifier='•'>Queue - Service Delivery ➜ Provisioning</Level3>
-				<Level3 identifier='•'>
-					Owner and Responsible - Provisioning OTRS
-				</Level3>
+				<Level3 identifier='•'>Owner - Provisioning OTRS</Level3>
+				<Level3 identifier='•'>Responsible - Provisioning OTRS</Level3>
 				<Level3 identifier='•'>
 					Select appropriate Text Template - choose either{' '}
 					<span style={{ fontWeight: 'bold', color: 'green' }}>internal</span>{' '}
