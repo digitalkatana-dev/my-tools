@@ -7,7 +7,6 @@ import Level1 from '../../../../../../components/Level-1';
 import Level2 from '../../../../../../components/Level-2';
 import Level3 from '../../../../../../components/Level-3';
 import Level4 from '../../../../../../components/Level-4';
-import Level5 from '../../../../../../components/Level-5';
 
 const CircuitOrder = ({ goBack }) => {
 	const { firstName } = useSelector((state) => state.app);
@@ -533,8 +532,132 @@ const CircuitOrder = ({ goBack }) => {
 				<Level2 identifier='ii.'>
 					Work with technician to install and test the circuit.
 				</Level2>
+				<Level3 identifier='•'>Verify remote access to equipment</Level3>
+				<Level3 identifier='•'>
+					Perform speed tests and save results to client folder
+				</Level3>
+				<Level3 identifier='•'>
+					If carrier modem installed, provide serial of the modem for inventory
+					via OTRS ticket
+				</Level3>
+				<Level3 identifier='a.'>Queue - Provisioning</Level3>
+				<Level3 identifier='b.'>Owner - Provisioning OTRS</Level3>
+				<Level3 identifier='c.'>Responsible - Provisioning OTRS</Level3>
+				<Level3 identifier='d.'>Select appropriate text template</Level3>
+				<Level3 image>
+					<div className='img-container'>
+						<img src='complete_install_circuit.png' alt='' />
+					</div>
+				</Level3>
+				<Level2 identifier='iii.'>
+					If a <span className='field-nation'>Field Nation</span> technician
+					completes the installation, provide a tech review within 24 hours on
+					the OTRS ticket.
+				</Level2>
 				<Level1 identifier='e.' subtitle='Setup Monitoring' />
+				<Level2 identifier='i.'>Add monitoring in Homir</Level2>
+				<Level3 identifier='•'>
+					<a
+						href='http://wiki/index.php/Circuit_monitoring_setup'
+						target='_blank'
+						rel='noreferrer'
+					>
+						http://wiki/index.php/Circuit_monitoring_setup
+					</a>
+				</Level3>
+				<Level3 identifier='•'>
+					<a
+						href='http://wiki/index.php/HOMIR_switchports_and_VLANs'
+						target='_blank'
+						rel='noreferrer'
+					>
+						http://wiki/index.php/HOMIR_switchports_and_VLANs
+					</a>{' '}
+					(
+					<Tooltip
+						title='Network-to-Network Interface'
+						placement='top-start'
+						arrorw
+					>
+						NNI
+					</Tooltip>{' '}
+					only)
+				</Level3>
+				<Level2 identifier='ii.'>
+					Setup client Graph Access (upon client request only) (
+					<Tooltip
+						title='Network-to-Network Interface'
+						placement='top-start'
+						arrorw
+					>
+						NNI
+					</Tooltip>{' '}
+					only)
+				</Level2>
+				<Level3 identifier='•'>
+					<a
+						href='http://wiki/index.php/Adding_client_MRTG_graph_access'
+						target='_blank'
+						rel='noreferrer'
+					>
+						http://wiki/index.php/Adding_client_MRTG_graph_access
+					</a>
+				</Level3>
 				<Level1 identifier='f.' subtitle='Closeout Order' />
+				<Level2 identifier='i.'>
+					Update Homir with any non-standard configuration information.
+				</Level2>
+				<Level2 identifier='ii.'>
+					Submit billing via OTRS ticket -{' '}
+					<span className='underline'>
+						This should be submitted ASAP, no more than 5 business days. If the
+						end of the month, needs to be immediate.
+					</span>
+				</Level2>
+				<Level3 identifier='•'>Queue - Order Processing</Level3>
+				<Level3 identifier='•'>Owner - Order Processing</Level3>
+				<Level3 identifier='•'>Responsible - Order Processing</Level3>
+				<Level3 identifier='•'>Select appropriate text template</Level3>
+				<Level3 image>
+					<div className='img-container'>
+						<img src='closeout_circuit_order.png' alt='' />
+					</div>
+				</Level3>
+				<Level2 identifier='iii.'>
+					Using Homir email templates, submit C-SAT Survey Email
+				</Level2>
+				<Level2 identifier='iv.'>
+					Using Homir email templates, send Activation/Support Handoff email to
+					client within 24 hours of install.
+				</Level2>
+				<Level2 identifier='v.'>
+					Verify client folder on the share drive is in order.
+				</Level2>
+				<Level2 identifier='vi.'>
+					Verify modem serial is in inventory (for{' '}
+					<Tooltip
+						title='Dedicated Internet Access'
+						placement='top-start'
+						arrow
+					>
+						DIA
+					</Tooltip>{' '}
+					circuits)
+				</Level2>
+				<Level2 identifier='vii.'>
+					Verify Homir order information is complete.
+				</Level2>
+				<Level2 identifier='viii.'>
+					Update Homir order status to "
+					<span className='bold'>Ops Items Complete</span>"
+				</Level2>
+				<Level3 identifier='•'>
+					If no CSAT being sent due to partner being the contact, update to "
+					<span className='bold'>Ops Items Complete, No CSAT</span>"
+				</Level3>
+				<Level2 identifier='ix.'>
+					Move the Outlook Public Folder to the correct alpha folder.
+				</Level2>
 			</section>
 		</div>
 	);
