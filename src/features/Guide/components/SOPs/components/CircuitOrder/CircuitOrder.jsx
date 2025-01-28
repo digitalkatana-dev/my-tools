@@ -253,6 +253,11 @@ const CircuitOrder = ({ goBack }) => {
 						Field Nation
 					</span>
 				</Level3>
+				<Level3 image>
+					<div className='img-container'>
+						<img src='site_survey_circuit.png' alt='' />
+					</div>
+				</Level3>
 				<Level3 identifier='•'>
 					Under the Communication section in the From field, remove the email
 					address for the client and add your email address
@@ -323,6 +328,25 @@ const CircuitOrder = ({ goBack }) => {
 						received, Schedule Installation
 					</span>
 				</Level1>
+				<Level2 identifier='i.'>
+					Schedule carrier installation with client
+				</Level2>
+				<Level2 identifier='ii.'>
+					Schedule network/equipment installation with client
+				</Level2>
+				<Level2 identifier='iii.'>
+					Schedule equipment installation (Internal) via OTRS
+				</Level2>
+				<Level3 identifier='•'>Submit Dispatch Ticket via OTRS</Level3>
+				<Level4 identifier='a.'>Queue - Provisioning</Level4>
+				<Level4 identifier='b.'>Owner - Provisioning OTRS</Level4>
+				<Level4 identifier='c.'>Responsible - Provisioning OTRS</Level4>
+				<Level4 identifier='d.'>Select appropriate text template</Level4>
+				<Level3 image>
+					<div className='tall-img-container'>
+						<img src='install_schedule_circuit.png' alt='' />
+					</div>
+				</Level3>
 				<Level1 identifier='f.'>
 					<span className='bold'>
 						Order Network Equipment [see{' '}
@@ -332,23 +356,183 @@ const CircuitOrder = ({ goBack }) => {
 						]
 					</span>
 				</Level1>
+				<Level2 identifier='i.'>Submit equipment order via OTRS</Level2>
+				<Level3 identifier='•'>Queue - Provisioning</Level3>
+				<Level3 identifier='•'>Owner - Provisioning OTRS</Level3>
+				<Level3 identifier='•'>Responsible - Provisioning OTRS</Level3>
+				<Level3 identifier='•'>Select appropriate text template</Level3>
+				<Level3 image>
+					<div className='img-container'>
+						<img src='order_equip_circuit.png' alt='' />
+					</div>
+				</Level3>
 				<Level1
 					identifier='g.'
 					subtitle='Obtain IP Addresses (ENGR/Carrier/Client)'
 				/>
+				<Level2 identifier='i.'>
+					If non-
+					<Tooltip
+						title='Network-to-network Interface'
+						placement='top-start'
+						arrow
+					>
+						NNI
+					</Tooltip>
+					, obtain IPs from carrier (Depending on the carrier, these can be
+					provided before or after installation)
+				</Level2>
+				<Level2 identifier='ii.'>
+					If{' '}
+					<Tooltip
+						title='Network-to-network Interface'
+						placement='top-start'
+						arrow
+					>
+						NNI
+					</Tooltip>
+					, submit request for IPs via OTRS
+				</Level2>
+				<Level3 identifier='•'>Queue - Engineering</Level3>
+				<Level3 identifier='•'>Owner - NLI Engineering</Level3>
+				<Level3 identifier='•'>Responsible - NLI Engineering</Level3>
+				<Level3 identifier='•'>Select appropriate text template</Level3>
+				<Level3 image>
+					<div className='img-container'>
+						<img src='obtain_ip_circuit.png' alt='' />
+					</div>
+				</Level3>
 				<Level1 identifier='h.' subtitle='Add IP Details to Circuit Order' />
-				<Level1 identifier='i.' subtitle='Send IPs to Client' />
+				<Level3 image>
+					<div className='tall-img-container'>
+						<img src='add_ip_details.png' alt='' />
+					</div>
+				</Level3>
+				<Level1 identifier='i.'>
+					<span className='bold'>Send IPs to Client:</span> Using Homir email
+					templates, provide IP information to the client
+				</Level1>
 				<Level1 identifier='j.' subtitle='(If applicable) Disconnects' />
+				<Level2 identifier='i.'>
+					If there is a disconnect associated with the order, submit the
+					disconnect to Provisioning based on the agreed upon timing with the
+					client.
+				</Level2>
+				<Level2 identifier='ii.'>
+					Carriers have different requirements - some we can disconnect
+					immediate, and others require 30-day notice [See Circuit Disco Details
+					tab of{' '}
+					<a href='circuit_matrix.xlsx' target='_blank' rel='noreferrer'>
+						Circuit Matrix
+					</a>{' '}
+					Reference doc]
+				</Level2>
+				<Level2 identifier='iii.'>
+					<span className='bold'>Disconnect Process in OTRS</span>
+				</Level2>
+				<Level3 identifier='•'>
+					Provisioning creates a "Carrier Disconnect" OTRS ticket in the queue:
+					Service Delivery::Provisioning::Carrier Disconnects.
+				</Level3>
+				<Level3 identifier='•'>
+					Owner & Responsible is the{' '}
+					<Tooltip
+						title='Technical Project Coordinator'
+						placement='top-start'
+						arrow
+					>
+						TPC
+					</Tooltip>
+					. It is the{' '}
+					<Tooltip
+						title='Technical Project Coordinator'
+						placement='top-start'
+						arrow
+					>
+						TPC
+					</Tooltip>
+					's responsibility to communicate and coordinate the disconnect date.
+				</Level3>
+				<Level3 identifier='•'>
+					When the{' '}
+					<Tooltip
+						title='Technical Project Coordinator'
+						placement='top-start'
+						arrow
+					>
+						TPC
+					</Tooltip>{' '}
+					has the disconnect date approved, assign Provisioning OTRS as Owner &
+					Responsible.
+				</Level3>
+				<Level3 identifier='•'>
+					Provisioning Team will disconnect the circuit with the carrier and
+					close the ticket.
+				</Level3>
 			</section>
 			<section>
 				<div className='section-title'>5. Execution Phase</div>
 				<Level1 identifier='a.' subtitle='Configure Equipment' />
+				<Level2 identifier='i.'>Create and apply Configuration Template</Level2>
+				<Level3 identifier='•'>
+					Locate templates in the share drive (Service
+					Delivery\Templates\Configurations)
+				</Level3>
+				<Level4 identifier='a.'>
+					Save equipment tempalte(s) to client folder before modifying to ensure
+					you do not overwrite the shared template.
+				</Level4>
+				<Level3 identifier='•'>
+					Fill in [bracketed] information in the equipment template(s)
+				</Level3>
+				<Level3 identifier='•'>Apply configuration to equipment</Level3>
+				<Level2 identifier='ii.'>
+					Tier 2 Config Review (Optional per Lead/Supervisor)
+				</Level2>
+				<Level2 identifier='iii.'>Tier 3 Config Review</Level2>
+				<Level3 identifier='•'>Create Config Review</Level3>
+				<Level3 identifier='•'>Submit via OTRS ticket</Level3>
+				<Level4 identifier='a.'>
+					Queue - Engineering - Provisioning - Tier 3 Configuration Review
+				</Level4>
+				<Level4 identifier='b.'>Responsible - NLI Engineering</Level4>
+				<Level4 identifier='c.'>Select appropriate text template</Level4>
+				<Level3 image>
+					<div className='img-container'>
+						<img src='config_review.png' alt='' />
+					</div>
+				</Level3>
 				<Level1
 					identifier='b.'
 					subtitle='Ship Equipment or Stage in S&R Room'
 				/>
+				<Level2 identifier='i.'>
+					(If shipping) Submit via an OTRS ticket - This can be part of the
+					equipment order ticket or submitted separately.
+				</Level2>
+				<Level3 image>
+					<div className='img-container'>
+						<img src='shipping_circuit.png' alt='' />
+					</div>
+				</Level3>
 				<Level1 identifier='c.' subtitle='Confirm Carrier Installed' />
+				<Level2 identifier='i.'>Ping carrier equipment if applicable</Level2>
+				<Level2 identifier='ii.'>
+					Add Demarc Info in Homir on Circut Page under Notes
+				</Level2>
+				<Level3 image>
+					<div className='tall-img-container'>
+						<img src='confirm_carrier_install.png' alt='' />
+					</div>
+				</Level3>
 				<Level1 identifier='d.' subtitle='Complete Installation' />
+				<Level2 identifier='i.'>
+					If you are disconnecting an existing circuit, Slack support to
+					disregard monitoring alerts.
+				</Level2>
+				<Level2 identifier='ii.'>
+					Work with technician to install and test the circuit.
+				</Level2>
 				<Level1 identifier='e.' subtitle='Setup Monitoring' />
 				<Level1 identifier='f.' subtitle='Closeout Order' />
 			</section>
