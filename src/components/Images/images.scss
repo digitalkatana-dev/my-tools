@@ -1,0 +1,24 @@
+.img-container,
+.tall-img-container {
+	width: 100%;
+	margin-bottom: 15px;
+}
+
+.img-container {
+	position: relative;
+	padding-top: 56.25%;
+
+	img {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	}
+}
+
+.tall-img-container {
+	img {
+		width: 100%;
+	}
+}

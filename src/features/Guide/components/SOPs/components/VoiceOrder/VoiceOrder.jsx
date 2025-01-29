@@ -1,12 +1,15 @@
 import { Stack } from '@mui/material';
 import { useSelector } from 'react-redux';
+import { SopImage } from '../../../../../../components/Images';
+import {
+	Level1,
+	Level2,
+	Level3,
+	Level4,
+	Level5,
+} from '../../../../../../components/Levels';
 import Tooltip from '../../../../../../components/Tooltip';
 import './voice.scss';
-import Level1 from '../../../../../../components/Level-1';
-import Level2 from '../../../../../../components/Level-2';
-import Level3 from '../../../../../../components/Level-3';
-import Level4 from '../../../../../../components/Level-4';
-import Level5 from '../../../../../../components/Level-5';
 
 const VoiceOrder = ({ goBack }) => {
 	const { firstName } = useSelector((state) => state.app);
@@ -120,7 +123,12 @@ const VoiceOrder = ({ goBack }) => {
 				</Level2>
 				<Level1 identifier='b.'>
 					(Optional to frontload) Prepare{' '}
-					<a href='Billing_2024.xlsx' target='_blank' rel='noreferrer'>
+					<a
+						className='link'
+						href='Billing_2024.xlsx'
+						target='_blank'
+						rel='noreferrer'
+					>
 						Billing Closeout
 					</a>{' '}
 					and save in client folder on the share drive (also found in templates
@@ -187,7 +195,12 @@ const VoiceOrder = ({ goBack }) => {
 						Field Nation
 					</span>{' '}
 					surveys - verify with a supervisor which method to use. (see{' '}
-					<a href='Appendix 11.pdf' target='_blank' rel='noreferrer'>
+					<a
+						className='link'
+						href='Appendix 11.pdf'
+						target='_blank'
+						rel='noreferrer'
+					>
 						Appendix 11 - Dispatching Guidelines
 					</a>
 					)
@@ -198,14 +211,24 @@ const VoiceOrder = ({ goBack }) => {
 						Field Nation
 					</span>
 					) Create Field Nation Work Order. (see{' '}
-					<a href='Appendix 6.pdf' target='_blank' rel='noreferrer'>
+					<a
+						className='link'
+						href='Appendix 6.pdf'
+						target='_blank'
+						rel='noreferrer'
+					>
 						Appendix 6 - Field Nation Directions
 					</a>
 					)
 				</Level2>
 				<Level2 identifier='ii.'>
 					Complete{' '}
-					<a href='Site Survey.pdf' target='_blank' rel='noreferrer'>
+					<a
+						className='link'
+						href='Site Survey.pdf'
+						target='_blank'
+						rel='noreferrer'
+					>
 						Site Survey Template
 					</a>{' '}
 					- this will be attached to the OTRS ticket when you submit the
@@ -354,7 +377,12 @@ const VoiceOrder = ({ goBack }) => {
 						Field Nation
 					</span>
 					) Create Field Nation Work Order (see{' '}
-					<a href='Appendix 6.pdf' target='_blank' rel='noreferrer'>
+					<a
+						className='link'
+						href='Appendix 6.pdf'
+						target='_blank'
+						rel='noreferrer'
+					>
 						Appendix 6 - Field Nation Directions
 					</a>
 					)
@@ -374,11 +402,7 @@ const VoiceOrder = ({ goBack }) => {
 					Select the Voice Server you are building voice services on (default is
 					nms.myvrv.com) and complete all form fields.
 				</Level2>
-				<Level3 image>
-					<div className='img-container'>
-						<img src='create_domain.png' alt='' />
-					</div>
-				</Level3>
+				<SopImage imageUrl='create_domain.png' />
 				<Level3 identifier='•'>
 					Domain: - Enter the [clientName] (typically match client email domain)
 				</Level3>
@@ -507,11 +531,7 @@ const VoiceOrder = ({ goBack }) => {
 				<Level4 identifier='⁃'>Queue - Provisioning</Level4>
 				<Level4 identifier='⁃'>Owner/Responsible - Provisioning OTRS</Level4>
 				<Level4 identifier='⁃'>Select appropriate text template</Level4>
-				<Level3 image>
-					<div className='img-container'>
-						<img src='new_number.png' alt='' />
-					</div>
-				</Level3>
+				<SopImage imageUrl='new_number.png' />
 				<Level2 identifier='ii.'>Porting</Level2>
 				<Level3 identifier='•'>
 					Ontain Port Docs, E911 and Phone Bill/CSR (preference for LOA's to be
@@ -538,11 +558,7 @@ const VoiceOrder = ({ goBack }) => {
 				<Level4 identifier='a.'>Queue - Provisioning</Level4>
 				<Level4 identifier='b.'>Owner/Responsible - Provisioning OTRS</Level4>
 				<Level4 identifier='c.'>Select appropriate text template</Level4>
-				<Level3 image>
-					<div className='img-container'>
-						<img src='port_number.png' alt='' />
-					</div>
-				</Level3>
+				<SopImage imageUrl='port_number.png' />
 				<Level3 identifier='•'>
 					Ports Submitted to Number Vendors (
 					<span style={{ color: 'red' }}>Provisioning Team Responsible</span>)
@@ -604,7 +620,12 @@ const VoiceOrder = ({ goBack }) => {
 				<Level1 identifier='j.'>
 					<span className='bold'>
 						(If applicable) Order Network Equipment [see{' '}
-						<a href='Appendix 12.pdf' target='_blank' rel='noreferrer'>
+						<a
+							className='link'
+							href='Appendix 12.pdf'
+							target='_blank'
+							rel='noreferrer'
+						>
 							Appendix 12 - Equipment Matrix
 						</a>
 						]
@@ -614,11 +635,7 @@ const VoiceOrder = ({ goBack }) => {
 				<Level3 identifier='•'>Queue - Provisioning</Level3>
 				<Level3 identifier='•'>Owner/Responsibile - Provisioning OTRS</Level3>
 				<Level3 identifier='•'>Select appropriate text template</Level3>
-				<Level3 image>
-					<div className='img-container'>
-						<img src='order_equipment.png' alt='' />
-					</div>
-				</Level3>
+				<SopImage imageUrl='order_equipment.png' />
 			</section>
 			<section>
 				<div className='section-title'>5. Execution</div>
@@ -652,11 +669,7 @@ const VoiceOrder = ({ goBack }) => {
 				</Level4>
 				<Level4 identifier='b.'>Owner/Responsible - NLI Engineering</Level4>
 				<Level4 identifier='c.'>Select appropriate text template</Level4>
-				<Level3 image>
-					<div className='img-container'>
-						<img src='config_equip.png' alt='' />
-					</div>
-				</Level3>
+				<SopImage imageUrl='config_equip.png' />
 				<Level1
 					identifier='b.'
 					subtitle='Build Voice Services (Training will be provided)'
@@ -697,11 +710,7 @@ const VoiceOrder = ({ goBack }) => {
 				<Level4 identifier='a.'>Queue - Provisioning</Level4>
 				<Level4 identifier='b.'>Owner/Responsible - Provisioning OTRS</Level4>
 				<Level4 identifier='c.'>Select appropriate text template</Level4>
-				<Level3 image>
-					<div className='img-container'>
-						<img src='order_phone.png' alt='' />
-					</div>
-				</Level3>
+				<SopImage imageUrl='order_phone.png' />
 				<Level3 identifier='•'>
 					Provisioning will update the ticket with shipping information once
 					received from phone vendor.
@@ -719,11 +728,7 @@ const VoiceOrder = ({ goBack }) => {
 					subtitle='Ship Equipment or Stage in S&R Room'
 				/>
 				<Level2 identifier='i.'>(If Shipping) Submit via an OTRS ticket</Level2>
-				<Level3 image>
-					<div className='img-container'>
-						<img src='ship_equip.png' alt='' />
-					</div>
-				</Level3>
+				<SopImage imageUrl='ship_equip.png' />
 				<Level1 identifier='e.' subtitle='Test Phones Onsite' />
 				<Level2 identifier='i.'>
 					When installing with Verve network equipment, test when network
@@ -772,11 +777,7 @@ const VoiceOrder = ({ goBack }) => {
 				</Level3>
 				<Level3 identifier='b.'>Owner/Responsible - Order Processing</Level3>
 				<Level3 identifier='c.'>Select appropriate text template</Level3>
-				<Level3 image>
-					<div className='img-container'>
-						<img src='ship_equip.png' alt='' />
-					</div>
-				</Level3>
+				<SopImage imageUrl='ship_equip.png' />
 				<Level2 identifier='iii.'>Clear Billing Discrepancies in Homir</Level2>
 				<Level2 identifier='iv.'>
 					If{' '}

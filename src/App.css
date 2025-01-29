@@ -12,3 +12,35 @@
 	font-size: calc(10px + 2vmin);
 	color: white; */
 }
+
+.section-title {
+	font-weight: bolder;
+	margin-bottom: 10px;
+}
+
+.link {
+	color: steelblue;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+.underline {
+	text-decoration: underline;
+}
+
+.bold {
+	font-weight: bold;
+}
+
+.internal,
+.field-nation {
+	font-weight: bold;
+}
+
+.internal {
+	color: green;
+}
+
+.field-nation {
+	color: crimson;
+}

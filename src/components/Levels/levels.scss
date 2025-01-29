@@ -1,0 +1,41 @@
+.level-1,
+.level-2,
+.level-3,
+.level-4,
+.level-5 {
+	display: flex;
+	margin-bottom: 15px;
+
+	.identifier {
+		font-weight: bold;
+		margin-right: 5px;
+	}
+}
+
+.level-1 {
+	margin-left: 15px;
+
+	.section-subtitle {
+		font-weight: bold;
+	}
+}
+
+.level-2 {
+	margin-left: 30px;
+}
+
+.level-3 {
+	margin-left: 40px;
+}
+
+.level-4 {
+	margin-left: 60px;
+}
+
+.level-5 {
+	margin-left: 75px;
+
+	.identifier {
+		font-style: italic;
+	}
+}
