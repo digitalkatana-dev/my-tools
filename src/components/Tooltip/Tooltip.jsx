@@ -3,7 +3,7 @@ import { Tooltip as Base, tooltipClasses } from '@mui/material';
 
 const Tooltip = styled(({ className, children, ...props }) => (
 	<Base {...props} classes={{ popper: className }}>
-		<span style={{ color: '#930ee0', fontWeight: 'bold' }}>{children}</span>
+		<span style={{ color: '#20bacd', fontWeight: 500 }}>{children}</span>
 	</Base>
 ))(({ theme }) => ({
 	[`& .${tooltipClasses.arrow}`]: {

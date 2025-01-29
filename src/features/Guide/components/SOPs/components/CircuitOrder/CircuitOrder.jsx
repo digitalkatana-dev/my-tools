@@ -1,12 +1,15 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { Stack } from '@mui/material';
+import { SopImage, SopImageBig } from '../../../../../../components/Images';
+import {
+	Level1,
+	Level2,
+	Level3,
+	Level4,
+} from '../../../../../../components/Levels';
 import Tooltip from '../../../../../../components/Tooltip';
 import './circuit.scss';
-import Level1 from '../../../../../../components/Level-1';
-import Level2 from '../../../../../../components/Level-2';
-import Level3 from '../../../../../../components/Level-3';
-import Level4 from '../../../../../../components/Level-4';
 
 const CircuitOrder = ({ goBack }) => {
 	const { firstName } = useSelector((state) => state.app);
@@ -134,14 +137,15 @@ const CircuitOrder = ({ goBack }) => {
 					Reference Homir Order Details for circuit status - check Contract
 					Requested, Contract Submitted and Notes for circuit information.
 				</Level2>
-				<Level3 image>
-					<div className='tall-img-container'>
-						<img src='circuit_info_check.png' alt='' />
-					</div>
-				</Level3>
+				<SopImageBig imageUrl='circuit_info_check.png' />
 				<Level2 identifier='iv.'>
 					Reference{' '}
-					<a href='circuit_matrix.xlsx' target='_blank' rel='noreferrer'>
+					<a
+						className='link'
+						href='circuit_matrix.xlsx'
+						target='_blank'
+						rel='noreferrer'
+					>
 						Circuit Matrix
 					</a>
 					: This provides details for individual carriers and circuit types.
@@ -209,7 +213,12 @@ const CircuitOrder = ({ goBack }) => {
 						Field Nation
 					</span>{' '}
 					surveys - verify with a supervisor which method to use. (see{' '}
-					<a href='Appendix 11.pdf' target='_blank' rel='noreferrer'>
+					<a
+						className='link'
+						href='Appendix 11.pdf'
+						target='_blank'
+						rel='noreferrer'
+					>
 						Appendix 11 - Dispatching Guidelines
 					</a>
 					)
@@ -220,14 +229,24 @@ const CircuitOrder = ({ goBack }) => {
 						Field Nation
 					</span>
 					) Create Field Nation Work Order. (see{' '}
-					<a href='Appendix 6.pdf' target='_blank' rel='noreferrer'>
+					<a
+						className='link'
+						href='Appendix 6.pdf'
+						target='_blank'
+						rel='noreferrer'
+					>
 						Appendix 6 - Field Nation Directions
 					</a>
 					)
 				</Level2>
 				<Level2 identifier='ii.'>
 					Complete{' '}
-					<a href='Site Survey.pdf' target='_blank' rel='noreferrer'>
+					<a
+						className='link'
+						href='Site Survey.pdf'
+						target='_blank'
+						rel='noreferrer'
+					>
 						Site Survey Template
 					</a>{' '}
 					- this will be attached to the OTRS ticket when you submit the
@@ -252,11 +271,7 @@ const CircuitOrder = ({ goBack }) => {
 						Field Nation
 					</span>
 				</Level3>
-				<Level3 image>
-					<div className='img-container'>
-						<img src='site_survey_circuit.png' alt='' />
-					</div>
-				</Level3>
+				<SopImage imageUrl='site_survey_circuit.png' />
 				<Level3 identifier='•'>
 					Under the Communication section in the From field, remove the email
 					address for the client and add your email address
@@ -341,15 +356,16 @@ const CircuitOrder = ({ goBack }) => {
 				<Level4 identifier='b.'>Owner - Provisioning OTRS</Level4>
 				<Level4 identifier='c.'>Responsible - Provisioning OTRS</Level4>
 				<Level4 identifier='d.'>Select appropriate text template</Level4>
-				<Level3 image>
-					<div className='tall-img-container'>
-						<img src='install_schedule_circuit.png' alt='' />
-					</div>
-				</Level3>
+				<SopImageBig imageUrl='install_schedule_circuit.png' />
 				<Level1 identifier='f.'>
 					<span className='bold'>
 						Order Network Equipment [see{' '}
-						<a href='Appendix 12.pdf' target='_blank' rel='noreferrer'>
+						<a
+							className='link'
+							href='Appendix 12.pdf'
+							target='_blank'
+							rel='noreferrer'
+						>
 							Appendix 12 - Equipment Matrix
 						</a>
 						]
@@ -360,11 +376,7 @@ const CircuitOrder = ({ goBack }) => {
 				<Level3 identifier='•'>Owner - Provisioning OTRS</Level3>
 				<Level3 identifier='•'>Responsible - Provisioning OTRS</Level3>
 				<Level3 identifier='•'>Select appropriate text template</Level3>
-				<Level3 image>
-					<div className='img-container'>
-						<img src='order_equip_circuit.png' alt='' />
-					</div>
-				</Level3>
+				<SopImage imageUrl='order_equip_circuit.png' />
 				<Level1
 					identifier='g.'
 					subtitle='Obtain IP Addresses (ENGR/Carrier/Client)'
@@ -396,17 +408,9 @@ const CircuitOrder = ({ goBack }) => {
 				<Level3 identifier='•'>Owner - NLI Engineering</Level3>
 				<Level3 identifier='•'>Responsible - NLI Engineering</Level3>
 				<Level3 identifier='•'>Select appropriate text template</Level3>
-				<Level3 image>
-					<div className='img-container'>
-						<img src='obtain_ip_circuit.png' alt='' />
-					</div>
-				</Level3>
+				<SopImage imageUrl='obtain_ip_circuit.png' />
 				<Level1 identifier='h.' subtitle='Add IP Details to Circuit Order' />
-				<Level3 image>
-					<div className='tall-img-container'>
-						<img src='add_ip_details.png' alt='' />
-					</div>
-				</Level3>
+				<SopImageBig imageUrl='add_ip_details.png' />
 				<Level1 identifier='i.'>
 					<span className='bold'>Send IPs to Client:</span> Using Homir email
 					templates, provide IP information to the client
@@ -421,7 +425,12 @@ const CircuitOrder = ({ goBack }) => {
 					Carriers have different requirements - some we can disconnect
 					immediate, and others require 30-day notice [See Circuit Disco Details
 					tab of{' '}
-					<a href='circuit_matrix.xlsx' target='_blank' rel='noreferrer'>
+					<a
+						className='link'
+						href='circuit_matrix.xlsx'
+						target='_blank'
+						rel='noreferrer'
+					>
 						Circuit Matrix
 					</a>{' '}
 					Reference doc]
@@ -496,11 +505,7 @@ const CircuitOrder = ({ goBack }) => {
 				</Level4>
 				<Level4 identifier='b.'>Responsible - NLI Engineering</Level4>
 				<Level4 identifier='c.'>Select appropriate text template</Level4>
-				<Level3 image>
-					<div className='img-container'>
-						<img src='config_review.png' alt='' />
-					</div>
-				</Level3>
+				<SopImage imageUrl='config_review.png' />
 				<Level1
 					identifier='b.'
 					subtitle='Ship Equipment or Stage in S&R Room'
@@ -509,21 +514,13 @@ const CircuitOrder = ({ goBack }) => {
 					(If shipping) Submit via an OTRS ticket - This can be part of the
 					equipment order ticket or submitted separately.
 				</Level2>
-				<Level3 image>
-					<div className='img-container'>
-						<img src='shipping_circuit.png' alt='' />
-					</div>
-				</Level3>
+				<SopImage imageUrl='shipping_circuit.png' />
 				<Level1 identifier='c.' subtitle='Confirm Carrier Installed' />
 				<Level2 identifier='i.'>Ping carrier equipment if applicable</Level2>
 				<Level2 identifier='ii.'>
 					Add Demarc Info in Homir on Circut Page under Notes
 				</Level2>
-				<Level3 image>
-					<div className='tall-img-container'>
-						<img src='confirm_carrier_install.png' alt='' />
-					</div>
-				</Level3>
+				<SopImageBig imageUrl='confirm_carrier_install.png' />
 				<Level1 identifier='d.' subtitle='Complete Installation' />
 				<Level2 identifier='i.'>
 					If you are disconnecting an existing circuit, Slack support to
@@ -544,11 +541,7 @@ const CircuitOrder = ({ goBack }) => {
 				<Level3 identifier='b.'>Owner - Provisioning OTRS</Level3>
 				<Level3 identifier='c.'>Responsible - Provisioning OTRS</Level3>
 				<Level3 identifier='d.'>Select appropriate text template</Level3>
-				<Level3 image>
-					<div className='img-container'>
-						<img src='complete_install_circuit.png' alt='' />
-					</div>
-				</Level3>
+				<SopImage imageUrl='complete_install_circuit.png' />
 				<Level2 identifier='iii.'>
 					If a <span className='field-nation'>Field Nation</span> technician
 					completes the installation, provide a tech review within 24 hours on
@@ -558,6 +551,7 @@ const CircuitOrder = ({ goBack }) => {
 				<Level2 identifier='i.'>Add monitoring in Homir</Level2>
 				<Level3 identifier='•'>
 					<a
+						className='link'
 						href='http://wiki/index.php/Circuit_monitoring_setup'
 						target='_blank'
 						rel='noreferrer'
@@ -567,6 +561,7 @@ const CircuitOrder = ({ goBack }) => {
 				</Level3>
 				<Level3 identifier='•'>
 					<a
+						className='link'
 						href='http://wiki/index.php/HOMIR_switchports_and_VLANs'
 						target='_blank'
 						rel='noreferrer'
@@ -596,6 +591,7 @@ const CircuitOrder = ({ goBack }) => {
 				</Level2>
 				<Level3 identifier='•'>
 					<a
+						className='link'
 						href='http://wiki/index.php/Adding_client_MRTG_graph_access'
 						target='_blank'
 						rel='noreferrer'
@@ -618,11 +614,7 @@ const CircuitOrder = ({ goBack }) => {
 				<Level3 identifier='•'>Owner - Order Processing</Level3>
 				<Level3 identifier='•'>Responsible - Order Processing</Level3>
 				<Level3 identifier='•'>Select appropriate text template</Level3>
-				<Level3 image>
-					<div className='img-container'>
-						<img src='closeout_circuit_order.png' alt='' />
-					</div>
-				</Level3>
+				<SopImage imageUrl='closeout_circuit_order.png' />
 				<Level2 identifier='iii.'>
 					Using Homir email templates, submit C-SAT Survey Email
 				</Level2>
