@@ -189,9 +189,9 @@ const VoiceOrder = ({ goBack }) => {
 				<Level1 identifier='c.' subtitle='Conduct Site Survey' />
 				<Level2>
 					We conduct both{' '}
-					<span style={{ fontWeight: 'bold', color: 'green' }}>internal</span>{' '}
+					<span className='internal'>internal</span>{' '}
 					and{' '}
-					<span style={{ fontWeight: 'bold', color: 'crimson' }}>
+					<span className='field-nation'>
 						Field Nation
 					</span>{' '}
 					surveys - verify with a supervisor which method to use. (see{' '}
@@ -207,7 +207,7 @@ const VoiceOrder = ({ goBack }) => {
 				</Level2>
 				<Level2 identifier='i.'>
 					(If{' '}
-					<span style={{ color: 'crimson', fontWeight: 'bold' }}>
+					<span className='field-nation'>
 						Field Nation
 					</span>
 					) Create Field Nation Work Order. (see{' '}
@@ -247,9 +247,9 @@ const VoiceOrder = ({ goBack }) => {
 				<Level3 identifier='•'>Responsible - Provisioning OTRS</Level3>
 				<Level3 identifier='•'>
 					Select appropriate Text Template - choose either{' '}
-					<span style={{ fontWeight: 'bold', color: 'green' }}>internal</span>{' '}
+					<span className='internal'>internal</span>{' '}
 					or{' '}
-					<span style={{ fontWeight: 'bold', color: 'crimson' }}>
+					<span className='field-nation'>
 						Field Nation
 					</span>
 				</Level3>
@@ -274,7 +274,7 @@ const VoiceOrder = ({ goBack }) => {
 				</Level3>
 				<Level3 identifier='•'>
 					Specify what access will be needed in the body of the calendar invite.
-					(<span style={{ fontWeight: 'bold' }}>Suggested:</span> Please make
+					(<span className='bold'>Suggested:</span> Please make
 					sure there is access to your suite's server room and the building's{' '}
 					<Tooltip
 						title='Main Point of Entry (main telecommunications room where cables enter the building from the street)'
