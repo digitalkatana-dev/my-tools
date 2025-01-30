@@ -188,13 +188,9 @@ const VoiceOrder = ({ goBack }) => {
 				</Level3>
 				<Level1 identifier='c.' subtitle='Conduct Site Survey' />
 				<Level2>
-					We conduct both{' '}
-					<span className='internal'>internal</span>{' '}
-					and{' '}
-					<span className='field-nation'>
-						Field Nation
-					</span>{' '}
-					surveys - verify with a supervisor which method to use. (see{' '}
+					We conduct both <span className='internal'>internal</span> and{' '}
+					<span className='field-nation'>Field Nation</span> surveys - verify
+					with a supervisor which method to use. (see{' '}
 					<a
 						className='link'
 						href='Appendix 11.pdf'
@@ -206,11 +202,8 @@ const VoiceOrder = ({ goBack }) => {
 					)
 				</Level2>
 				<Level2 identifier='i.'>
-					(If{' '}
-					<span className='field-nation'>
-						Field Nation
-					</span>
-					) Create Field Nation Work Order. (see{' '}
+					(If <span className='field-nation'>Field Nation</span>) Create Field
+					Nation Work Order. (see{' '}
 					<a
 						className='link'
 						href='Appendix 6.pdf'
@@ -247,11 +240,8 @@ const VoiceOrder = ({ goBack }) => {
 				<Level3 identifier='•'>Responsible - Provisioning OTRS</Level3>
 				<Level3 identifier='•'>
 					Select appropriate Text Template - choose either{' '}
-					<span className='internal'>internal</span>{' '}
-					or{' '}
-					<span className='field-nation'>
-						Field Nation
-					</span>
+					<span className='internal'>internal</span> or{' '}
+					<span className='field-nation'>Field Nation</span>
 				</Level3>
 				<Level3 identifier='•'>
 					Under the Communication section in the From field, remove the email
@@ -274,8 +264,8 @@ const VoiceOrder = ({ goBack }) => {
 				</Level3>
 				<Level3 identifier='•'>
 					Specify what access will be needed in the body of the calendar invite.
-					(<span className='bold'>Suggested:</span> Please make
-					sure there is access to your suite's server room and the building's{' '}
+					(<span className='bold'>Suggested:</span> Please make sure there is
+					access to your suite's server room and the building's{' '}
 					<Tooltip
 						title='Main Point of Entry (main telecommunications room where cables enter the building from the street)'
 						placement='top-start'
@@ -293,12 +283,9 @@ const VoiceOrder = ({ goBack }) => {
 					Add photos to the customer folder in "Survey Photos" folder.
 				</Level3>
 				<Level3 identifier='•'>
-					(If{' '}
-					<span style={{ fontWeight: 'bold', color: 'crimson' }}>
-						Field Nation
-					</span>
-					) Complete Tech Review in OTRS ticket that was opened for the
-					requested dispatch within 24 hours of completed dispatch.
+					(If <span className='field-nation'>Field Nation</span>) Complete Tech
+					Review in OTRS ticket that was opened for the requested dispatch
+					within 24 hours of completed dispatch.
 				</Level3>
 				<Level2 identifier='vi.'>
 					Relay survey results to the client and address any issues/questions.
@@ -367,16 +354,11 @@ const VoiceOrder = ({ goBack }) => {
 					Schedule dispatch for Testing/Install of Equipment/Phones:
 				</Level2>
 				<Level3 identifier='•'>
-					(If{' '}
-					<span style={{ fontWeight: 'bold', color: 'green' }}>internal</span>)
-					Via OTRS ticket
+					(If <span className='internal'>internal</span>) Via OTRS ticket
 				</Level3>
 				<Level3 identifier='•'>
-					(If{' '}
-					<span style={{ fontWeight: 'bold', color: 'crimson' }}>
-						Field Nation
-					</span>
-					) Create Field Nation Work Order (see{' '}
+					(If <span className='field-nation'>Field Nation</span>) Create Field
+					Nation Work Order (see{' '}
 					<a
 						className='link'
 						href='Appendix 6.pdf'
@@ -780,10 +762,9 @@ const VoiceOrder = ({ goBack }) => {
 				<SopImage imageUrl='ship_equip.png' />
 				<Level2 identifier='iii.'>Clear Billing Discrepancies in Homir</Level2>
 				<Level2 identifier='iv.'>
-					If{' '}
-					<span style={{ color: 'red', fontWeight: 'bold' }}>Field Nation</span>{' '}
-					completed the installation, provide a review on the OTRS ticket within
-					24 hours of completed dispatch.
+					If <span className='field-nation'>Field Nation</span> completed the
+					installation, provide a review on the OTRS ticket within 24 hours of
+					completed dispatch.
 				</Level2>
 				<Level2 identifier='v.'>
 					Using Homir email templates, submit C-SAT Survey Email

@@ -206,13 +206,9 @@ const CircuitOrder = ({ goBack }) => {
 				</Level3>
 				<Level1 identifier='c.' subtitle='Conduct Verve Site Survey' />
 				<Level2>
-					We conduct both{' '}
-					<span style={{ fontWeight: 'bold', color: 'green' }}>internal</span>{' '}
-					and{' '}
-					<span style={{ fontWeight: 'bold', color: 'crimson' }}>
-						Field Nation
-					</span>{' '}
-					surveys - verify with a supervisor which method to use. (see{' '}
+					We conduct both <span className='internal'>internal</span> and{' '}
+					<span className='field-nation'>Field Nation</span> surveys - verify
+					with a supervisor which method to use. (see{' '}
 					<a
 						className='link'
 						href='Appendix 11.pdf'
@@ -224,11 +220,8 @@ const CircuitOrder = ({ goBack }) => {
 					)
 				</Level2>
 				<Level2 identifier='i.'>
-					(If{' '}
-					<span style={{ color: 'crimson', fontWeight: 'bold' }}>
-						Field Nation
-					</span>
-					) Create Field Nation Work Order. (see{' '}
+					(If <span className='field-nation'>Field Nation</span>) Create Field
+					Nation Work Order. (see{' '}
 					<a
 						className='link'
 						href='Appendix 6.pdf'
@@ -265,11 +258,8 @@ const CircuitOrder = ({ goBack }) => {
 				<Level3 identifier='•'>Responsible - Provisioning OTRS</Level3>
 				<Level3 identifier='•'>
 					Select appropriate Text Template - choose either{' '}
-					<span style={{ fontWeight: 'bold', color: 'green' }}>internal</span>{' '}
-					or{' '}
-					<span style={{ fontWeight: 'bold', color: 'crimson' }}>
-						Field Nation
-					</span>
+					<span className='internal'>internal</span> or{' '}
+					<span className='field-nation'>Field Nation</span>
 				</Level3>
 				<SopImage imageUrl='site_survey_circuit.png' />
 				<Level3 identifier='•'>
@@ -312,12 +302,9 @@ const CircuitOrder = ({ goBack }) => {
 					Add photos to the customer folder in "Survey Photos" folder.
 				</Level3>
 				<Level3 identifier='•'>
-					(If{' '}
-					<span style={{ fontWeight: 'bold', color: 'crimson' }}>
-						Field Nation
-					</span>
-					) Complete Tech Review in OTRS ticket that was opened for the
-					requested dispatch within 24 hours of completed dispatch.
+					(If <span className='field-nation'>Field Nation</span>) Complete Tech
+					Review in OTRS ticket that was opened for the requested dispatch
+					within 24 hours of completed dispatch.
 				</Level3>
 				<Level2 identifier='vi.'>
 					Relay survey results to the client and address any issues/questions.
