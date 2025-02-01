@@ -16,6 +16,10 @@ const SOPs = () => {
 				<VoiceOrder goBack={() => setView('index')} />
 			) : view === 'co' ? (
 				<CircuitOrder goBack={() => setView('index')} />
+			) : view === 'vco' ? (
+				<h1>Voice Cancellation Order</h1>
+			) : view === 'cco' ? (
+				<h1>Circuit Cancellation Order</h1>
 			) : (
 				view === 'index' && (
 					<div className='sop-list'>
@@ -24,6 +28,12 @@ const SOPs = () => {
 						</h3>
 						<h3 onClick={() => handleClick('co')}>
 							How to Process a Circuit Order
+						</h3>
+						<h3 onClick={()=> handleClick('vco')}>
+							How to Process a Voice Cancellation Order
+						</h3>
+						<h3 onClick={()=> handleClick('cco')}>
+							How to Process a Circuit Cancellation Order
 						</h3>
 					</div>
 				)
