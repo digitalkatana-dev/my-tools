@@ -32,6 +32,10 @@
 	font-weight: bold;
 }
 
+.red {
+	color: crimson;
+}
+
 .internal,
 .field-nation,
 .attention {
