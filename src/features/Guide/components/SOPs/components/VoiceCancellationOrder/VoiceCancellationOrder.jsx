@@ -22,6 +22,14 @@ const VoiceCancellationOrder = () => {
 				</Level1>
 				<Level1 identifier='b.'>Pay careful attention to the domain name and be sure you are canceling the correct domain. Some customer domains are very similar, i.e. bluewater.myvrv vs. bluepoint.myvrv</Level1>
 			</section>
+			<section>
+				<div className='section-title'>2. Removal of Specific Configuration Items</div>
+				<Level1 identifier='a'>
+				NMS admin - 
+				</Level1>
+				<Level2 identifier='i.'>Delete all UI configs in System ➜ Settings ➜ Advanced ➜ UI Config ➜ filter by domain ➜ Edit ➜ Delete</Level2>
+				<Level2 identifier='ii.'>(<span className='red'>SIP trunk cancellations only</span>) Delete all connections for your domain under Connections ➜ Connections ➜ filter by domain</Level2>
+			</section>
 		</div>
 	);
 };
