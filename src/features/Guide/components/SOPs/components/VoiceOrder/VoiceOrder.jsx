@@ -9,16 +9,12 @@ import {
 	Level5,
 } from '../../../../../../components/Levels';
 import Tooltip from '../../../../../../components/Tooltip';
-import './voice.scss';
 
-const VoiceOrder = ({ goBack }) => {
+const VoiceOrder = () => {
 	const { firstName } = useSelector((state) => state.app);
 
 	return (
 		<div id='voice'>
-			<h3 className='back-link' onClick={goBack}>
-				Back
-			</h3>
 			<div className='title'>
 				<h2>How to Process a Voice Order</h2>
 			</div>
