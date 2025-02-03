@@ -33,7 +33,8 @@
 }
 
 .internal,
-.field-nation {
+.field-nation,
+.attention {
 	font-weight: bold;
 }
 
@@ -41,6 +42,7 @@
 	color: green;
 }
 
-.field-nation {
+.field-nation,
+.attention {
 	color: crimson;
 }
