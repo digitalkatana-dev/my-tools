@@ -9,16 +9,12 @@ import {
 	Level4,
 } from '../../../../../../components/Levels';
 import Tooltip from '../../../../../../components/Tooltip';
-import './circuit.scss';
 
-const CircuitOrder = ({ goBack }) => {
+const CircuitOrder = () => {
 	const { firstName } = useSelector((state) => state.app);
 
 	return (
 		<div id='circuit'>
-			<h3 className='back-link' onClick={goBack}>
-				Back
-			</h3>
 			<div className='title'>
 				<h2>How to Process a Circuit Order</h2>
 			</div>

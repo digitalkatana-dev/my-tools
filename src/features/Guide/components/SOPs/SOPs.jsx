@@ -2,9 +2,15 @@ import { useState } from 'react';
 import './sop.scss';
 import VoiceOrder from './components/VoiceOrder';
 import CircuitOrder from './components/CircuitOrder';
+import VoiceCancellationOrder from './components/VoiceCancellationOrder';
+import CircuitCancellationOrder from './components/CircuitCancellationOrder';
 
 const SOPs = () => {
 	const [view, setView] = useState('index');
+
+	const goBack = () => {
+		setView('index');
+	};
 
 	const handleClick = (sop) => {
 		setView(sop);
@@ -12,14 +18,19 @@ const SOPs = () => {
 
 	return (
 		<div id='sop'>
+			{view !== 'index' && (
+				<h3 className='back-link pressable' onClick={goBack}>
+					Back
+				</h3>
+			)}
 			{view === 'vo' ? (
-				<VoiceOrder goBack={() => setView('index')} />
+				<VoiceOrder />
 			) : view === 'co' ? (
-				<CircuitOrder goBack={() => setView('index')} />
+				<CircuitOrder />
 			) : view === 'vco' ? (
-				<h1>Voice Cancellation Order</h1>
+				<VoiceCancellationOrder />
 			) : view === 'cco' ? (
-				<h1>Circuit Cancellation Order</h1>
+				<CircuitCancellationOrder />
 			) : (
 				view === 'index' && (
 					<div className='sop-list'>
@@ -29,10 +40,10 @@ const SOPs = () => {
 						<h3 onClick={() => handleClick('co')}>
 							How to Process a Circuit Order
 						</h3>
-						<h3 onClick={()=> handleClick('vco')}>
+						<h3 onClick={() => handleClick('vco')}>
 							How to Process a Voice Cancellation Order
 						</h3>
-						<h3 onClick={()=> handleClick('cco')}>
+						<h3 onClick={() => handleClick('cco')}>
 							How to Process a Circuit Cancellation Order
 						</h3>
 					</div>
