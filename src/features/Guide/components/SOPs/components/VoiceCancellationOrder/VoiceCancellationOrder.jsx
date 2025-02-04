@@ -5,9 +5,7 @@ import {
 	Level2,
 	Level3,
 	Level4,
-	Level5,
 } from '../../../../../../components/Levels';
-import Tooltip from '../../../../../../components/Tooltip';
 
 const VoiceCancellationOrder = () => {
 	return (
@@ -116,6 +114,74 @@ const VoiceCancellationOrder = () => {
 				<Level3 identifier='4.'>Uncheck 'Active'</Level3>
 				<Level3 identifier='5.'>Click 'Save Changes'</Level3>
 				<SopImage imageUrl='deactivate_domain.png' />
+				<Level1 identifier='d.'>NMS Portal -</Level1>
+				<Level2 identifier='i.'>
+					Search for the voice domain and click on it
+				</Level2>
+				<Level2 identifier='ii.'>
+					Delete each <span className='bold'>Call Queue</span>
+				</Level2>
+				<Level2 identifier='iii.'>
+					On the Home tab, check the box for{' '}
+					<span className='bold'>Users and Applications</span> on the right hand
+					side of the screen - look at the{' '}
+					<span className='bold'>Phone numbers</span> and that number should be
+					zero.
+				</Level2>
+				<Level3 identifier='•'>
+					If not (
+					<span className='red'>
+						Nexogy specifically has this as a common occurrence
+					</span>
+					), click on View ALL Domains ➜ Click on Inventory ➜ filter by domain
+				</Level3>
+				<Level3 identifier='•'>
+					<span className='bold'>Reassign</span> all client numbers to the
+					appropriate 'tobecancelled' domain based on the voice server, assign
+					to ext. 2000 and add a note 'Removed from [client name] on [date]'
+				</Level3>
+				<Level3 identifier='•'>
+					Check '<span className='bold'>Inventory</span>' tab for the domain in
+					NMS to verify no numbers are present.
+				</Level3>
+				<Level1 identifier='e.'>
+					<span className='bold'>Delete Domain in NMS Portal</span> (
+					<span className='red'>Once All steps are complete</span>)
+				</Level1>
+				<Level2 identifier='i.'>
+					Navigate to the main domain tab, search for domain
+				</Level2>
+				<Level2 identifier='ii.'>
+					Need to make sure to set the Phone numbers, SMS numbers, and Phone
+					Hardware options all to Delete instead of unassign. These options
+					default to Unassign, so this must be updated during the process (see
+					screenshot below):
+				</Level2>
+				<SopImage imageUrl='delete_domain_nms.png' />
+			</section>
+			<section>
+				<div className='section-title'>3. Closeout Order in HOMIR</div>
+				<Level1 identifier='a.'>
+					Make sure to switch to Checklist View so you can check off the
+					Operations items
+				</Level1>
+				<SopImage imageUrl='voice_cancel_closeout.png' />
+				<Level1 identifier='b.'>
+					Update Cancellation order status to '
+					<span className='bold'>Ops Items Complete</span>'
+				</Level1>
+				<Level1 identifier='c.'>Send email in the following format:</Level1>
+				<Level2 identifier='i.'>To: Director of Service Delivery</Level2>
+				<Level2 identifier='ii.'>CC: Supervisor/Manager</Level2>
+				<Level2 identifier='iii.'>
+					Subject: [Cancellation Order Title] - Ops Items Complete
+				</Level2>
+				<Level2 identifier='iv.'>Body: Link to cancellation order</Level2>
+				<Level1 identifier='d.'>Complete order checklist</Level1>
+				<Level2 identifier='i.'>
+					If this is also an Account Closeout - ensure to follow the SOP to
+					close the account.
+				</Level2>
 			</section>
 		</div>
 	);
