@@ -755,7 +755,7 @@ const VoiceOrder = () => {
 				</Level3>
 				<Level3 identifier='b.'>Owner/Responsible - Order Processing</Level3>
 				<Level3 identifier='c.'>Select appropriate text template</Level3>
-				<SopImage imageUrl='ship_equip.png' />
+				<SopImage imageUrl='closeout_order.png' />
 				<Level2 identifier='iii.'>Clear Billing Discrepancies in Homir</Level2>
 				<Level2 identifier='iv.'>
 					If <span className='field-nation'>Field Nation</span> completed the
