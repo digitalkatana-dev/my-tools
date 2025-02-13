@@ -12,6 +12,7 @@ import {
 import storage from 'redux-persist/lib/storage';
 import appReducer from './slices/appSlice';
 import securityReducer from './slices/securitySlice';
+import ProjectReducer from './slices/projectSlice';
 
 const appPersistConfig = {
 	key: 'app',
@@ -36,10 +37,17 @@ const securityPersistConfig = {
 	whitelist: ['windows', 'warden', 'appPin'],
 };
 
+const projectPersistConfig = {
+	key: 'project',
+	storage,
+	whitelist: ['user'],
+};
+
 export const store = configureStore({
 	reducer: {
 		app: persistReducer(appPersistConfig, appReducer),
 		security: persistReducer(securityPersistConfig, securityReducer),
+		project: persistReducer(projectPersistConfig, ProjectReducer),
 	},
 	middleware: (getDefaultMiddleware) =>
 		getDefaultMiddleware({

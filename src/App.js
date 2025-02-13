@@ -5,6 +5,7 @@ import MainLayout from './layouts/MainLayout';
 import Home from './features/Home';
 import Generator from './features/Generator';
 import Guide from './features/Guide';
+import Projects from './features/Projects';
 import Settings from './features/Settings';
 
 function App() {
@@ -39,6 +40,10 @@ function App() {
 							element={<MainLayout children={<Guide />} />}
 						/>
 					)}
+					<Route
+						path='/projects'
+						element={<MainLayout children={<Projects />} />}
+					/>
 					<Route
 						path='/settings'
 						element={<MainLayout children={<Settings />} />}
