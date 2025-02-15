@@ -19,7 +19,7 @@ const TextInput = ({
 
 	return (
 		<div className='text-input' style={style}>
-			{label && <h6>{label}</h6>}
+			{label && <label>{label}</label>}
 			<div className='input-container'>
 				{leftIcon}
 				<input

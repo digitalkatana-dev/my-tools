@@ -1,0 +1,15 @@
+#checklist {
+	height: calc(100vh - 168px);
+
+	.client-container {
+		height: 50px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.checklist-container {
+		height: calc(100vh - 220px);
+		overflow-y: scroll;
+	}
+}

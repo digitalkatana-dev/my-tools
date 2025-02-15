@@ -9,6 +9,7 @@ const favicon = require('express-favicon');
 const path = require('path');
 const http = require('http');
 const userRoutes = require('./server/routes/userRoutes');
+const projectRoutes = require('./server/routes/projectRoutes');
 config();
 
 const app = express();
@@ -35,6 +36,7 @@ app.get('/*', (req, res) => {
 });
 
 app.use(userRoutes);
+app.use(projectRoutes);
 
 const server = http.createServer(app);
 

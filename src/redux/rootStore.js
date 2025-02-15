@@ -40,7 +40,7 @@ const securityPersistConfig = {
 const projectPersistConfig = {
 	key: 'project',
 	storage,
-	whitelist: ['user'],
+	whitelist: ['user', 'allProjects', 'selectedProject'],
 };
 
 export const store = configureStore({
