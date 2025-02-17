@@ -54,6 +54,7 @@ const initialState = projectAdapter.getInitialState({
 	circuit: {},
 	voice: {
 		three_a: false,
+		three_a_i: false,
 	},
 	user: null,
 	allProjects: null,
@@ -83,6 +84,9 @@ export const projectSlice = createSlice({
 		},
 		setVoice3A: (state) => {
 			state.voice.three_a = !state.voice.three_a;
+		},
+		setVoice3Ai: (state) => {
+			state.voice.three_a_i = !state.voice.three_a_i;
 		},
 		clearSuccess: (state) => {
 			state.success = null;
@@ -160,6 +164,7 @@ export const {
 	setClient,
 	setSelectedProject,
 	setVoice3A,
+	setVoice3Ai,
 	clearSuccess,
 	clearErrors,
 	logout,
