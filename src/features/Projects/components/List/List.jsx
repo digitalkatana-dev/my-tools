@@ -55,7 +55,7 @@ const List = ({ setView }) => {
 		<div id='list'>
 			<FormLabel className='form-label'>New Project</FormLabel>
 			<form onSubmit={handleSubmit}>
-				<Stack direction='row' alignItems='center' gap={10}>
+				<Stack direction='row' alignItems='center' gap={5}>
 					<FormControl>
 						<FormLabel className='radio-label'>Project Type</FormLabel>
 						<RadioGroup

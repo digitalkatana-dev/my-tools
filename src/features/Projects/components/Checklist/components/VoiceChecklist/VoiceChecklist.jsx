@@ -6,6 +6,10 @@ import { SopImage } from '../../../../../../components/Images';
 import {
 	setVoice3A,
 	setVoice3Ai,
+	setVoice3Aii,
+	setVoice3B,
+	setVoice4Ai,
+	setVoice4Aii,
 } from '../../../../../../redux/slices/projectSlice';
 import Tooltip from '../../../../../../components/Tooltip';
 
@@ -18,6 +22,10 @@ const VoiceChecklist = () => {
 		const actionMap = {
 			'3A': setVoice3A,
 			'3Ai': setVoice3Ai,
+			'3Aii': setVoice3Aii,
+			'3B': setVoice3B,
+			'4Ai': setVoice4Ai,
+			'4Aii': setVoice4Aii,
 		};
 
 		const action = actionMap[input];
@@ -134,14 +142,26 @@ const VoiceChecklist = () => {
 					Note any questions you may have that were not answered from the
 					details included in the New Order Email.
 				</Levels>
-				<Levels level='2' identifier='ii.'>
+				<Levels
+					level='2'
+					checklist
+					checked={voice.three_a_ii}
+					onChange={() => handleChange('3Aii')}
+					identifier='ii.'
+				>
 					Review{' '}
 					<Tooltip title='Service Order Form' placement='top-start' arrow>
 						SOF
 					</Tooltip>{' '}
 					for Special Notes (these are found on the signature page)
 				</Levels>
-				<Levels level='1' identifier='b.'>
+				<Levels
+					level='1'
+					checklist
+					checked={voice.three_b}
+					onChange={() => handleChange('3B')}
+					identifier='b.'
+				>
 					(Optional to frontload) Prepare{' '}
 					<a
 						className='link'
@@ -155,21 +175,37 @@ const VoiceChecklist = () => {
 					folder).
 				</Levels>
 			</section>
-			{/* <section>
+			<section>
 				<div className='section-title'>4. Design & Planning</div>
-				<Levels level='1' identifier='a.' subtitle >Send Intro Email</Levels>
-				<Levels level='2' identifier='i.'>
+				<Levels level='1' identifier='a.' subtitle>
+					Send Intro Email
+				</Levels>
+				<Levels
+					level='2'
+					checklist
+					checked={voice.four_a_i}
+					onChange={() => handleChange('4Ai')}
+					identifier='i.'
+				>
 					Using Homir email templates, send an intro email to the contact(s)
 					that were noted in the New Order email you received within 24 hours of
 					assignment.
 				</Levels>
-				<Levels level='2' identifier='ii.'>
+				<Levels
+					level='2'
+					checklist
+					checked={voice.four_a_ii}
+					onChange={() => handleChange('4Aii')}
+					identifier='ii.'
+				>
 					If you do not receive a response to your intro email within 24 hours,
 					attempt to call the contact and document the attempts in the notes
 					section of the Homir order page. Escalate after 3 failed contact
 					attmepts over a 72 hour peroid.
 				</Levels>
-				<Levels level='1' identifier='b.' subtitle >Conduct Intro Call</Levels>
+				<Levels level='1' identifier='b.' subtitle>
+					Conduct Intro Call
+				</Levels>
 				<Levels level='2' identifier='i.'>
 					Schedule the Intro Call via an Outlook calendar invitation.
 				</Levels>
@@ -184,7 +220,9 @@ const VoiceChecklist = () => {
 						</p>
 					</Stack>
 				</Levels>
-				<Levels level='2' identifier='ii.'>Before the intro call:</Levels>
+				<Levels level='2' identifier='ii.'>
+					Before the intro call:
+				</Levels>
 				<Levels level='3' identifier='•'>
 					Review all details provided by the contact in response to your intro
 					email. Note questions and review your calendar for date/time
@@ -194,19 +232,31 @@ const VoiceChecklist = () => {
 					Using Homir email templates, prep Intro Call Follow Up Email template
 					(use this during the intro call as an outline for the conversation).
 				</Levels>
-				<Levels level='2' identifier='iii.'>During intro call:</Levels>
-				<Levels level='3' identifier='•'>Review the order and discuss next steps.</Levels>
-				<Levels level='2' identifier='iv.'>After the intro call:</Levels>
-				<Levels level='3' identifier='•'>Send your drafted follow-up email.</Levels>
+				<Levels level='2' identifier='iii.'>
+					During intro call:
+				</Levels>
+				<Levels level='3' identifier='•'>
+					Review the order and discuss next steps.
+				</Levels>
+				<Levels level='2' identifier='iv.'>
+					After the intro call:
+				</Levels>
+				<Levels level='3' identifier='•'>
+					Send your drafted follow-up email.
+				</Levels>
 				<Levels level='3' identifier='•'>
 					Send any applicable calendar invites (i.e. Site Survey, Design
 					Meeting, InterOp, Go Live).
 				</Levels>
-				<Levels level='3' identifier='•'>Send applicable doucuments via Docusign.</Levels>
+				<Levels level='3' identifier='•'>
+					Send applicable doucuments via Docusign.
+				</Levels>
 				<Levels level='3' identifier='•'>
 					Update Homir with dates and notes from call.
 				</Levels>
-				<Levels level='1' identifier='c.' subtitle >Conduct Site Survey</Levels>
+				<Levels level='1' identifier='c.' subtitle>
+					Conduct Site Survey
+				</Levels>
 				<Levels level='2'>
 					We conduct both <span className='internal'>internal</span> and{' '}
 					<span className='field-nation'>Field Nation</span> surveys - verify
@@ -247,17 +297,31 @@ const VoiceChecklist = () => {
 					- this will be attached to the OTRS ticket when you submit the
 					dispatch request.
 				</Levels>
-				<Levels level='2' identifier='iii.'>Submit Dispatch Ticket Via OTRS</Levels>
-				<Levels level='3' identifier='•'>"Take Phone Call"</Levels>
-				<Levels level='3' identifier='•'>Type - Unclassified</Levels>
+				<Levels level='2' identifier='iii.'>
+					Submit Dispatch Ticket Via OTRS
+				</Levels>
+				<Levels level='3' identifier='•'>
+					"Take Phone Call"
+				</Levels>
+				<Levels level='3' identifier='•'>
+					Type - Unclassified
+				</Levels>
 				<Levels level='3' identifier='•'>
 					Customer User - enter the customers OTRS email (found in contacts on
 					Client page in Homir)
 				</Levels>
-				<Levels level='3' identifier='•'>Customer Name - leave blank</Levels>
-				<Levels level='3' identifier='•'>Queue - Service Delivery ➜ Provisioning</Levels>
-				<Levels level='3' identifier='•'>Owner - Provisioning OTRS</Levels>
-				<Levels level='3' identifier='•'>Responsible - Provisioning OTRS</Levels>
+				<Levels level='3' identifier='•'>
+					Customer Name - leave blank
+				</Levels>
+				<Levels level='3' identifier='•'>
+					Queue - Service Delivery ➜ Provisioning
+				</Levels>
+				<Levels level='3' identifier='•'>
+					Owner - Provisioning OTRS
+				</Levels>
+				<Levels level='3' identifier='•'>
+					Responsible - Provisioning OTRS
+				</Levels>
 				<Levels level='3' identifier='•'>
 					Select appropriate Text Template - choose either{' '}
 					<span className='internal'>internal</span> or{' '}
@@ -267,7 +331,9 @@ const VoiceChecklist = () => {
 					Under the Communication section in the From field, remove the email
 					address for the client and add your email address
 				</Levels>
-				<Levels level='3' identifier='•'>Update Subject line</Levels>
+				<Levels level='3' identifier='•'>
+					Update Subject line
+				</Levels>
 				<Levels level='3' identifier='•'>
 					Fill out the information in the Body and attach the Site Survey
 					Template to the ticket
@@ -295,7 +361,9 @@ const VoiceChecklist = () => {
 					</Tooltip>
 					.)
 				</Levels>
-				<Levels level='2' identifier='v.'>Complete Site Survey</Levels>
+				<Levels level='2' identifier='v.'>
+					Complete Site Survey
+				</Levels>
 				<Levels level='3' identifier='•'>
 					Review results of the survey with the tech while they are on site.
 				</Levels>
@@ -316,7 +384,9 @@ const VoiceChecklist = () => {
 						Ensure to establish an understanding of the next steps of the order.
 					</p>
 				</div>
-				<Levels level='1' identifier='d.' subtitle >Conduct Design Meeting</Levels>
+				<Levels level='1' identifier='d.' subtitle>
+					Conduct Design Meeting
+				</Levels>
 				<Levels level='2' identifier='i.'>
 					Send Calendar Invite to Client for Design Meeting
 				</Levels>
@@ -330,8 +400,12 @@ const VoiceChecklist = () => {
 				<Levels level='3' identifier='•'>
 					Provide conference bridge or Teams meeting information.
 				</Levels>
-				<Levels level='2' identifier='ii.'>Complete Design Meeting</Levels>
-				<Levels level='3' identifier='•'>Review & complete design document</Levels>
+				<Levels level='2' identifier='ii.'>
+					Complete Design Meeting
+				</Levels>
+				<Levels level='3' identifier='•'>
+					Review & complete design document
+				</Levels>
 				<Levels level='3' identifier='•'>
 					(If applicable) Review the numbers provided on the design document in
 					comparison to the numbers provided on the porting documents.
@@ -348,7 +422,9 @@ const VoiceChecklist = () => {
 					Send summary of any open/pending items and reestablish timeline and
 					next steps.
 				</Levels>
-				<Levels level='1' identifier='e.' subtitle >Confirm Agreed Upon Schedule</Levels>
+				<Levels level='1' identifier='e.' subtitle>
+					Confirm Agreed Upon Schedule
+				</Levels>
 				<Levels level='2' identifier='i.'>
 					Ensure a schedule has been established and relayed to the client (sent
 					via follow-up eamil).
@@ -356,8 +432,12 @@ const VoiceChecklist = () => {
 				<Levels level='2' identifier='ii.'>
 					Copy details of this schedule into the Homir order for reference.
 				</Levels>
-				<Levels level='2' identifier='iii.'>Update dates in Homir order page.</Levels>
-				<Levels level='1' identifier='f.' subtitle >Schedule the Installation</Levels>
+				<Levels level='2' identifier='iii.'>
+					Update dates in Homir order page.
+				</Levels>
+				<Levels level='1' identifier='f.' subtitle>
+					Schedule the Installation
+				</Levels>
 				<Levels level='2' identifier='i.'>
 					Ensure calendar invites are sent to the client for all of the
 					following dates as applicable:
@@ -365,11 +445,15 @@ const VoiceChecklist = () => {
 				<Levels level='2' identifier='Title:'>
 					Verve | Client Name - Scheduled Item
 				</Levels>
-				<Levels level='3' identifier='•'>Interop Test/Hardware Intall</Levels>
+				<Levels level='3' identifier='•'>
+					Interop Test/Hardware Intall
+				</Levels>
 				<Levels level='3' identifier='•'>
 					Voice Training (if desired by client/using portal)
 				</Levels>
-				<Levels level='3' identifier='•'>Voice Install/Porting Date</Levels>
+				<Levels level='3' identifier='•'>
+					Voice Install/Porting Date
+				</Levels>
 				<Levels level='2' identifier='ii.'>
 					Schedule dispatch for Testing/Install of Equipment/Phones:
 				</Levels>
@@ -389,7 +473,9 @@ const VoiceChecklist = () => {
 					</a>
 					)
 				</Levels>
-				<Levels level='1' identifier='g.' subtitle >Create Domain in Homir</Levels>
+				<Levels level='1' identifier='g.' subtitle>
+					Create Domain in Homir
+				</Levels>
 				<Levels level='2' identifier='i.'>
 					In Homir, find E911 number for your client and make note of it.
 				</Levels>
@@ -442,12 +528,18 @@ const VoiceChecklist = () => {
 				<Levels level='3' identifier='•'>
 					Caller Number: - Set the client's main office number as default
 				</Levels>
-				<Levels level='3' identifier='•'>Active Call Limit: - 10x the user count</Levels>
+				<Levels level='3' identifier='•'>
+					Active Call Limit: - 10x the user count
+				</Levels>
 				<Levels level='3' identifier='•'>
 					External Call Limit: - 10x the user count
 				</Levels>
-				<Levels level='3' identifier='•'>Max Users: - user count + 5</Levels>
-				<Levels level='2' identifier='iv.'>Click Create</Levels>
+				<Levels level='3' identifier='•'>
+					Max Users: - user count + 5
+				</Levels>
+				<Levels level='2' identifier='iv.'>
+					Click Create
+				</Levels>
 				<Levels level='1' identifier='h.'>
 					<span className='bold'>
 						Create Domain in the NMS Portal{' '}
@@ -456,8 +548,12 @@ const VoiceChecklist = () => {
 						</span>
 					</span>
 				</Levels>
-				<Levels level='2' identifier='i.'>Navigate to the NMS portal.</Levels>
-				<Levels level='2' identifier='ii.'>Select Domains at top of the screen.</Levels>
+				<Levels level='2' identifier='i.'>
+					Navigate to the NMS portal.
+				</Levels>
+				<Levels level='2' identifier='ii.'>
+					Select Domains at top of the screen.
+				</Levels>
 				<Levels level='2' identifier='iii.'>
 					Select Add Domain at top right under navigation bar.
 				</Levels>
@@ -465,7 +561,9 @@ const VoiceChecklist = () => {
 					A pop up will open and allow you to set the default settings for the
 					domain.
 				</Levels>
-				<Levels level='2' identifier='v.'>Basic Tab</Levels>
+				<Levels level='2' identifier='v.'>
+					Basic Tab
+				</Levels>
 				<Levels level='3' identifier='•'>
 					Name - This is the name of the new domain:{' '}
 					<span className='underline'>
@@ -479,8 +577,12 @@ const VoiceChecklist = () => {
 				<Levels level='3' identifier='•'>
 					Reseller - Select applicable (typically NextLevel)
 				</Levels>
-				<Levels level='2' identifier='vi.'>Defaults Tab</Levels>
-				<Levels level='3' identifier='•'>Dial Permission - US Canada and Mexico</Levels>
+				<Levels level='2' identifier='vi.'>
+					Defaults Tab
+				</Levels>
+				<Levels level='3' identifier='•'>
+					Dial Permission - US Canada and Mexico
+				</Levels>
 				<Levels level='4' identifier='⁃'>
 					International requires a specific process to enable (see supervisor)
 				</Levels>
@@ -497,7 +599,9 @@ const VoiceChecklist = () => {
 				<Levels level='3' identifier='•'>
 					Caller ID - Set the client's main office number as default.
 				</Levels>
-				<Levels level='2' identifier='vii.'>Limitations</Levels>
+				<Levels level='2' identifier='vii.'>
+					Limitations
+				</Levels>
 				<Levels level='3' identifier='•'>
 					Active Call Limit - External Call Limit and Max Users should be set to
 					10x the user/seat count.
@@ -520,21 +624,37 @@ const VoiceChecklist = () => {
 					Find client name and verify address is correct and address says it is
 					provisioned.
 				</Levels>
-				<Levels level='3' identifier='•'>On right side of screen, select Assign.</Levels>
+				<Levels level='3' identifier='•'>
+					On right side of screen, select Assign.
+				</Levels>
 				<Levels level='3' identifier='•'>
 					Select the recently created domain from the drop-down menu.
 				</Levels>
-				<Levels level='3' identifier='•'>Select Change Assignments</Levels>
-				<Levels level='1' identifier='i.' subtitle >Numbers</Levels>
-				<Levels level='2' identifier='i.'>New numbers</Levels>
+				<Levels level='3' identifier='•'>
+					Select Change Assignments
+				</Levels>
+				<Levels level='1' identifier='i.' subtitle>
+					Numbers
+				</Levels>
+				<Levels level='2' identifier='i.'>
+					New numbers
+				</Levels>
 				<Levels level='3' identifier='•'>
 					Submit request for new number(s) via an OTRS ticket.
 				</Levels>
-				<Levels level='4' identifier='⁃'>Queue - Provisioning</Levels>
-				<Levels level='4' identifier='⁃'>Owner/Responsible - Provisioning OTRS</Levels>
-				<Levels level='4' identifier='⁃'>Select appropriate text template</Levels>
+				<Levels level='4' identifier='⁃'>
+					Queue - Provisioning
+				</Levels>
+				<Levels level='4' identifier='⁃'>
+					Owner/Responsible - Provisioning OTRS
+				</Levels>
+				<Levels level='4' identifier='⁃'>
+					Select appropriate text template
+				</Levels>
 				<SopImage imageUrl='new_number.png' />
-				<Levels level='2' identifier='ii.'>Porting</Levels>
+				<Levels level='2' identifier='ii.'>
+					Porting
+				</Levels>
 				<Levels level='3' identifier='•'>
 					Ontain Port Docs, E911 and Phone Bill/CSR (preference for LOA's to be
 					completed via DocuSign)
@@ -542,9 +662,15 @@ const VoiceChecklist = () => {
 				<Levels level='4' identifier='a.'>
 					LOA's - 3 different types (in Templates folder)
 				</Levels>
-				<Levels level='5' identifier='i.'>TN (verify whether SMS is needed)</Levels>
-				<Levels level='5' identifier='ii.'>Fax</Levels>
-				<Levels level='5' identifier='iii.'>Toll Free</Levels>
+				<Levels level='5' identifier='i.'>
+					TN (verify whether SMS is needed)
+				</Levels>
+				<Levels level='5' identifier='ii.'>
+					Fax
+				</Levels>
+				<Levels level='5' identifier='iii.'>
+					Toll Free
+				</Levels>
 				<Levels level='4' identifier='b.'>
 					E911 - this document needs to be completed for each physical location
 					where phones will be placed.
@@ -556,10 +682,18 @@ const VoiceChecklist = () => {
 				<Levels level='4' identifier='d.'>
 					Update date in Homir once all docs have been received.
 				</Levels>
-				<Levels level='3' identifier='•'>Submit Port Request via OTRS</Levels>
-				<Levels level='4' identifier='a.'>Queue - Provisioning</Levels>
-				<Levels level='4' identifier='b.'>Owner/Responsible - Provisioning OTRS</Levels>
-				<Levels level='4' identifier='c.'>Select appropriate text template</Levels>
+				<Levels level='3' identifier='•'>
+					Submit Port Request via OTRS
+				</Levels>
+				<Levels level='4' identifier='a.'>
+					Queue - Provisioning
+				</Levels>
+				<Levels level='4' identifier='b.'>
+					Owner/Responsible - Provisioning OTRS
+				</Levels>
+				<Levels level='4' identifier='c.'>
+					Select appropriate text template
+				</Levels>
 				<SopImage imageUrl='port_number.png' />
 				<Levels level='3' identifier='•'>
 					Ports Submitted to Number Vendors (
@@ -633,12 +767,20 @@ const VoiceChecklist = () => {
 						]
 					</span>
 				</Levels>
-				<Levels level='2' identifier='i.'>Submit equipment request via OTRS</Levels>
-				<Levels level='3' identifier='•'>Queue - Provisioning</Levels>
-				<Levels level='3' identifier='•'>Owner/Responsibile - Provisioning OTRS</Levels>
-				<Levels level='3' identifier='•'>Select appropriate text template</Levels>
+				<Levels level='2' identifier='i.'>
+					Submit equipment request via OTRS
+				</Levels>
+				<Levels level='3' identifier='•'>
+					Queue - Provisioning
+				</Levels>
+				<Levels level='3' identifier='•'>
+					Owner/Responsibile - Provisioning OTRS
+				</Levels>
+				<Levels level='3' identifier='•'>
+					Select appropriate text template
+				</Levels>
 				<SopImage imageUrl='order_equipment.png' />
-			</section> */}
+			</section>
 		</div>
 	);
 };

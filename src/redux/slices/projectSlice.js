@@ -55,6 +55,10 @@ const initialState = projectAdapter.getInitialState({
 	voice: {
 		three_a: false,
 		three_a_i: false,
+		three_a_ii: false,
+		three_b: false,
+		four_a_i: false,
+		four_a_ii: false,
 	},
 	user: null,
 	allProjects: null,
@@ -87,6 +91,18 @@ export const projectSlice = createSlice({
 		},
 		setVoice3Ai: (state) => {
 			state.voice.three_a_i = !state.voice.three_a_i;
+		},
+		setVoice3Aii: (state) => {
+			state.voice.three_a_ii = !state.voice.three_a_ii;
+		},
+		setVoice3B: (state) => {
+			state.voice.three_b = !state.voice.three_b;
+		},
+		setVoice4Ai: (state) => {
+			state.voice.four_a_i = !state.voice.four_a_i;
+		},
+		setVoice4Aii: (state) => {
+			state.voice.four_a_ii = !state.voice.four_a_ii;
 		},
 		clearSuccess: (state) => {
 			state.success = null;
@@ -165,6 +181,10 @@ export const {
 	setSelectedProject,
 	setVoice3A,
 	setVoice3Ai,
+	setVoice3Aii,
+	setVoice3B,
+	setVoice4Ai,
+	setVoice4Aii,
 	clearSuccess,
 	clearErrors,
 	logout,

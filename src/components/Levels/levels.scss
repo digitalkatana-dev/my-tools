@@ -22,6 +22,10 @@
 			top: 1.5px;
 			left: 0;
 			padding: 0;
+
+			svg {
+				fill: var(--highlight) !important;
+			}
 		}
 
 		.level-txt,
@@ -31,6 +35,7 @@
 			&.done {
 				text-decoration: line-through;
 				text-decoration-color: crimson;
+				text-decoration-thickness: 3px;
 			}
 		}
 	}

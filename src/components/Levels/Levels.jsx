@@ -34,7 +34,16 @@ const Levels = ({
 					onChange={onChange}
 				/>
 			)}
-			{component ? [children] : [textContent]}
+			{component ? (
+				<>
+					<span className={`identifier ${checked ? 'done' : ''}`}>
+						{identifier}
+					</span>
+					{children}
+				</>
+			) : (
+				[textContent]
+			)}
 		</div>
 	);
 };
