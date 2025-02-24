@@ -25,7 +25,11 @@ const Levels = ({
 		</p>
 	);
 	return (
-		<div className={`level-${level} ${checklist ? 'checklist' : ''}`}>
+		<div
+			className={`level-${level} ${checklist ? 'checklist' : ''}${
+				component ? 'component' : ''
+			}`}
+		>
 			{checklist && (
 				<Checkbox
 					className='checkbox'

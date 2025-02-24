@@ -6,12 +6,19 @@
 	display: flex;
 	margin-bottom: 15px;
 
+	.identifier,
 	.level-txt,
 	.section-subtitle {
-		.identifier {
-			font-weight: bold;
-			margin-right: 5px;
+		&.done {
+			text-decoration: line-through;
+			text-decoration-color: crimson;
+			text-decoration-thickness: 3px;
 		}
+	}
+
+	.identifier {
+		font-weight: bold;
+		margin-right: 5px;
 	}
 
 	&.checklist {
@@ -31,12 +38,6 @@
 		.level-txt,
 		.section-subtitle {
 			text-indent: 30px;
-
-			&.done {
-				text-decoration: line-through;
-				text-decoration-color: crimson;
-				text-decoration-thickness: 3px;
-			}
 		}
 	}
 }
@@ -46,11 +47,6 @@
 
 	.section-subtitle {
 		font-weight: bold;
-
-		&.done {
-			text-decoration: line-through;
-			text-decoration-color: crimson;
-		}
 	}
 }
 
@@ -60,6 +56,10 @@
 
 .level-3 {
 	margin-left: 40px;
+
+	&.component {
+		margin-left: 70px;
+	}
 }
 
 .level-4 {

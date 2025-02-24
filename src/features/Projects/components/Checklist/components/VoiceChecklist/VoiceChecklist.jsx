@@ -1,15 +1,19 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Checkbox, Stack } from '@mui/material';
+import { Stack } from '@mui/material';
 import Levels from '../../../../../../components/Levels';
 import { SopImage } from '../../../../../../components/Images';
 import {
-	setVoice3A,
 	setVoice3Ai,
 	setVoice3Aii,
-	setVoice3B,
+	setVoice3Aiii,
 	setVoice4Ai,
 	setVoice4Aii,
+	setVoice4Bi,
+	setVoice4Bii1,
+	setVoice4Bii2,
+	setVoice4Biii,
+	setVoice4Biv,
 } from '../../../../../../redux/slices/projectSlice';
 import Tooltip from '../../../../../../components/Tooltip';
 
@@ -20,12 +24,16 @@ const VoiceChecklist = () => {
 
 	const handleChange = (input) => {
 		const actionMap = {
-			'3A': setVoice3A,
 			'3Ai': setVoice3Ai,
 			'3Aii': setVoice3Aii,
-			'3B': setVoice3B,
+			'3Aiii': setVoice3Aiii,
 			'4Ai': setVoice4Ai,
 			'4Aii': setVoice4Aii,
+			'4Bi': setVoice4Bi,
+			'4Bii1': setVoice4Bii1,
+			'4Bii2': setVoice4Bii2,
+			'4Biii': setVoice4Biii,
+			'4Biv': setVoice4Biv,
 		};
 
 		const action = actionMap[input];
@@ -122,14 +130,7 @@ const VoiceChecklist = () => {
 			</section>
 			<section>
 				<div className='section-title'>3. Initiation Phase</div>
-				<Levels
-					level='1'
-					checklist
-					checked={voice.three_a}
-					onChange={() => handleChange('3A')}
-					identifier='a.'
-					subtitle
-				>
+				<Levels level='1' identifier='a.' subtitle>
 					Review your new order!
 				</Levels>
 				<Levels
@@ -156,11 +157,11 @@ const VoiceChecklist = () => {
 					for Special Notes (these are found on the signature page)
 				</Levels>
 				<Levels
-					level='1'
+					level='2'
 					checklist
-					checked={voice.three_b}
-					onChange={() => handleChange('3B')}
-					identifier='b.'
+					checked={voice.three_a_iii}
+					onChange={() => handleChange('3Aiii')}
+					identifier='iii.'
 				>
 					(Optional to frontload) Prepare{' '}
 					<a
@@ -206,15 +207,21 @@ const VoiceChecklist = () => {
 				<Levels level='1' identifier='b.' subtitle>
 					Conduct Intro Call
 				</Levels>
-				<Levels level='2' identifier='i.'>
+				<Levels
+					level='2'
+					checklist
+					checked={voice.four_b_i}
+					onChange={() => handleChange('4Bi')}
+					identifier='i.'
+				>
 					Schedule the Intro Call via an Outlook calendar invitation.
 				</Levels>
-				<Levels level='3' component identifier='•'>
+				<Levels level='3' component checked={voice.four_b_i} identifier='•'>
 					<Stack direction='column'>
-						<p className='level-3-txt'>
+						<p className={`level-txt ${voice.four_b_i ? 'done' : ''}`}>
 							Title = Client Name | Verve - Project Introduction
 						</p>
-						<p className='level-3-txt'>
+						<p className={`level-txt ${voice.four_b_i ? 'done' : ''}`}>
 							Provide your conference bridge or add a Teams meeting (add to body
 							and location field).
 						</p>
@@ -223,12 +230,24 @@ const VoiceChecklist = () => {
 				<Levels level='2' identifier='ii.'>
 					Before the intro call:
 				</Levels>
-				<Levels level='3' identifier='•'>
+				<Levels
+					level='3'
+					checklist
+					checked={voice.four_b_ii_1}
+					onChange={() => handleChange('4Bii1')}
+					identifier='•'
+				>
 					Review all details provided by the contact in response to your intro
 					email. Note questions and review your calendar for date/time
 					availability to conduct survey and design meeting.
 				</Levels>
-				<Levels level='3' identifier='•'>
+				<Levels
+					level='3'
+					checklist
+					checked={voice.four_b_ii_2}
+					onChange={() => handleChange('4Bii2')}
+					identifier='•'
+				>
 					Using Homir email templates, prep Intro Call Follow Up Email template
 					(use this during the intro call as an outline for the conversation).
 				</Levels>
