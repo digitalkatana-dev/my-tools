@@ -43,7 +43,7 @@ function App() {
 					)}
 					<Route
 						path='/projects'
-						element={<MainLayout children={<Projects />} />}
+						element={<MainLayout children={<UnderConstruction />} />}
 					/>
 					<Route
 						path='/settings'
