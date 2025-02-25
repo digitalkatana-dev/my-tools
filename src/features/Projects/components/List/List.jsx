@@ -19,7 +19,8 @@ import Button from '../../../../components/Button';
 import './list.scss';
 
 const List = ({ setView }) => {
-	const { user, projectType, client, allProjects } = useSelector(
+	const { user } = useSelector((state) => state.user);
+	const { projectType, client, allProjects } = useSelector(
 		(state) => state.project
 	);
 	const dispatch = useDispatch();

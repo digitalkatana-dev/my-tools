@@ -3,22 +3,8 @@ import {
 	createEntityAdapter,
 	createSlice,
 } from '@reduxjs/toolkit';
+import { logout } from './userSlice';
 import toolsApi from '../../api/toolsApi';
-
-export const login = createAsyncThunk(
-	'projects/login',
-	async (data, { rejectWithValue, dispatch }) => {
-		try {
-			const res = await toolsApi.post('/login', data);
-			const { success, userProfile, token } = res.data;
-			localStorage.setItem('token', token);
-			success && dispatch(getUserProjects(userProfile._id));
-			return { success, userProfile };
-		} catch (err) {
-			return rejectWithValue(err.response.data);
-		}
-	}
-);
 
 export const getUserProjects = createAsyncThunk(
 	'projects/get_user_projects',
@@ -62,7 +48,24 @@ const initialState = projectAdapter.getInitialState({
 		four_b_ii_1: false,
 		four_b_ii_2: false,
 		four_b_iii: false,
-		four_b_iv: false,
+		four_b_iv_1: false,
+		four_b_iv_2: false,
+		four_b_iv_3: false,
+		four_b_iv_4: false,
+		four_c_i: false,
+		four_c_ii: false,
+		four_c_iii: false,
+		four_c_iv: false,
+		four_c_v_1: false,
+		four_c_v_2: false,
+		four_c_v_3: false,
+		four_c_vi: false,
+		four_d_i: false,
+		four_d_ii_1: false,
+		four_d_ii_2: false,
+		four_d_ii_3: false,
+		four_d_ii_4: false,
+		four_d_ii_5: false,
 	},
 	user: null,
 	allProjects: null,
@@ -89,9 +92,6 @@ export const projectSlice = createSlice({
 		},
 		setSelectedProject: (state, action) => {
 			state.selectedProject = action.payload;
-		},
-		setVoice3A: (state) => {
-			state.voice.three_a = !state.voice.three_a;
 		},
 		setVoice3Ai: (state) => {
 			state.voice.three_a_i = !state.voice.three_a_i;
@@ -120,8 +120,59 @@ export const projectSlice = createSlice({
 		setVoice4Biii: (state) => {
 			state.voice.four_b_iii = !state.voice.four_b_iii;
 		},
-		setVoice4Biv: (state) => {
-			state.voice.four_b_iv = !state.voice.four_b_iv;
+		setVoice4Biv1: (state) => {
+			state.voice.four_b_iv_1 = !state.voice.four_b_iv_1;
+		},
+		setVoice4Biv2: (state) => {
+			state.voice.four_b_iv_2 = !state.voice.four_b_iv_2;
+		},
+		setVoice4Biv3: (state) => {
+			state.voice.four_b_iv_3 = !state.voice.four_b_iv_3;
+		},
+		setVoice4Biv4: (state) => {
+			state.voice.four_b_iv_4 = !state.voice.four_b_iv_4;
+		},
+		setVoice4Ci: (state) => {
+			state.voice.four_c_i = !state.voice.four_c_i;
+		},
+		setVoice4Cii: (state) => {
+			state.voice.four_c_ii = !state.voice.four_c_ii;
+		},
+		setVoice4Ciii: (state) => {
+			state.voice.four_c_iii = !state.voice.four_c_iii;
+		},
+		setVoice4Civ: (state) => {
+			state.voice.four_c_iv = !state.voice.four_c_iv;
+		},
+		setVoice4Cv1: (state) => {
+			state.voice.four_c_v_1 = !state.voice.four_c_v_1;
+		},
+		setVoice4Cv2: (state) => {
+			state.voice.four_c_v_2 = !state.voice.four_c_v_2;
+		},
+		setVoice4Cv3: (state) => {
+			state.voice.four_c_v_3 = !state.voice.four_c_v_3;
+		},
+		setVoice4Cvi: (state) => {
+			state.voice.four_c_vi = !state.voice.four_c_vi;
+		},
+		setVoice4Di: (state) => {
+			state.voice.four_d_i = !state.voice.four_d_i;
+		},
+		setVoice4Dii1: (state) => {
+			state.voice.four_d_ii_1 = !state.voice.four_d_ii_1;
+		},
+		setVoice4Dii2: (state) => {
+			state.voice.four_d_ii_2 = !state.voice.four_d_ii_2;
+		},
+		setVoice4Dii3: (state) => {
+			state.voice.four_d_ii_3 = !state.voice.four_d_ii_3;
+		},
+		setVoice4Dii4: (state) => {
+			state.voice.four_d_ii_4 = !state.voice.four_d_ii_4;
+		},
+		setVoice4Dii5: (state) => {
+			state.voice.four_d_ii_5 = !state.voice.four_d_ii_5;
 		},
 		clearSuccess: (state) => {
 			state.success = null;
@@ -129,38 +180,9 @@ export const projectSlice = createSlice({
 		clearErrors: (state) => {
 			state.errors = null;
 		},
-		logout: (state) => {
-			localStorage.removeItem('token');
-			state.loading = false;
-			state.email = '';
-			state.password = '';
-			state.projectType = 'voice';
-			state.client = '';
-			state.user = null;
-			state.allProjects = null;
-			state.selectedProject = null;
-			state.success = null;
-			state.errors = null;
-		},
 	},
 	extraReducers: (builder) => {
 		builder
-			.addCase(login.pending, (state) => {
-				state.loading = true;
-				state.errors = null;
-			})
-			.addCase(login.fulfilled, (state, action) => {
-				state.loading = false;
-				state.success = action.payload.success;
-				state.user = action.payload.userProfile;
-				state.email = '';
-				state.password = '';
-				state.errors = null;
-			})
-			.addCase(login.rejected, (state, action) => {
-				state.loading = false;
-				state.errors = action.payload;
-			})
 			.addCase(getUserProjects.pending, (state) => {
 				state.loading = true;
 				state.errors = null;
@@ -188,17 +210,23 @@ export const projectSlice = createSlice({
 			.addCase(addNewProject.rejected, (state, action) => {
 				state.loading = false;
 				state.errors = action.payload;
+			})
+			.addCase(logout, (state) => {
+				state.loading = false;
+				state.projectType = 'voice';
+				state.client = '';
+				state.allProjects = null;
+				state.selectedProject = null;
+				state.success = null;
+				state.errors = null;
 			});
 	},
 });
 
 export const {
-	setEmail,
-	setPassword,
 	setProjectType,
 	setClient,
 	setSelectedProject,
-	setVoice3A,
 	setVoice3Ai,
 	setVoice3Aii,
 	setVoice3Aiii,
@@ -208,10 +236,26 @@ export const {
 	setVoice4Bii1,
 	setVoice4Bii2,
 	setVoice4Biii,
-	setVoice4Biv,
+	setVoice4Biv1,
+	setVoice4Biv2,
+	setVoice4Biv3,
+	setVoice4Biv4,
+	setVoice4Ci,
+	setVoice4Cii,
+	setVoice4Ciii,
+	setVoice4Civ,
+	setVoice4Cv1,
+	setVoice4Cv2,
+	setVoice4Cv3,
+	setVoice4Cvi,
+	setVoice4Di,
+	setVoice4Dii1,
+	setVoice4Dii2,
+	setVoice4Dii3,
+	setVoice4Dii4,
+	setVoice4Dii5,
 	clearSuccess,
 	clearErrors,
-	logout,
 } = projectSlice.actions;
 
 export default projectSlice.reducer;

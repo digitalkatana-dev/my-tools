@@ -4,13 +4,13 @@ import {
 	setEmail,
 	setPassword,
 	login,
-} from '../../../../redux/slices/projectSlice';
+} from '../../../../redux/slices/userSlice';
 import TextInput from '../../../../components/TextInput';
 import Button from '../../../../components/Button';
 import './auth.scss';
 
 const Auth = () => {
-	const { email, password } = useSelector((state) => state.project);
+	const { email, password } = useSelector((state) => state.user);
 	const dispatch = useDispatch();
 
 	const handleChange = (input, value) => {

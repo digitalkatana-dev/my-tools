@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Stack } from '@mui/material';
-import { logout, setSelectedProject } from '../../redux/slices/projectSlice';
+import { logout } from '../../redux/slices/userSlice';
+import { setSelectedProject } from '../../redux/slices/projectSlice';
 import Button from '../../components/Button';
 import Auth from './components/Auth';
 import List from './components/List';
@@ -9,7 +10,7 @@ import Checklist from './components/Checklist';
 import './projects.scss';
 
 const Projects = () => {
-	const { user } = useSelector((state) => state.project);
+	const { user } = useSelector((state) => state.user);
 	const [view, setView] = useState('list');
 	const dispatch = useDispatch();
 
