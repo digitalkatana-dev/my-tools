@@ -1,17 +1,82 @@
-import { useSelector } from 'react-redux';
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Stack } from '@mui/material';
-import { SopImage } from '../../../../../../components/Images';
 import Levels from '../../../../../../components/Levels';
+import { SopImage } from '../../../../../../components/Images';
+import {
+	setVoice3Ai,
+	setVoice3Aii,
+	setVoice3Aiii,
+	setVoice4Ai,
+	setVoice4Aii,
+	setVoice4Bi,
+	setVoice4Bii1,
+	setVoice4Bii2,
+	setVoice4Biii,
+	setVoice4Biv1,
+	setVoice4Biv2,
+	setVoice4Biv3,
+	setVoice4Biv4,
+	setVoice4Ci,
+	setVoice4Cii,
+	setVoice4Ciii,
+	setVoice4Civ,
+	setVoice4Cv1,
+	setVoice4Cv2,
+	setVoice4Cv3,
+	setVoice4Cvi,
+	setVoice4Di,
+	setVoice4Dii1,
+	setVoice4Dii2,
+	setVoice4Dii3,
+	setVoice4Dii4,
+	setVoice4Dii5,
+} from '../../../../../../redux/slices/projectSlice';
 import Tooltip from '../../../../../../components/Tooltip';
 
-const VoiceOrder = () => {
+const VoiceChecklist = () => {
 	const { firstName } = useSelector((state) => state.app);
+	const { voice } = useSelector((state) => state.project);
+	const dispatch = useDispatch();
+
+	const handleChange = (input) => {
+		const actionMap = {
+			'3Ai': setVoice3Ai,
+			'3Aii': setVoice3Aii,
+			'3Aiii': setVoice3Aiii,
+			'4Ai': setVoice4Ai,
+			'4Aii': setVoice4Aii,
+			'4Bi': setVoice4Bi,
+			'4Bii1': setVoice4Bii1,
+			'4Bii2': setVoice4Bii2,
+			'4Biii': setVoice4Biii,
+			'4Biv1': setVoice4Biv1,
+			'4Biv2': setVoice4Biv2,
+			'4Biv3': setVoice4Biv3,
+			'4Biv4': setVoice4Biv4,
+			'4Ci': setVoice4Ci,
+			'4Cii': setVoice4Cii,
+			'4Ciii': setVoice4Ciii,
+			'4Civ': setVoice4Civ,
+			'4Cv1': setVoice4Cv1,
+			'4Cv2': setVoice4Cv2,
+			'4Cv3': setVoice4Cv3,
+			'4Cvi': setVoice4Cvi,
+			'4Di': setVoice4Di,
+			'4Dii1': setVoice4Dii1,
+			'4Dii2': setVoice4Dii2,
+			'4Dii3': setVoice4Dii3,
+			'4Dii4': setVoice4Dii4,
+			'4Dii5': setVoice4Dii5,
+		};
+
+		const action = actionMap[input];
+
+		action && dispatch(action());
+	};
 
 	return (
-		<div id='voice'>
-			<div className='title'>
-				<h2>How to Process a Voice Order</h2>
-			</div>
+		<div id='vcl'>
 			<section>
 				<div className='section-title'>1. Order Processing Setup</div>
 				<Levels level='1' identifier='a.'>
@@ -102,18 +167,36 @@ const VoiceOrder = () => {
 				<Levels level='1' identifier='a.' subtitle>
 					Review your new order!
 				</Levels>
-				<Levels level='2' identifier='i.'>
+				<Levels
+					level='2'
+					checklist
+					checked={voice.three_a_i}
+					onChange={() => handleChange('3Ai')}
+					identifier='i.'
+				>
 					Note any questions you may have that were not answered from the
 					details included in the New Order Email.
 				</Levels>
-				<Levels level='2' identifier='ii.'>
+				<Levels
+					level='2'
+					checklist
+					checked={voice.three_a_ii}
+					onChange={() => handleChange('3Aii')}
+					identifier='ii.'
+				>
 					Review{' '}
 					<Tooltip title='Service Order Form' placement='top-start' arrow>
 						SOF
 					</Tooltip>{' '}
 					for Special Notes (these are found on the signature page)
 				</Levels>
-				<Levels level='1' identifier='b.'>
+				<Levels
+					level='2'
+					checklist
+					checked={voice.three_a_iii}
+					onChange={() => handleChange('3Aiii')}
+					identifier='iii.'
+				>
 					(Optional to frontload) Prepare{' '}
 					<a
 						className='link'
@@ -132,12 +215,24 @@ const VoiceOrder = () => {
 				<Levels level='1' identifier='a.' subtitle>
 					Send Intro Email
 				</Levels>
-				<Levels level='2' identifier='i.'>
+				<Levels
+					level='2'
+					checklist
+					checked={voice.four_a_i}
+					onChange={() => handleChange('4Ai')}
+					identifier='i.'
+				>
 					Using Homir email templates, send an intro email to the contact(s)
 					that were noted in the New Order email you received within 24 hours of
 					assignment.
 				</Levels>
-				<Levels level='2' identifier='ii.'>
+				<Levels
+					level='2'
+					checklist
+					checked={voice.four_a_ii}
+					onChange={() => handleChange('4Aii')}
+					identifier='ii.'
+				>
 					If you do not receive a response to your intro email within 24 hours,
 					attempt to call the contact and document the attempts in the notes
 					section of the Homir order page. Escalate after 3 failed contact
@@ -146,15 +241,21 @@ const VoiceOrder = () => {
 				<Levels level='1' identifier='b.' subtitle>
 					Conduct Intro Call
 				</Levels>
-				<Levels level='2' identifier='i.'>
+				<Levels
+					level='2'
+					checklist
+					checked={voice.four_b_i}
+					onChange={() => handleChange('4Bi')}
+					identifier='i.'
+				>
 					Schedule the Intro Call via an Outlook calendar invitation.
 				</Levels>
-				<Levels level='3' component identifier='•'>
+				<Levels level='3' component checked={voice.four_b_i} identifier='•'>
 					<Stack direction='column'>
-						<p className='level-3-txt'>
+						<p className={`level-txt ${voice.four_b_i ? 'done' : ''}`}>
 							Title = Client Name | Verve - Project Introduction
 						</p>
-						<p className='level-3-txt'>
+						<p className={`level-txt ${voice.four_b_i ? 'done' : ''}`}>
 							Provide your conference bridge or add a Teams meeting (add to body
 							and location field).
 						</p>
@@ -163,35 +264,77 @@ const VoiceOrder = () => {
 				<Levels level='2' identifier='ii.'>
 					Before the intro call:
 				</Levels>
-				<Levels level='3' identifier='•'>
+				<Levels
+					level='3'
+					checklist
+					checked={voice.four_b_ii_1}
+					onChange={() => handleChange('4Bii1')}
+					identifier='•'
+				>
 					Review all details provided by the contact in response to your intro
 					email. Note questions and review your calendar for date/time
 					availability to conduct survey and design meeting.
 				</Levels>
-				<Levels level='3' identifier='•'>
+				<Levels
+					level='3'
+					checklist
+					checked={voice.four_b_ii_2}
+					onChange={() => handleChange('4Bii2')}
+					identifier='•'
+				>
 					Using Homir email templates, prep Intro Call Follow Up Email template
 					(use this during the intro call as an outline for the conversation).
 				</Levels>
 				<Levels level='2' identifier='iii.'>
 					During intro call:
 				</Levels>
-				<Levels level='3' identifier='•'>
+				<Levels
+					level='3'
+					checklist
+					checked={voice.four_b_iii}
+					onChange={() => handleChange('4Biii')}
+					identifier='•'
+				>
 					Review the order and discuss next steps.
 				</Levels>
 				<Levels level='2' identifier='iv.'>
 					After the intro call:
 				</Levels>
-				<Levels level='3' identifier='•'>
+				<Levels
+					level='3'
+					checklist
+					checked={voice.four_b_iv_1}
+					onChange={() => handleChange('4Biv1')}
+					identifier='•'
+				>
 					Send your drafted follow-up email.
 				</Levels>
-				<Levels level='3' identifier='•'>
+				<Levels
+					level='3'
+					checklist
+					checked={voice.four_b_iv_2}
+					onChange={() => handleChange('4Biv2')}
+					identifier='•'
+				>
 					Send any applicable calendar invites (i.e. Site Survey, Design
 					Meeting, InterOp, Go Live).
 				</Levels>
-				<Levels level='3' identifier='•'>
+				<Levels
+					level='3'
+					checklist
+					checked={voice.four_b_iv_3}
+					onChange={() => handleChange('4Biv3')}
+					identifier='•'
+				>
 					Send applicable doucuments via Docusign.
 				</Levels>
-				<Levels level='3' identifier='•'>
+				<Levels
+					level='3'
+					checklist
+					checked={voice.four_b_iv_4}
+					onChange={() => handleChange('4Biv4')}
+					identifier='•'
+				>
 					Update Homir with dates and notes from call.
 				</Levels>
 				<Levels level='1' identifier='c.' subtitle>
@@ -211,7 +354,13 @@ const VoiceOrder = () => {
 					</a>
 					)
 				</Levels>
-				<Levels level='2' identifier='i.'>
+				<Levels
+					level='2'
+					checklist
+					checked={voice.four_c_i}
+					onChange={() => handleChange('4Ci')}
+					identifier='i.'
+				>
 					(If <span className='field-nation'>Field Nation</span>) Create Field
 					Nation Work Order. (see{' '}
 					<a
@@ -224,7 +373,13 @@ const VoiceOrder = () => {
 					</a>
 					)
 				</Levels>
-				<Levels level='2' identifier='ii.'>
+				<Levels
+					level='2'
+					checklist
+					checked={voice.four_c_ii}
+					onChange={() => handleChange('4Cii')}
+					identifier='ii.'
+				>
 					Complete{' '}
 					<a
 						className='link'
@@ -237,58 +392,70 @@ const VoiceOrder = () => {
 					- this will be attached to the OTRS ticket when you submit the
 					dispatch request.
 				</Levels>
-				<Levels level='2' identifier='iii.'>
+				<Levels
+					level='2'
+					checklist
+					checked={voice.four_c_iii}
+					onChange={() => handleChange('4Ciii')}
+					identifier='iii.'
+				>
 					Submit Dispatch Ticket Via OTRS
 				</Levels>
-				<Levels level='3' identifier='•'>
+				<Levels level='3' checked={voice.four_c_iii} identifier='•'>
 					"Take Phone Call"
 				</Levels>
-				<Levels level='3' identifier='•'>
+				<Levels level='3' checked={voice.four_c_iii} identifier='•'>
 					Type - Unclassified
 				</Levels>
-				<Levels level='3' identifier='•'>
+				<Levels level='3' checked={voice.four_c_iii} identifier='•'>
 					Customer User - enter the customers OTRS email (found in contacts on
 					Client page in Homir)
 				</Levels>
-				<Levels level='3' identifier='•'>
+				<Levels level='3' checked={voice.four_c_iii} identifier='•'>
 					Customer Name - leave blank
 				</Levels>
-				<Levels level='3' identifier='•'>
+				<Levels level='3' checked={voice.four_c_iii} identifier='•'>
 					Queue - Service Delivery ➜ Provisioning
 				</Levels>
-				<Levels level='3' identifier='•'>
+				<Levels level='3' checked={voice.four_c_iii} identifier='•'>
 					Owner - Provisioning OTRS
 				</Levels>
-				<Levels level='3' identifier='•'>
+				<Levels level='3' checked={voice.four_c_iii} identifier='•'>
 					Responsible - Provisioning OTRS
 				</Levels>
-				<Levels level='3' identifier='•'>
+				<Levels level='3' checked={voice.four_c_iii} identifier='•'>
 					Select appropriate Text Template - choose either{' '}
 					<span className='internal'>internal</span> or{' '}
 					<span className='field-nation'>Field Nation</span>
 				</Levels>
-				<Levels level='3' identifier='•'>
+				<Levels level='3' checked={voice.four_c_iii} identifier='•'>
 					Under the Communication section in the From field, remove the email
 					address for the client and add your email address
 				</Levels>
-				<Levels level='3' identifier='•'>
+				<Levels level='3' checked={voice.four_c_iii} identifier='•'>
 					Update Subject line
 				</Levels>
-				<Levels level='3' identifier='•'>
+				<Levels level='3' checked={voice.four_c_iii} identifier='•'>
 					Fill out the information in the Body and attach the Site Survey
 					Template to the ticket
 				</Levels>
-				<Levels level='3' identifier='•'>
+				<Levels level='3' checked={voice.four_c_iii} identifier='•'>
 					Enter Homir Order URL (this will link the ticket to your order in
 					Homir)
 				</Levels>
-				<Levels level='2' identifier='iv.'>
+				<Levels
+					level='2'
+					checklist
+					checked={voice.four_c_iv}
+					onChange={() => handleChange('4Civ')}
+					identifier='iv.'
+				>
 					Send Calendar Invite to Client for Survey
 				</Levels>
-				<Levels level='3' identifier='•'>
+				<Levels level='3' checked={voice.four_c_iv} identifier='•'>
 					Title = Client Name | Verve - Site Survey
 				</Levels>
-				<Levels level='3' identifier='•'>
+				<Levels level='3' checked={voice.four_c_iv} identifier='•'>
 					Specify what access will be needed in the body of the calendar invite.
 					(<span className='bold'>Suggested:</span> Please make sure there is
 					access to your suite's server room and the building's{' '}
@@ -304,61 +471,118 @@ const VoiceOrder = () => {
 				<Levels level='2' identifier='v.'>
 					Complete Site Survey
 				</Levels>
-				<Levels level='3' identifier='•'>
+				<Levels
+					level='3'
+					checklist
+					checked={voice.four_c_v_1}
+					onChange={() => handleChange('4Cv1')}
+					identifier='•'
+				>
 					Review results of the survey with the tech while they are on site.
 				</Levels>
-				<Levels level='3' identifier='•'>
+				<Levels
+					level='3'
+					checklist
+					checked={voice.four_c_v_2}
+					onChange={() => handleChange('4Cv2')}
+					identifier='•'
+				>
 					Add photos to the customer folder in "Survey Photos" folder.
 				</Levels>
-				<Levels level='3' identifier='•'>
+				<Levels
+					level='3'
+					checklist
+					checked={voice.four_c_v_3}
+					onChange={() => handleChange('4Cv3')}
+					identifier='•'
+				>
 					(If <span className='field-nation'>Field Nation</span>) Complete Tech
 					Review in OTRS ticket that was opened for the requested dispatch
 					within 24 hours of completed dispatch.
 				</Levels>
-				<Levels level='2' identifier='vi.'>
+				<Levels
+					level='2'
+					checklist
+					checked={voice.four_c_vi}
+					onChange={() => handleChange('4Cvi')}
+					identifier='vi.'
+				>
 					Relay survey results to the client and address any issues/questions.
 				</Levels>
-				<div className='level-3'>
-					<span className='identifier'>•</span>
-					<p className='level-3-txt'>
-						Ensure to establish an understanding of the next steps of the order.
-					</p>
-				</div>
+				<Levels level='3' checked={voice.four_c_vi} identifier='•'>
+					Ensure to establish an understanding of the next steps of the order.
+				</Levels>
 				<Levels level='1' identifier='d.' subtitle>
 					Conduct Design Meeting
 				</Levels>
-				<Levels level='2' identifier='i.'>
+				<Levels
+					level='2'
+					checklist
+					checked={voice.four_d_i}
+					onChange={() => handleChange('4Di')}
+					identifier='i.'
+				>
 					Send Calendar Invite to Client for Design Meeting
 				</Levels>
-				<Levels level='3' identifier='•'>
+				<Levels level='3' checked={voice.four_d_i} identifier='•'>
 					Title = Client Name | Verve - Design Meeting
 				</Levels>
-				<Levels level='3' identifier='•'>
+				<Levels level='3' checked={voice.four_d_i} identifier='•'>
 					Include link to Design Document in body of invitation (Don't forget to
 					change display text of link!).
 				</Levels>
-				<Levels level='3' identifier='•'>
+				<Levels level='3' checked={voice.four_d_i} identifier='•'>
 					Provide conference bridge or Teams meeting information.
 				</Levels>
 				<Levels level='2' identifier='ii.'>
 					Complete Design Meeting
 				</Levels>
-				<Levels level='3' identifier='•'>
+				<Levels
+					level='3'
+					checklist
+					checked={voice.four_d_ii_1}
+					onChange={() => handleChange('4Dii1')}
+					identifier='•'
+				>
 					Review & complete design document
 				</Levels>
-				<Levels level='3' identifier='•'>
+				<Levels
+					level='3'
+					checklist
+					checked={voice.four_d_ii_2}
+					onChange={() => handleChange('4Dii2')}
+					identifier='•'
+				>
 					(If applicable) Review the numbers provided on the design document in
 					comparison to the numbers provided on the porting documents.
 				</Levels>
-				<Levels level='3' identifier='•'>
+				<Levels
+					level='3'
+					checklist
+					checked={voice.four_d_ii_3}
+					onChange={() => handleChange('4Dii3')}
+					identifier='•'
+				>
 					Review the design to determine any recordings that will be needed,
 					ensure this is relayed to the client and propose options for getting
 					this completed.
 				</Levels>
-				<Levels level='3' identifier='•'>
+				<Levels
+					level='3'
+					checklist
+					checked={voice.four_d_ii_4}
+					onChange={() => handleChange('4Dii4')}
+					identifier='•'
+				>
 					Schedule follow-up Design Meeting if needed.
 				</Levels>
-				<Levels level='3' identifier='•'>
+				<Levels
+					level='3'
+					checklist
+					checked={voice.four_d_ii_5}
+					onChange={() => handleChange('4Dii5')}
+					identifier='•'
+				>
 					Send summary of any open/pending items and reestablish timeline and
 					next steps.
 				</Levels>
@@ -721,253 +945,8 @@ const VoiceOrder = () => {
 				</Levels>
 				<SopImage imageUrl='order_equipment.png' />
 			</section>
-			<section>
-				<div className='section-title'>5. Execution</div>
-				<Levels level='1' identifier='a.' subtitle>
-					(If Applicable) Configure Equipment
-				</Levels>
-				<Levels level='2' identifier='i.'>
-					Create and Apply Configuration Template
-				</Levels>
-				<Levels level='3' identifier='•'>
-					Locate templates in share drive (Service
-					Delivery\Templates\Configurations)
-				</Levels>
-				<Levels level='4' identifier='a.'>
-					Save equipment template(s) to client folder before modifying to ensure
-					you do not overwrite the shared template.
-				</Levels>
-				<Levels level='3' identifier='•'>
-					Fill in [bracketed] information in equipment template(s)
-				</Levels>
-				<Levels level='3' identifier='•'>
-					Apply configuration to equipment
-				</Levels>
-				<Levels level='2' identifier='ii.'>
-					Tier 2 Config Review (Optional per lead/supervisor)
-				</Levels>
-				<Levels level='2' identifier='iii.'>
-					Tier 3 Config Review
-				</Levels>
-				<Levels level='3' identifier='•'>
-					Create Config Review document based on OTRS template
-				</Levels>
-				<Levels level='3' identifier='•'>
-					Submit via OTRS ticket
-				</Levels>
-				<Levels level='4' identifier='a.'>
-					Queue - Engineering - Provisioning - Tier 3 Configuration Review
-				</Levels>
-				<Levels level='4' identifier='b.'>
-					Owner/Responsible - NLI Engineering
-				</Levels>
-				<Levels level='4' identifier='c.'>
-					Select appropriate text template
-				</Levels>
-				<SopImage imageUrl='config_equip.png' />
-				<Levels level='1' identifier='b.' subtitle>
-					Build Voice Services (Training will be provided)
-				</Levels>
-				<Levels level='2' identifier='i.'>
-					Using the Design Document that you completed with the client, build in
-					the NMS portal.
-				</Levels>
-				<Levels level='3' identifier='•'>
-					Preferred Build Order:
-				</Levels>
-				<Levels level='4' identifier='a.'>
-					Users
-				</Levels>
-				<Levels level='4' identifier='b.'>
-					Conference Bridges
-				</Levels>
-				<Levels level='4' identifier='c.'>
-					Call Queues
-				</Levels>
-				<Levels level='4' identifier='d.'>
-					Auto Attendants
-				</Levels>
-				<Levels level='4' identifier='e.'>
-					Timeframes
-				</Levels>
-				<Levels level='4' identifier='f.'>
-					Answering Rules
-				</Levels>
-				<Levels level='2' identifier='ii.'>
-					Point DIDs and verify E911 assignment in Homir
-				</Levels>
-				<Levels level='3' identifier='❗'>
-					E911 is always pointed to an extension that is most likely to be
-					answered. If E911 call gets disconnected, emergency services will call
-					our E911 number to get the client back.
-				</Levels>
-				<Levels level='3' identifier='❗'>
-					The E911 number should never be pointed to voicemail, an auto
-					attendant, or a call queue.
-				</Levels>
-				<Levels level='2' identifier='iii.'>
-					Test - Numbers, Queues, Forwarding, Translations
-				</Levels>
-				<Levels level='3' identifier='•'>
-					You can assign a temp number from the "tempforward" domain to test the
-					call flow, reassign to this domain when testing is complete.
-				</Levels>
-				<Levels level='1' identifier='c.' subtitle>
-					Phones
-				</Levels>
-				<Levels level='2' identifier='i.'>
-					(If Rentals and/or Purchase)
-				</Levels>
-				<Levels level='3' identifier='•'>
-					Submit phone order via OTRS
-				</Levels>
-				<Levels level='4' identifier='a.'>
-					Queue - Provisioning
-				</Levels>
-				<Levels level='4' identifier='b.'>
-					Owner/Responsible - Provisioning OTRS
-				</Levels>
-				<Levels level='4' identifier='c.'>
-					Select appropriate text template
-				</Levels>
-				<SopImage imageUrl='order_phone.png' />
-				<Levels level='3' identifier='•'>
-					Provisioning will update the ticket with shipping information once
-					received from phone vendor.
-				</Levels>
-				<Levels level='2' identifier='iv.'>
-					(If client owned phones)
-				</Levels>
-				<Levels level='3' identifier='•'>
-					Obtain MAC and Make/Model information
-				</Levels>
-				<Levels level='3' identifier='•'>
-					Ensure phones are supported models.
-				</Levels>
-				<Levels level='3' identifier='•'>
-					Submit list of phones (Make, Model, MAC) for provisioning via an OTRS
-					ticket for addition to our provisioning server - include extension
-					assignment. (See example below)
-				</Levels>
-				<Levels level='1' identifier='d.' subtitle>
-					Ship Equipment or Stage in S&R Room
-				</Levels>
-				<Levels level='2' identifier='i.'>
-					(If Shipping) Submit via an OTRS ticket
-				</Levels>
-				<SopImage imageUrl='ship_equip.png' />
-				<Levels level='1' identifier='e.' subtitle>
-					Test Phones Onsite
-				</Levels>
-				<Levels level='2' identifier='i.'>
-					When installing with Verve network equipment, test when network
-					equipment is installed.
-				</Levels>
-				<Levels level='2' identifier='ii.'>
-					If installing on client network, coordinate site visit or onsite
-					contact to test in advance (If porting, allow for enough time to
-					postpone the port if testing fails.3 - 4 business days minimum,
-					ideally 1 week or more in advance)
-				</Levels>
-				<Levels level='1' identifier='f.' subtitle>
-					Installation
-				</Levels>
-				<Levels level='2' identifier='i.'>
-					Work with the technician to install and test all equipment/phones.
-				</Levels>
-				<Levels level='2' identifier='ii.'>
-					Contact provisioning via Slack when ready to activate ports.
-				</Levels>
-				<Levels level='2' identifier='iii.'>
-					Test numbers, E911/Call 933
-				</Levels>
-				<Levels level='2' identifier='iv.'>
-					Using Homir email templates, send Service Activation Email -{' '}
-					<span className='underline'>
-						This is required to be sent within 24 hours after installation is
-						complete.
-					</span>
-				</Levels>
-				<Levels level='2' identifier='v.'>
-					Add installation photos to client folder.
-				</Levels>
-				<Levels level='1' identifier='g.' subtitle>
-					Closeout Order
-				</Levels>
-				<Levels level='2' identifier='i.'>
-					Update Homir with any non-standard configuration or call flow
-					information.
-				</Levels>
-				<Levels level='2' identifier='ii.'>
-					Submit billing via OTRS ticket -{' '}
-					<span className='underline'>
-						This should be submitted ASAP, no more than 5 business days. If the
-						end of the month, it needs to be immediate.
-					</span>{' '}
-					Much of the legwork for billings can be done in advance to allow for
-					quicker submittal.
-				</Levels>
-				<Levels level='3' identifier='a.'>
-					Queue - Order Processing - TPC Order Completion
-				</Levels>
-				<Levels level='3' identifier='b.'>
-					Owner/Responsible - Order Processing
-				</Levels>
-				<Levels level='3' identifier='c.'>
-					Select appropriate text template
-				</Levels>
-				<SopImage imageUrl='closeout_order.png' />
-				<Levels level='2' identifier='iii.'>
-					Clear Billing Discrepancies in Homir
-				</Levels>
-				<Levels level='2' identifier='iv.'>
-					If <span className='field-nation'>Field Nation</span> completed the
-					installation, provide a review on the OTRS ticket within 24 hours of
-					completed dispatch.
-				</Levels>
-				<Levels level='2' identifier='v.'>
-					Using Homir email templates, submit C-SAT Survey Email
-				</Levels>
-				<Levels level='2' identifier='vi.'>
-					Using Homir email templates, submit Support Handoff email to client
-					after Go-Live support phase completes
-				</Levels>
-				<Levels level='2' identifier='vii.'>
-					(Optional) Send High Touch Support Handoff email to support team (in
-					Email Templates folder)
-				</Levels>
-				<Levels level='2' identifier='viii.'>
-					Verify L: drive client folder is in order.
-				</Levels>
-				<Levels level='2' identifier='ix.'>
-					Verify Homir order information is complete.
-				</Levels>
-				<Levels level='3' identifier='1.'>
-					Ops Contact
-				</Levels>
-				<Levels level='3' identifier='2.'>
-					Billing Contact
-				</Levels>
-				<Levels level='3' identifier='3.'>
-					IP field (Type <span className='bold'>N/A</span> if not applicable)
-				</Levels>
-				<Levels level='3' identifier='4.'>
-					Update Homir Order Status to "
-					<span className='bold'>Ops Items Complete</span>"
-				</Levels>
-				<Levels level='4' identifier='i.'>
-					If no C-SAT is being sent due to partner being the contact, update to
-					"<span className='bold'>Ops Items Complete, No CSAT</span>"
-				</Levels>
-				<Levels level='3' identifier='5.'>
-					Order dates
-				</Levels>
-				<Levels level='2' identifier='x.'>
-					Move the Outlook Public folder to the correct alpha folder.
-				</Levels>
-			</section>
 		</div>
 	);
 };
 
-export default VoiceOrder;
+export default VoiceChecklist;

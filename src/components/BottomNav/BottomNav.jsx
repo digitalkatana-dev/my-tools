@@ -55,6 +55,17 @@ const BottomNav = () => {
 			</IconButton>
 			<IconButton
 				className={
+					currentLocation === 'projects' ? 'nav-btn active' : 'nav-btn'
+				}
+				onClick={() => handleClick('projects')}
+			>
+				<p className={isIOS || isSafari ? '' : 'noto-color-emoji-regular'}>
+					📋
+				</p>
+				<h6>Projects</h6>
+			</IconButton>
+			<IconButton
+				className={
 					currentLocation === 'settings' ? 'nav-btn active' : 'nav-btn'
 				}
 				onClick={() => handleClick('settings')}

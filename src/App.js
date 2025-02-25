@@ -5,7 +5,9 @@ import MainLayout from './layouts/MainLayout';
 import Home from './features/Home';
 import Generator from './features/Generator';
 import Guide from './features/Guide';
+import Projects from './features/Projects';
 import Settings from './features/Settings';
+import UnderConstruction from './components/UnderConstruction';
 
 function App() {
 	const { theme, showHome, showGenerator } = useSelector((state) => state.app);
@@ -39,6 +41,10 @@ function App() {
 							element={<MainLayout children={<Guide />} />}
 						/>
 					)}
+					<Route
+						path='/projects'
+						element={<MainLayout children={<UnderConstruction />} />}
+					/>
 					<Route
 						path='/settings'
 						element={<MainLayout children={<Settings />} />}

@@ -1,10 +1,10 @@
-import { IconButton } from '@mui/material';
 import { useState } from 'react';
 import './textInput.scss';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 
 const TextInput = ({
+	style,
 	label,
 	leftIcon,
 	rightIcon,
@@ -18,8 +18,8 @@ const TextInput = ({
 	const [show, setShow] = useState(false);
 
 	return (
-		<div className='text-input'>
-			{label && <h6>{label}</h6>}
+		<div className='text-input' style={style}>
+			{label && <label>{label}</label>}
 			<div className='input-container'>
 				{leftIcon}
 				<input
@@ -32,13 +32,14 @@ const TextInput = ({
 				/>
 				{type === 'password' ? (
 					<>
-						<IconButton onClick={() => setShow(!show)}>
-							{show ? (
-								<VisibilityOffIcon className='hide' />
-							) : (
-								<VisibilityIcon className='hide' />
-							)}
-						</IconButton>
+						{show ? (
+							<VisibilityOffIcon
+								className='hide'
+								onClick={() => setShow(!show)}
+							/>
+						) : (
+							<VisibilityIcon className='hide' onClick={() => setShow(!show)} />
+						)}
 					</>
 				) : (
 					rightIcon

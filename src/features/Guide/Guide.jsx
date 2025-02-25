@@ -5,6 +5,7 @@ import './guide.scss';
 import TabPanel from './components/TabPanel';
 import SOPs from './components/SOPs';
 import Plans from './components/Plans';
+import IPGuide from './components/IPGuide';
 import Glossary from './components/Glossary';
 
 const Guide = () => {
@@ -43,8 +44,13 @@ const Guide = () => {
 						className={theme === 'dark' ? 'label dark' : 'label'}
 					/>
 					<Tab
-						label='Glossary'
+						label='IP Guide'
 						{...a11yProps(2)}
+						className={theme === 'dark' ? 'label dark' : 'label'}
+					/>
+					<Tab
+						label='Glossary'
+						{...a11yProps(3)}
 						className={theme === 'dark' ? 'label dark' : 'label'}
 					/>
 				</Tabs>
@@ -52,7 +58,8 @@ const Guide = () => {
 			<div className='tab-data'>
 				<TabPanel value={value} index={0} children={<SOPs />} />
 				<TabPanel value={value} index={1} children={<Plans />} />
-				<TabPanel value={value} index={2} children={<Glossary />} />
+				<TabPanel value={value} index={2} children={<IPGuide />} />
+				<TabPanel value={value} index={3} children={<Glossary />} />
 			</div>
 		</div>
 	);

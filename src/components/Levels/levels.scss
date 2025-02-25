@@ -6,9 +6,39 @@
 	display: flex;
 	margin-bottom: 15px;
 
+	.identifier,
+	.level-txt,
+	.section-subtitle {
+		&.done {
+			text-decoration: line-through;
+			text-decoration-color: crimson;
+			text-decoration-thickness: 3px;
+		}
+	}
+
 	.identifier {
 		font-weight: bold;
 		margin-right: 5px;
+	}
+
+	&.checklist {
+		position: relative;
+
+		.checkbox {
+			position: absolute;
+			top: 1.5px;
+			left: 0;
+			padding: 0;
+
+			svg {
+				fill: var(--highlight) !important;
+			}
+		}
+
+		.level-txt,
+		.section-subtitle {
+			text-indent: 30px;
+		}
 	}
 }
 
@@ -26,6 +56,10 @@
 
 .level-3 {
 	margin-left: 40px;
+
+	&.component {
+		margin-left: 70px;
+	}
 }
 
 .level-4 {
