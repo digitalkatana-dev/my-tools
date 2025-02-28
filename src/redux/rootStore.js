@@ -18,7 +18,7 @@ import ProjectReducer from './slices/projectSlice';
 const appPersistConfig = {
 	key: 'app',
 	storage,
-	whitelist: ['theme', 'showHome', 'showGenerator', 'showForm'],
+	whitelist: ['theme', 'showHome', 'showGenerator'],
 };
 
 const userPersistConfig = {

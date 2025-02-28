@@ -6,7 +6,6 @@ const initialState = appAdapter.getInitialState({
 	theme: 'light',
 	showHome: true,
 	showGenerator: true,
-	showForm: true,
 	slash: '',
 	errors: null,
 });
@@ -15,17 +14,10 @@ export const appSlice = createSlice({
 	name: 'app',
 	initialState,
 	reducers: {
-		setTheme: (state, action) => {
-			state.theme = action.payload;
-		},
-		setShowHome: (state) => {
-			state.showHome = !state.showHome;
-		},
-		setShowGenerator: (state) => {
-			state.showGenerator = !state.showGenerator;
-		},
-		setShowForm: (state) => {
-			state.showForm = !state.showForm;
+		populateUserData: (state, action) => {
+			state.theme = action.payload.theme;
+			state.showHome = action.payload.showHome;
+			state.showGenerator = action.payload.showGenerator;
 		},
 		setSlash: (state, action) => {
 			state.slash = action.payload;
@@ -36,13 +28,6 @@ export const appSlice = createSlice({
 	},
 });
 
-export const {
-	setTheme,
-	setShowHome,
-	setShowGenerator,
-	setShowForm,
-	setSlash,
-	clearErrors,
-} = appSlice.actions;
+export const { populateUserData, setSlash, clearErrors } = appSlice.actions;
 
 export default appSlice.reducer;

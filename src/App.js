@@ -9,7 +9,7 @@ import Generator from './features/Generator';
 import Guide from './features/Guide';
 import Projects from './features/Projects';
 import Settings from './features/Settings';
-import UnderConstruction from './components/UnderConstruction';
+// import UnderConstruction from './components/UnderConstruction';
 
 function App() {
 	const { theme, showHome, showGenerator } = useSelector((state) => state.app);
