@@ -4,8 +4,14 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	position: relative;
 	background-color: var(--card-background);
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+
+	#logout-btn {
+		position: absolute;
+		right: 10px;
+	}
 
 	&.dark {
 		box-shadow: 0 4px 8px rgba(211, 211, 211, 0.3);

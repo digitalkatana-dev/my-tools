@@ -1,0 +1,28 @@
+#subnets {
+	height: calc(100vh - 164px);
+	display: flex;
+	flex-direction: column;
+	padding: 20px;
+	position: relative;
+	overflow-y: scroll;
+
+	.master-wrapper {
+		height: 40%;
+		overflow: scroll;
+	}
+
+	.sub-wrapper {
+		height: 59%;
+		overflow: scroll;
+
+		.sub-table {
+			display: flex;
+			flex-direction: column;
+
+			.sub-paper {
+				width: 100%;
+				overflow: hidden;
+			}
+		}
+	}
+}

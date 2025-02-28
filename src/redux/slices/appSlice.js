@@ -7,12 +7,7 @@ const initialState = appAdapter.getInitialState({
 	showHome: true,
 	showGenerator: true,
 	showForm: true,
-	firstName: '',
-	phoneNumber: '',
-	phoneExt: '',
-	bridgeNumber: '',
-	bridgeExt: '',
-	bridgePin: '',
+	slash: '',
 	errors: null,
 });
 
@@ -32,23 +27,8 @@ export const appSlice = createSlice({
 		setShowForm: (state) => {
 			state.showForm = !state.showForm;
 		},
-		setFirstName: (state, action) => {
-			state.firstName = action.payload;
-		},
-		setPhoneNumber: (state, action) => {
-			state.phoneNumber = action.payload;
-		},
-		setPhoneExt: (state, action) => {
-			state.phoneExt = action.payload;
-		},
-		setBridgeNumber: (state, action) => {
-			state.bridgeNumber = action.payload;
-		},
-		setBridgeExt: (state, action) => {
-			state.bridgeExt = action.payload;
-		},
-		setBridgePin: (state, action) => {
-			state.bridgePin = action.payload;
+		setSlash: (state, action) => {
+			state.slash = action.payload;
 		},
 		clearErrors: (state) => {
 			state.errors = null;
@@ -61,12 +41,7 @@ export const {
 	setShowHome,
 	setShowGenerator,
 	setShowForm,
-	setFirstName,
-	setPhoneNumber,
-	setPhoneExt,
-	setBridgeNumber,
-	setBridgeExt,
-	setBridgePin,
+	setSlash,
 	clearErrors,
 } = appSlice.actions;
 

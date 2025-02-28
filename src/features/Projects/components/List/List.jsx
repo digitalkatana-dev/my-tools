@@ -19,7 +19,7 @@ import Button from '../../../../components/Button';
 import './list.scss';
 
 const List = ({ setView }) => {
-	const { user } = useSelector((state) => state.user);
+	const { activeUser } = useSelector((state) => state.user);
 	const { projectType, client, allProjects } = useSelector(
 		(state) => state.project
 	);
@@ -41,7 +41,7 @@ const List = ({ setView }) => {
 		const projectData = {
 			projectType,
 			client,
-			user: user._id,
+			user: activeUser._id,
 		};
 
 		dispatch(addNewProject(projectData));

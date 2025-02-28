@@ -4,6 +4,12 @@ import {
 	createSlice,
 } from '@reduxjs/toolkit';
 import { getUserProjects } from './projectSlice';
+import {
+	setPassInput,
+	setPassOutput,
+	setPinInput,
+	setPinOutput,
+} from './securitySlice';
 import toolsApi from '../../api/toolsApi';
 
 export const login = createAsyncThunk(
@@ -22,12 +28,37 @@ export const login = createAsyncThunk(
 	}
 );
 
+export const updateProfile = createAsyncThunk(
+	'profile/update',
+	async (data, { rejectWithValue, dispatch }) => {
+		try {
+			const res = await toolsApi.put('/profiles', data);
+			const { success } = res.data;
+			if (success) {
+				dispatch(setPassInput(''));
+				dispatch(setPassOutput(''));
+				dispatch(setPinInput(''));
+				dispatch(setPinOutput(''));
+			}
+			return res.data;
+		} catch (err) {
+			return rejectWithValue(err.response.data);
+		}
+	}
+);
+
 export const userAdapter = createEntityAdapter();
 const initialState = userAdapter.getInitialState({
 	loading: false,
 	email: '',
 	password: '',
-	user: null,
+	firstName: '',
+	phoneNumber: '',
+	phoneExt: '',
+	bridgeNumber: '',
+	bridgeExt: '',
+	bridgePin: '',
+	activeUser: null,
 	success: null,
 	errors: null,
 });
@@ -42,6 +73,24 @@ export const userSlice = createSlice({
 		setPassword: (state, action) => {
 			state.password = action.payload;
 		},
+		setFirstName: (state, action) => {
+			state.firstName = action.payload;
+		},
+		setPhoneNumber: (state, action) => {
+			state.phoneNumber = action.payload;
+		},
+		setPhoneExt: (state, action) => {
+			state.phoneExt = action.payload;
+		},
+		setBridgeNumber: (state, action) => {
+			state.bridgeNumber = action.payload;
+		},
+		setBridgeExt: (state, action) => {
+			state.bridgeExt = action.payload;
+		},
+		setBridgePin: (state, action) => {
+			state.bridgePin = action.payload;
+		},
 		clearSuccess_User: (state) => {
 			state.success = null;
 		},
@@ -53,7 +102,13 @@ export const userSlice = createSlice({
 			state.loading = false;
 			state.email = '';
 			state.password = '';
-			state.user = null;
+			state.firstName = '';
+			state.phoneNumber = '';
+			state.phoneExt = '';
+			state.bridgeNumber = '';
+			state.bridgeExt = '';
+			state.bridgePin = '';
+			state.activeUser = null;
 			state.success = null;
 			state.errors = null;
 		},
@@ -67,12 +122,32 @@ export const userSlice = createSlice({
 			.addCase(login.fulfilled, (state, action) => {
 				state.loading = false;
 				state.success = action.payload.success;
-				state.user = action.payload.userProfile;
+				state.activeUser = action.payload.userProfile;
 				state.email = '';
 				state.password = '';
 				state.errors = null;
 			})
 			.addCase(login.rejected, (state, action) => {
+				state.loading = false;
+				state.errors = action.payload;
+			})
+			.addCase(updateProfile.pending, (state) => {
+				state.loading = true;
+				state.errors = null;
+			})
+			.addCase(updateProfile.fulfilled, (state, action) => {
+				state.loading = false;
+				state.success = action.payload.success;
+				state.activeUser = action.payload.updatedProfile;
+				state.firstName = '';
+				state.phoneNumber = '';
+				state.phoneExt = '';
+				state.bridgeNumber = '';
+				state.bridgeExt = '';
+				state.bridgePin = '';
+				state.errors = null;
+			})
+			.addCase(updateProfile.rejected, (state, action) => {
 				state.loading = false;
 				state.errors = action.payload;
 			});
@@ -82,6 +157,12 @@ export const userSlice = createSlice({
 export const {
 	setEmail,
 	setPassword,
+	setFirstName,
+	setPhoneNumber,
+	setPhoneExt,
+	setBridgeNumber,
+	setBridgeExt,
+	setBridgePin,
 	clearSuccess_User,
 	clearErrors_User,
 	logout,

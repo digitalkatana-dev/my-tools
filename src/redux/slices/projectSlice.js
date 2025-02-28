@@ -33,8 +33,7 @@ export const addNewProject = createAsyncThunk(
 export const projectAdapter = createEntityAdapter();
 const initialState = projectAdapter.getInitialState({
 	loading: false,
-	email: '',
-	password: '',
+	view: 'list',
 	projectType: 'voice',
 	client: '',
 	circuit: {},
@@ -67,7 +66,6 @@ const initialState = projectAdapter.getInitialState({
 		four_d_ii_4: false,
 		four_d_ii_5: false,
 	},
-	user: null,
 	allProjects: null,
 	selectedProject: null,
 	success: null,
@@ -78,11 +76,8 @@ export const projectSlice = createSlice({
 	name: 'project',
 	initialState,
 	reducers: {
-		setEmail: (state, action) => {
-			state.email = action.payload;
-		},
-		setPassword: (state, action) => {
-			state.password = action.payload;
+		setView: (state, action) => {
+			state.view = action.payload;
 		},
 		setProjectType: (state, action) => {
 			state.projectType = action.payload;
@@ -213,6 +208,7 @@ export const projectSlice = createSlice({
 			})
 			.addCase(logout, (state) => {
 				state.loading = false;
+				state.view = 'list';
 				state.projectType = 'voice';
 				state.client = '';
 				state.allProjects = null;
@@ -224,6 +220,7 @@ export const projectSlice = createSlice({
 });
 
 export const {
+	setView,
 	setProjectType,
 	setClient,
 	setSelectedProject,

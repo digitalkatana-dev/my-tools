@@ -1,12 +1,9 @@
+import React from 'react';
 import { FormControl } from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
-import {
-	setEmail,
-	setPassword,
-	login,
-} from '../../../../redux/slices/userSlice';
-import TextInput from '../../../../components/TextInput';
-import Button from '../../../../components/Button';
+import { setEmail, setPassword, login } from '../../redux/slices/userSlice';
+import TextInput from '../../components/TextInput';
+import Button from '../../components/Button';
 import './auth.scss';
 
 const Auth = () => {

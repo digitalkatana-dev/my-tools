@@ -1,38 +1,33 @@
 import { FormControl, Typography } from '@mui/material';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { setShowForm } from '../../redux/slices/appSlice';
 import {
-	setShowForm,
 	setFirstName,
 	setPhoneNumber,
 	setPhoneExt,
 	setBridgeNumber,
 	setBridgeExt,
 	setBridgePin,
-} from '../../redux/slices/appSlice';
+	updateProfile,
+} from '../../redux/slices/userSlice';
 import { phoneFormatter } from '../../util/helpers';
 import './home.scss';
 import TextInput from '../../components/TextInput';
 import Button from '../../components/Button';
 
 const Home = () => {
+	const { showForm } = useSelector((state) => state.app);
 	const {
-		showForm,
 		firstName,
 		phoneNumber,
 		phoneExt,
 		bridgeNumber,
 		bridgeExt,
 		bridgePin,
-	} = useSelector((state) => state.app);
-	const { windows, warden, appPin } = useSelector((state) => state.security);
+		activeUser,
+	} = useSelector((state) => state.user);
 	const [show, setShow] = useState(false);
-	const [nameInput, setNameInput] = useState('');
-	const [phoneInput, setPhoneInput] = useState('');
-	const [phoneExtInput, setPhoneExtInput] = useState('');
-	const [bridgeInput, setBridgeInput] = useState('');
-	const [bridgeExtInput, setBridgeExtInput] = useState('');
-	const [bridgePinInput, setBridgePinInput] = useState('');
 	const dispatch = useDispatch();
 
 	const handleReveal = () => {
@@ -40,67 +35,52 @@ const Home = () => {
 	};
 
 	const handleClear = () => {
-		dispatch(setFirstName(''));
-		dispatch(setPhoneNumber(''));
-		dispatch(setPhoneExt(''));
-		dispatch(setBridgeNumber(''));
-		dispatch(setBridgeExt(''));
-		dispatch(setBridgePin(''));
 		dispatch(setShowForm());
 	};
 
 	const handleChange = (input, value) => {
 		const actionMap = {
-			name: setNameInput,
-			phone: setPhoneInput,
-			phoneExt: setPhoneExtInput,
-			bridge: setBridgeInput,
-			bridgeExt: setBridgeExtInput,
-			bridgePin: setBridgePinInput,
+			name: setFirstName,
+			phone: setPhoneNumber,
+			phoneExt: setPhoneExt,
+			bridge: setBridgeNumber,
+			bridgeExt: setBridgeExt,
+			bridgePin: setBridgePin,
 		};
 
 		const action = actionMap[input];
 
-		action && action(value);
-	};
-
-	const clearForm = () => {
-		setNameInput('');
-		setPhoneInput('');
-		setPhoneExtInput('');
-		setBridgeInput('');
-		setBridgeExtInput('');
-		setBridgePinInput('');
+		action && dispatch(action(value));
 	};
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		dispatch(setFirstName(nameInput));
-		dispatch(setPhoneNumber(phoneInput));
-		dispatch(setPhoneExt(phoneExtInput));
-		dispatch(setBridgeNumber(bridgeInput));
-		dispatch(setBridgeExt(bridgeExtInput));
-		dispatch(setBridgePin(bridgePinInput));
+		const data = {
+			...(firstName && { firstName }),
+			...(phoneNumber && { phoneNumber }),
+			...(phoneExt && { phoneExt }),
+			...(bridgeNumber && { bridgeNumber }),
+			...(bridgeExt && { bridgeExt }),
+			...(bridgePin && { bridgePin }),
+		};
+		dispatch(updateProfile(data));
 		dispatch(setShowForm());
-		clearForm();
 	};
 
 	return (
 		<div id='home'>
 			<button className='reveal-btn' onClick={handleReveal} />
 			<button className='clear-btn' onClick={handleClear} />
-			{firstName && (
-				<Typography variant='h5' className='greeting'>
-					Hello {firstName}, Welcome back! 👋
-				</Typography>
-			)}
+			<Typography variant='h5' className='greeting'>
+				Hello {activeUser?.firstName}, Welcome back! 👋
+			</Typography>
 			{showForm ? (
 				<form onSubmit={handleSubmit}>
 					<FormControl>
 						<TextInput
 							// label='Phone Number'
 							placeholder='Enter First Name'
-							value={nameInput}
+							value={firstName}
 							onChange={(e) => handleChange('name', e.target.value)}
 						/>
 					</FormControl>
@@ -108,7 +88,7 @@ const Home = () => {
 						<TextInput
 							// label='Phone Number'
 							placeholder='Enter Phone Number'
-							value={phoneInput}
+							value={phoneNumber}
 							onChange={(e) => handleChange('phone', e.target.value)}
 						/>
 					</FormControl>
@@ -116,7 +96,7 @@ const Home = () => {
 						<TextInput
 							// label='Phone Ext'
 							placeholder='Enter Ext'
-							value={phoneExtInput}
+							value={phoneExt}
 							onChange={(e) => handleChange('phoneExt', e.target.value)}
 						/>
 					</FormControl>
@@ -124,7 +104,7 @@ const Home = () => {
 						<TextInput
 							// label='Conference Bridge'
 							placeholder='Enter Bridge Number'
-							value={bridgeInput}
+							value={bridgeNumber}
 							onChange={(e) => handleChange('bridge', e.target.value)}
 						/>
 					</FormControl>
@@ -132,7 +112,7 @@ const Home = () => {
 						<TextInput
 							// label='Conference Bridge Ext'
 							placeholder='Enter Bridge Ext'
-							value={bridgeExtInput}
+							value={bridgeExt}
 							onChange={(e) => handleChange('bridgeExt', e.target.value)}
 						/>
 					</FormControl>
@@ -140,7 +120,7 @@ const Home = () => {
 						<TextInput
 							// label='Conference Bridge Pin'
 							placeholder='Enter Bridge Pin'
-							value={bridgePinInput}
+							value={bridgePin}
 							onChange={(e) => handleChange('bridgePin', e.target.value)}
 						/>
 					</FormControl>
@@ -152,22 +132,23 @@ const Home = () => {
 				<div className='my-info'>
 					<h2>My Information</h2>
 					<h3>
-						Desk: {phoneFormatter(phoneNumber)} Ext: {phoneExt}
+						Desk: {phoneFormatter(activeUser?.phoneNumber)} Ext:{' '}
+						{activeUser?.phoneExt}
 					</h3>
 					<h3>
-						Bridge: {phoneFormatter(bridgeNumber)} Ext: {bridgeExt} Pin:{' '}
-						{bridgePin}
+						Bridge: {phoneFormatter(activeUser?.bridgeNumber)} Ext:{' '}
+						{activeUser?.bridgeExt} Pin: {activeUser?.bridgePin}
 					</h3>
 				</div>
 			)}
 			{show && (
 				<div className='hidden-data'>
 					<h3>Windows:</h3>
-					{windows && <h4>{atob(windows)}</h4>}
+					{activeUser?.windows && <h4>{atob(activeUser?.windows)}</h4>}
 					<h3>BitWarden:</h3>
-					{warden && <h4>{atob(warden)}</h4>}
+					{activeUser?.warden && <h4>{atob(activeUser?.warden)}</h4>}
 					<h3>App Pin:</h3>
-					{appPin && <h4>{appPin}</h4>}
+					{activeUser?.appPin && <h4>{activeUser?.appPin}</h4>}
 				</div>
 			)}
 		</div>
