@@ -18,43 +18,26 @@ import ProjectReducer from './slices/projectSlice';
 const appPersistConfig = {
 	key: 'app',
 	storage,
-	whitelist: [
-		'theme',
-		'showHome',
-		'showGenerator',
-		'showForm',
-		'firstName',
-		'phoneNumber',
-		'phoneExt',
-		'bridgeNumber',
-		'bridgeExt',
-		'bridgePin',
-	],
+	whitelist: ['theme', 'showHome', 'showGenerator', 'showForm'],
 };
 
 const userPersistConfig = {
 	key: 'user',
 	storage,
-	whitelist: ['user'],
-};
-
-const securityPersistConfig = {
-	key: 'security',
-	storage,
-	whitelist: ['windows', 'warden', 'appPin'],
+	whitelist: ['activeUser'],
 };
 
 const projectPersistConfig = {
 	key: 'project',
 	storage,
-	whitelist: ['allProjects', 'selectedProject'],
+	whitelist: ['view', 'allProjects', 'selectedProject'],
 };
 
 export const store = configureStore({
 	reducer: {
 		app: persistReducer(appPersistConfig, appReducer),
 		user: persistReducer(userPersistConfig, userReducer),
-		security: persistReducer(securityPersistConfig, securityReducer),
+		security: securityReducer,
 		project: persistReducer(projectPersistConfig, ProjectReducer),
 	},
 	middleware: (getDefaultMiddleware) =>

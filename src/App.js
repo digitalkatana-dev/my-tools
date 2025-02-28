@@ -1,7 +1,9 @@
 import { useSelector } from 'react-redux';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
+import ProtectedRoute from './components/ProtectedRoute';
 import MainLayout from './layouts/MainLayout';
+import Auth from './features/Auth';
 import Home from './features/Home';
 import Generator from './features/Generator';
 import Guide from './features/Guide';
@@ -11,6 +13,7 @@ import UnderConstruction from './components/UnderConstruction';
 
 function App() {
 	const { theme, showHome, showGenerator } = useSelector((state) => state.app);
+	const { activeUser } = useSelector((state) => state.user);
 
 	return (
 		<div className='app' data-theme={theme}>
@@ -19,35 +22,57 @@ function App() {
 					<Route
 						path='/'
 						element={
-							showHome ? (
-								<MainLayout children={<Home />} />
-							) : !showHome && showGenerator ? (
-								<MainLayout children={<Generator />} />
+							activeUser ? (
+								<ProtectedRoute
+									element={
+										showHome ? (
+											<MainLayout children={<Home />} />
+										) : !showHome && showGenerator ? (
+											<MainLayout children={<Generator />} />
+										) : (
+											!showHome &&
+											!showGenerator && <MainLayout children={<Guide />} />
+										)
+									}
+								/>
 							) : (
-								!showHome &&
-								!showGenerator && <MainLayout children={<Guide />} />
+								<MainLayout children={<Auth />} />
 							)
 						}
 					/>
 					{showHome && (
 						<Route
 							path='/generator'
-							element={<MainLayout children={<Generator />} />}
+							element={
+								<ProtectedRoute
+									element={<MainLayout children={<Generator />} />}
+								/>
+							}
 						/>
 					)}
 					{(showHome || showGenerator) && (
 						<Route
 							path='/guides'
-							element={<MainLayout children={<Guide />} />}
+							element={
+								<ProtectedRoute element={<MainLayout children={<Guide />} />} />
+							}
 						/>
 					)}
 					<Route
 						path='/projects'
-						element={<MainLayout children={<UnderConstruction />} />}
+						element={
+							<ProtectedRoute
+								element={<MainLayout children={<Projects />} />}
+							/>
+						}
 					/>
 					<Route
 						path='/settings'
-						element={<MainLayout children={<Settings />} />}
+						element={
+							<ProtectedRoute
+								element={<MainLayout children={<Settings />} />}
+							/>
+						}
 					/>
 				</Routes>
 			</Router>

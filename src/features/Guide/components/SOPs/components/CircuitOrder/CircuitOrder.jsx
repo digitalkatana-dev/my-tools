@@ -6,7 +6,7 @@ import Levels from '../../../../../../components/Levels';
 import Tooltip from '../../../../../../components/Tooltip';
 
 const CircuitOrder = () => {
-	const { firstName } = useSelector((state) => state.app);
+	const { activeUser } = useSelector((state) => state.user);
 
 	return (
 		<div id='circuit'>
@@ -64,8 +64,8 @@ const CircuitOrder = () => {
 				</Levels>
 				<Levels level='2' identifier='i.'>
 					Public Folders ➜ All Public Folders ➜ Clients ➜ Current Orders ➜{' '}
-					{firstName ? firstName : '"TPC Name"'} ➜ Folder Name ➜ = Client Name
-					Listed in Homir (Location)
+					{activeUser?.firstName ? activeUser?.firstName : '"TPC Name"'} ➜
+					Folder Name ➜ = Client Name Listed in Homir (Location)
 				</Levels>
 				<Levels level='1' identifier='d.'>
 					Order Processing will create a folder for the client in the Operations

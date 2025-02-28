@@ -6,21 +6,18 @@ import {
 	DialogTitle,
 } from '@mui/material';
 import { useDispatch } from 'react-redux';
-import { setWindows, setWarden } from '../../../../redux/slices/securitySlice';
+import { updateProfile } from '../../../../redux/slices/userSlice';
 import Button from '../../../../components/Button';
 
 const SecurityDialog = ({ showDialog, passOutput, onClose }) => {
 	const dispatch = useDispatch();
 
 	const handleClick = (input) => {
-		const actionMap = {
-			win: setWindows,
-			war: setWarden,
+		const data = {
+			...(input === 'win' && { windows: btoa(passOutput) }),
+			...(input === 'war' && { warden: btoa(passOutput) }),
 		};
-
-		const action = actionMap[input];
-
-		action && dispatch(action(btoa(passOutput)));
+		dispatch(updateProfile(data));
 		onClose();
 	};
 
