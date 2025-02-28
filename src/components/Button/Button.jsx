@@ -23,7 +23,11 @@ const Button = ({
 			disabled={disabled}
 			onClick={onClick}
 		>
-			{loading ? <CircularProgress size={15} /> : <>{children.toUpperCase()}</>}
+			{loading ? (
+				<CircularProgress size={15} thickness={6} color='white' />
+			) : (
+				<>{children.toUpperCase()}</>
+			)}
 		</button>
 	);
 };
