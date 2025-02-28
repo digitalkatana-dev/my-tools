@@ -7,7 +7,9 @@ import Button from '../../components/Button';
 import './auth.scss';
 
 const Auth = () => {
-	const { email, password } = useSelector((state) => state.user);
+	const { loading, email, password, errors } = useSelector(
+		(state) => state.user
+	);
 	const dispatch = useDispatch();
 
 	const handleChange = (input, value) => {
@@ -39,6 +41,7 @@ const Auth = () => {
 						placeholder='Email'
 						value={email}
 						onChange={(e) => handleChange('email', e.target.value)}
+						error={errors?.email}
 					/>
 				</FormControl>
 				<FormControl style={{ width: '55%' }}>
@@ -47,10 +50,14 @@ const Auth = () => {
 						placeholder='Password'
 						value={password}
 						onChange={(e) => handleChange('pass', e.target.value)}
+						error={errors?.password}
 					/>
 				</FormControl>
+				{errors?.login && <h6 className='error'>{errors?.login}</h6>}
 				<FormControl style={{ width: '55%' }}>
-					<Button type='submit'>Submit</Button>
+					<Button loading={loading} type='submit'>
+						Submit
+					</Button>
 				</FormControl>
 			</form>
 		</div>

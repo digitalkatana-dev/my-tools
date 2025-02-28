@@ -1,7 +1,16 @@
 import React from 'react';
+import { CircularProgress } from '@mui/material';
 import './button.scss';
 
-const Button = ({ fullWidth, btnClass, type, disabled, children, onClick }) => {
+const Button = ({
+	loading,
+	fullWidth,
+	btnClass,
+	type,
+	disabled,
+	children,
+	onClick,
+}) => {
 	const btnStyle = {
 		width: fullWidth ? '100%' : 'unset',
 	};
@@ -14,7 +23,7 @@ const Button = ({ fullWidth, btnClass, type, disabled, children, onClick }) => {
 			disabled={disabled}
 			onClick={onClick}
 		>
-			{children.toUpperCase()}
+			{loading ? <CircularProgress size={15} /> : <>{children.toUpperCase()}</>}
 		</button>
 	);
 };
