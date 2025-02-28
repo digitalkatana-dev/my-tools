@@ -7,9 +7,9 @@ import Auth from './features/Auth';
 import Home from './features/Home';
 import Generator from './features/Generator';
 import Guide from './features/Guide';
-import Projects from './features/Projects';
+// import Projects from './features/Projects';
 import Settings from './features/Settings';
-// import UnderConstruction from './components/UnderConstruction';
+import UnderConstruction from './components/UnderConstruction';
 
 function App() {
 	const { theme, showHome, showGenerator } = useSelector((state) => state.app);
@@ -62,7 +62,7 @@ function App() {
 						path='/projects'
 						element={
 							<ProtectedRoute
-								element={<MainLayout children={<Projects />} />}
+								element={<MainLayout children={<UnderConstruction />} />}
 							/>
 						}
 					/>
