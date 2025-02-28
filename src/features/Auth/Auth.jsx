@@ -1,7 +1,7 @@
 import React from 'react';
 import { FormControl } from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
-import { setEmail, setPassword, login } from '../../redux/slices/userSlice';
+import { setEmail, setPassword, login, clearErrors_User } from '../../redux/slices/userSlice';
 import TextInput from '../../components/TextInput';
 import Button from '../../components/Button';
 import './auth.scss';
@@ -11,6 +11,10 @@ const Auth = () => {
 		(state) => state.user
 	);
 	const dispatch = useDispatch();
+
+	const handleFocus = ()=> {
+		dispatch(clearErrors_User());
+	}
 
 	const handleChange = (input, value) => {
 		const actionMap = {
@@ -41,6 +45,7 @@ const Auth = () => {
 						placeholder='Email'
 						value={email}
 						onChange={(e) => handleChange('email', e.target.value)}
+						onFocus={handleFocus}
 						error={errors?.email}
 					/>
 				</FormControl>
@@ -50,6 +55,7 @@ const Auth = () => {
 						placeholder='Password'
 						value={password}
 						onChange={(e) => handleChange('pass', e.target.value)}
+						onFocus={handleFocus}
 						error={errors?.password}
 					/>
 				</FormControl>
