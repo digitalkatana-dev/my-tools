@@ -1,29 +1,33 @@
 import { Chip, Divider, Paper, Stack, Typography } from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
-import {
-	setTheme,
-	setShowHome,
-	setShowGenerator,
-} from '../../redux/slices/appSlice';
+import { updateProfile } from '../../redux/slices/userSlice';
 import Switch from '../../components/Switch';
 import './settings.scss';
 
 const Settings = () => {
-	const { theme, showHome, showGenerator, firstName } = useSelector(
-		(state) => state.app
-	);
+	const { theme, showHome, showGenerator } = useSelector((state) => state.app);
+	const { activeUser } = useSelector((state) => state.user);
 	const dispatch = useDispatch();
 
 	const handleThemeSwitch = () => {
 		const newTheme = theme === 'light' ? 'dark' : 'light';
-		dispatch(setTheme(newTheme));
+		const data = {
+			theme: newTheme,
+		};
+		dispatch(updateProfile(data));
 	};
 
 	const handleDisplay = (input) => {
 		if (input === 'home') {
-			dispatch(setShowHome());
+			const data = {
+				showHome: !showHome,
+			};
+			dispatch(updateProfile(data));
 		} else if (input === 'generator') {
-			dispatch(setShowGenerator());
+			const data = {
+				showGenerator: !showGenerator,
+			};
+			dispatch(updateProfile(data));
 		}
 	};
 
@@ -35,7 +39,8 @@ const Settings = () => {
 			>
 				<div className='greeting-container'>
 					<h3 className='greeting'>
-						Hi,{firstName ? ` ${firstName}!  ` : ' '}Welcome Back! 👋
+						Hi,{activeUser?.firstName ? ` ${activeUser?.firstName}!  ` : ' '}
+						Welcome Back! 👋
 					</h3>
 				</div>
 				<Divider>

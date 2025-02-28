@@ -3,6 +3,7 @@ import {
 	createEntityAdapter,
 	createSlice,
 } from '@reduxjs/toolkit';
+import { populateUserData } from './appSlice';
 import { getUserProjects } from './projectSlice';
 import {
 	setPassInput,
@@ -20,7 +21,10 @@ export const login = createAsyncThunk(
 			const { success, userProfile, token } = res.data;
 			console.log(res.data);
 			localStorage.setItem('token', token);
-			success && dispatch(getUserProjects(userProfile._id));
+			if (success) {
+				dispatch(getUserProjects(userProfile._id));
+				dispatch(populateUserData(userProfile));
+			}
 			return { success, userProfile };
 		} catch (err) {
 			return rejectWithValue(err.response.data);
@@ -33,12 +37,13 @@ export const updateProfile = createAsyncThunk(
 	async (data, { rejectWithValue, dispatch }) => {
 		try {
 			const res = await toolsApi.put('/profiles', data);
-			const { success } = res.data;
+			const { success, updatedProfile } = res.data;
 			if (success) {
 				dispatch(setPassInput(''));
 				dispatch(setPassOutput(''));
 				dispatch(setPinInput(''));
 				dispatch(setPinOutput(''));
+				dispatch(populateUserData(updatedProfile));
 			}
 			return res.data;
 		} catch (err) {

@@ -1,7 +1,6 @@
 import { FormControl, Typography } from '@mui/material';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { setShowForm } from '../../redux/slices/appSlice';
 import {
 	setFirstName,
 	setPhoneNumber,
@@ -17,7 +16,6 @@ import TextInput from '../../components/TextInput';
 import Button from '../../components/Button';
 
 const Home = () => {
-	const { showForm } = useSelector((state) => state.app);
 	const {
 		firstName,
 		phoneNumber,
@@ -35,7 +33,10 @@ const Home = () => {
 	};
 
 	const handleClear = () => {
-		dispatch(setShowForm());
+		const data = {
+			showForm: true,
+		};
+		dispatch(updateProfile(data));
 	};
 
 	const handleChange = (input, value) => {
@@ -62,9 +63,9 @@ const Home = () => {
 			...(bridgeNumber && { bridgeNumber }),
 			...(bridgeExt && { bridgeExt }),
 			...(bridgePin && { bridgePin }),
+			showForm: false,
 		};
 		dispatch(updateProfile(data));
-		dispatch(setShowForm());
 	};
 
 	return (
@@ -74,7 +75,7 @@ const Home = () => {
 			<Typography variant='h5' className='greeting'>
 				Hello {activeUser?.firstName}, Welcome back! 👋
 			</Typography>
-			{showForm ? (
+			{activeUser?.showForm ? (
 				<form onSubmit={handleSubmit}>
 					<FormControl>
 						<TextInput
