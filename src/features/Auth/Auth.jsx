@@ -1,7 +1,7 @@
 import React from 'react';
 import { FormControl } from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
-import { setEmail, setPassword, login, clearErrors } from '../../redux/slices/userSlice';
+import { setEmail, setPassword, login, clearErrors_User } from '../../redux/slices/userSlice';
 import TextInput from '../../components/TextInput';
 import Button from '../../components/Button';
 import './auth.scss';
@@ -13,7 +13,7 @@ const Auth = () => {
 	const dispatch = useDispatch();
 
 	const handleFocus = ()=> {
-		dispatch(clearErrors());
+		dispatch(clearErrors_User());
 	}
 
 	const handleChange = (input, value) => {
