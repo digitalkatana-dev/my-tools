@@ -14,6 +14,7 @@ const TextInput = ({
 	value,
 	onChange,
 	onFocus,
+	error,
 }) => {
 	const [show, setShow] = useState(false);
 
@@ -45,6 +46,7 @@ const TextInput = ({
 					rightIcon
 				)}
 			</div>
+			{error && <h6 className='error'>{error}</h6>}
 		</div>
 	);
 };
