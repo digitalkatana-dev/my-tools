@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import {
 	Box,
 	Paper,
@@ -15,6 +15,7 @@ import { setSlash } from '../../../../../../redux/slices/appSlice';
 import { masterRows, emptyRows } from '../../../../../../util/helpers';
 
 const MasterTable = () => {
+	const { slash } = useSelector((state) => state.app);
 	const [page, setPage] = useState(0);
 	const [rowsPerPage, setRowsPerPage] = useState(5);
 	const dispatch = useDispatch();
@@ -36,11 +37,6 @@ const MasterTable = () => {
 		setPage(newPage);
 	};
 
-	const handleChangeRowsPerPage = (event) => {
-		setRowsPerPage(parseInt(event.target.value, 10));
-		setPage(0);
-	};
-
 	return (
 		<Box sx={{ width: '100%' }}>
 			<Paper sx={{ width: '100%', mb: 2 }}>
@@ -48,7 +44,13 @@ const MasterTable = () => {
 					<Table sx={{ maxWidth: 650 }} size='small'>
 						<TableHead>
 							<TableRow>
-								<TableCell align='center'>Slash</TableCell>
+								<TableCell
+									align='center'
+									className='slash'
+									onClick={() => handleClick('')}
+								>
+									Slash
+								</TableCell>
 								<TableCell align='center'>Addresses</TableCell>
 								<TableCell align='center'>Hosts</TableCell>
 								<TableCell align='center'>Netmask</TableCell>
@@ -61,7 +63,12 @@ const MasterTable = () => {
 									sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
 								>
 									<TableCell component='th' scope='row' align='center'>
-										<p onClick={() => handleClick(row.slash)}>{row.slash}</p>
+										<p
+											className={row.slash === slash ? 'slash active' : 'slash'}
+											onClick={() => handleClick(row.slash)}
+										>
+											{row.slash}
+										</p>
 									</TableCell>
 									<TableCell align='center'>{row.addresses}</TableCell>
 									<TableCell align='center'>{row.hosts}</TableCell>
