@@ -9,6 +9,18 @@
 	.master-wrapper {
 		height: 40%;
 		overflow: scroll;
+
+		.slash {
+			cursor: pointer;
+
+			&.active {
+				color: crimson;
+				background-color: black;
+				font-weight: bold;
+				padding: 1px;
+				border-radius: 20px;
+			}
+		}
 	}
 
 	.sub-wrapper {
