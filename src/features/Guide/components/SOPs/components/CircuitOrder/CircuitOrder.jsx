@@ -437,13 +437,13 @@ const CircuitOrder = () => {
 					, submit request for IPs via OTRS
 				</Levels>
 				<Levels level='3' identifier='•'>
-					Queue - Engineering
+					Queue - Engineering | Provisioning | Core Build
 				</Levels>
 				<Levels level='3' identifier='•'>
-					Owner - NLI Engineering
+					Owner - Verve Network-ENG
 				</Levels>
 				<Levels level='3' identifier='•'>
-					Responsible - NLI Engineering
+					Responsible - Verve Network-ENG
 				</Levels>
 				<Levels level='3' identifier='•'>
 					Select appropriate text template
@@ -557,12 +557,15 @@ const CircuitOrder = () => {
 					Submit via OTRS ticket
 				</Levels>
 				<Levels level='4' identifier='a.'>
-					Queue - Engineering - Provisioning - Tier 3 Configuration Review
+					Queue - Engineering | Provisioning | Tier 3 Configuration Review
 				</Levels>
 				<Levels level='4' identifier='b.'>
-					Responsible - NLI Engineering
+					Owner - Verve Network-ENG
 				</Levels>
 				<Levels level='4' identifier='c.'>
+					Responsible - Verve Network-ENG
+				</Levels>
+				<Levels level='4' identifier='d.'>
 					Select appropriate text template
 				</Levels>
 				<SopImage imageUrl='config_review.png' />
