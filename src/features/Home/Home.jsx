@@ -139,7 +139,7 @@ const Home = () => {
 					<h3>
 						Bridge: {phoneFormatter(activeUser?.bridgeNumber)} Ext:{' '}
 						{activeUser?.bridgeExt} Pin: {activeUser?.bridgePin}
-					</h3>*
+					</h3>
 				</div>
 			)}
 			{show && (
