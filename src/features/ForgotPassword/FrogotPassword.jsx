@@ -51,6 +51,7 @@ const FrogotPassword = () => {
 			<form onSubmit={handleSubmit}>
 				<FormControl style={{ width: '55%' }}>
 					<TextInput
+						type='email'
 						placeholder='Email'
 						value={email}
 						onChange={handleChange}
