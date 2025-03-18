@@ -4,6 +4,8 @@ import './App.css';
 import ProtectedRoute from './components/ProtectedRoute';
 import MainLayout from './layouts/MainLayout';
 import Auth from './features/Auth';
+import ForgotPassword from './features/ForgotPassword';
+import ResetPassword from './features/ResetPassword';
 import Home from './features/Home';
 import Generator from './features/Generator';
 import Guide from './features/Guide';
@@ -39,6 +41,14 @@ function App() {
 								<MainLayout children={<Auth />} />
 							)
 						}
+					/>
+					<Route
+						path='/forgot'
+						element={<MainLayout children={<ForgotPassword />} />}
+					/>
+					<Route
+						path='/reset-password/:id'
+						element={<MainLayout children={<ResetPassword />} />}
 					/>
 					{showHome && (
 						<Route
