@@ -1,4 +1,4 @@
-#auth {
+#reset {
 	width: 100%;
 	height: 100%;
 	display: flex;
@@ -21,10 +21,28 @@
 		}
 	}
 
-	.forgot-link {
-		margin-top: 20px;
-		text-decoration: none;
-		font-weight: bold;
-		color: steelblue;
+	.response-container {
+		width: 60%;
+		margin-top: 10px;
+		text-align: center;
+
+		p {
+			line-height: 1.5;
+			font-weight: bold;
+			font-size: 13px;
+
+			span {
+				vertical-align: middle;
+				margin-right: 5px;
+			}
+
+			&.success-message {
+				color: green;
+			}
+
+			&.error-message {
+				color: var(--error);
+			}
+		}
 	}
 }

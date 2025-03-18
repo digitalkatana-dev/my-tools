@@ -52,6 +52,31 @@ export const updateProfile = createAsyncThunk(
 	}
 );
 
+export const generatePasswordToken = createAsyncThunk(
+	'user/generate_token',
+	async (data, { rejectWithValue }) => {
+		try {
+			const res = await toolsApi.post('/users/password-token', data);
+			return res.data;
+		} catch (err) {
+			return rejectWithValue(err.response.data);
+		}
+	}
+);
+
+export const resetWithToken = createAsyncThunk(
+	'user/reset_with_token',
+	async (data, { rejectWithValue }) => {
+		try {
+			const res = await toolsApi.post('/users/reset-password', data);
+			return res.data;
+		} catch (err) {
+			console.log(err);
+			return rejectWithValue(err.response.data);
+		}
+	}
+);
+
 export const userAdapter = createEntityAdapter();
 const initialState = userAdapter.getInitialState({
 	loading: false,
@@ -153,6 +178,32 @@ export const userSlice = createSlice({
 				state.errors = null;
 			})
 			.addCase(updateProfile.rejected, (state, action) => {
+				state.loading = false;
+				state.errors = action.payload;
+			})
+			.addCase(generatePasswordToken.pending, (state) => {
+				state.loading = true;
+				state.errors = null;
+			})
+			.addCase(generatePasswordToken.fulfilled, (state, action) => {
+				state.loading = false;
+				state.success = action.payload;
+				state.email = '';
+			})
+			.addCase(generatePasswordToken.rejected, (state, action) => {
+				state.loading = false;
+				state.errors = action.payload;
+			})
+			.addCase(resetWithToken.pending, (state) => {
+				state.loading = true;
+				state.errors = null;
+			})
+			.addCase(resetWithToken.fulfilled, (state, action) => {
+				state.loading = false;
+				state.success = action.payload;
+				state.password = '';
+			})
+			.addCase(resetWithToken.rejected, (state, action) => {
 				state.loading = false;
 				state.errors = action.payload;
 			});

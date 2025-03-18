@@ -87,6 +87,7 @@ const Home = () => {
 					</FormControl>
 					<FormControl>
 						<TextInput
+							type='number'
 							// label='Phone Number'
 							placeholder='Enter Phone Number'
 							value={phoneNumber}
@@ -95,6 +96,7 @@ const Home = () => {
 					</FormControl>
 					<FormControl>
 						<TextInput
+							type='number'
 							// label='Phone Ext'
 							placeholder='Enter Ext'
 							value={phoneExt}
@@ -103,6 +105,7 @@ const Home = () => {
 					</FormControl>
 					<FormControl>
 						<TextInput
+							type='number'
 							// label='Conference Bridge'
 							placeholder='Enter Bridge Number'
 							value={bridgeNumber}
@@ -111,6 +114,7 @@ const Home = () => {
 					</FormControl>
 					<FormControl>
 						<TextInput
+							type='number'
 							// label='Conference Bridge Ext'
 							placeholder='Enter Bridge Ext'
 							value={bridgeExt}
@@ -119,6 +123,7 @@ const Home = () => {
 					</FormControl>
 					<FormControl>
 						<TextInput
+							type='number'
 							// label='Conference Bridge Pin'
 							placeholder='Enter Bridge Pin'
 							value={bridgePin}
