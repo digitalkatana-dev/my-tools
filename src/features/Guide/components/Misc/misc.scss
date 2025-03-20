@@ -1,0 +1,29 @@
+#misc {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
+	padding: 20px;
+	overflow-y: auto;
+
+	.radio-label {
+		text-align: left;
+		color: var(--txt-primary);
+	}
+
+	.example {
+		margin: 15px 0;
+	}
+
+	&.dark {
+		.MuiDivider-root::before,
+		.MuiDivider-root::after {
+			border-color: rgba(255, 255, 255, 0.12);
+		}
+
+		.divider-chip {
+			background-color: var(--txt-heading-shadow);
+			color: var(--txt-heading);
+		}
+	}
+}

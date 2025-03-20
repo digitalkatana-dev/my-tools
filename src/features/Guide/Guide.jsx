@@ -6,7 +6,7 @@ import TabPanel from './components/TabPanel';
 import SOPs from './components/SOPs';
 import Plans from './components/Plans';
 import Subnets from './components/Subnets';
-import Glossary from './components/Glossary';
+import Misc from './components/Misc';
 
 const Guide = () => {
 	const { theme } = useSelector((state) => state.app);
@@ -49,7 +49,7 @@ const Guide = () => {
 						className={theme === 'dark' ? 'label dark' : 'label'}
 					/>
 					<Tab
-						label='Glossary'
+						label='Misc'
 						{...a11yProps(3)}
 						className={theme === 'dark' ? 'label dark' : 'label'}
 					/>
@@ -59,7 +59,7 @@ const Guide = () => {
 				<TabPanel value={value} index={0} children={<SOPs />} />
 				<TabPanel value={value} index={1} children={<Plans />} />
 				<TabPanel value={value} index={2} children={<Subnets />} />
-				<TabPanel value={value} index={3} children={<Glossary />} />
+				<TabPanel value={value} index={3} children={<Misc />} />
 			</div>
 		</div>
 	);
