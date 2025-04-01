@@ -1,14 +1,18 @@
 #subnets {
-	height: calc(100vh - 164px);
+	// height: calc(100vh - 164px);
+	height: inherit;
 	display: flex;
 	flex-direction: column;
 	padding: 20px;
 	position: relative;
 	overflow-y: scroll;
+	// border: 2px solid green;
 
 	.master-wrapper {
-		height: 40%;
-		overflow: scroll;
+		margin-bottom: 10px;
+		// height: 40%;
+		// overflow: scroll;
+		// border: 1px solid dodgerblue;
 
 		.slash {
 			cursor: pointer;
@@ -24,8 +28,9 @@
 	}
 
 	.sub-wrapper {
-		height: 59%;
+		max-height: 59%;
 		overflow: scroll;
+		// border: 1px solid red;
 
 		.sub-table {
 			display: flex;
