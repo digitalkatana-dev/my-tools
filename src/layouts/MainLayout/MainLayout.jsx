@@ -5,7 +5,7 @@ import BottomNav from '../../components/BottomNav';
 
 const MainLayout = ({ children }) => {
 	return (
-		<Container id='layout' maxWidth='xs'>
+		<Container id='layout' maxWidth='sm'>
 			<Topbar />
 			<div className='content'>{children}</div>
 			<BottomNav />
