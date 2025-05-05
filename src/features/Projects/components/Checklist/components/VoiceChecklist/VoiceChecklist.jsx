@@ -200,7 +200,7 @@ const VoiceChecklist = () => {
 					(Optional to frontload) Prepare{' '}
 					<a
 						className='link'
-						href='Billing_2024.xlsx'
+						href='Billing_2025.xlsx'
 						target='_blank'
 						rel='noreferrer'
 					>
