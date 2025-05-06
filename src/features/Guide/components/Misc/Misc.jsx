@@ -12,13 +12,26 @@ import {
 } from '@mui/material';
 import { DIA, NNI, SDWAN, Wireless } from './components/Templates';
 import TextInput from '../../../../components/TextInput';
+import Button from '../../../../components/Button';
 import './misc.scss';
 
 const Misc = () => {
 	const { theme } = useSelector((state) => state.app);
 	const [counter, setCounter] = useState('');
 	const [ipType, setIPType] = useState('dia');
+	const [numbersToFormat, setNumbersToFormat] = useState('');
+	const [formattedNumbers, setFormattedNumbers] = useState('');
 	let selectedTemplate;
+
+	const handleFormat = () => {
+		const processed = numbersToFormat
+			.split(',')
+			.map((num) => num.trim())
+			.map((num) => num.replace(/-/g, ''))
+			.filter((num) => /^\d{10}$/.test(num))
+			.map((num) => '1' + num);
+		setFormattedNumbers(processed.join(', '));
+	};
 
 	switch (ipType) {
 		case 'dia':
@@ -83,6 +96,18 @@ const Misc = () => {
 			<div className='example'>
 				<img src='ip-example.png' alt='' />
 			</div>
+			<Divider>
+				<Chip
+					label='Cancellation Number Converter'
+					size='small'
+					className='divider-chip'
+				/>
+			</Divider>
+			<div id='num-formatter'>
+				<textarea onChange={(e) => setNumbersToFormat(e.target.value)} />
+				<Button onClick={handleFormat}>Format</Button>
+			</div>
+			<p>{formattedNumbers}</p>
 		</div>
 	);
 };
