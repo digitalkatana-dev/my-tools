@@ -4,6 +4,7 @@ import VoiceOrder from './components/VoiceOrder';
 import CircuitOrder from './components/CircuitOrder';
 import VoiceCancellationOrder from './components/VoiceCancellationOrder';
 import CircuitCancellationOrder from './components/CircuitCancellationOrder';
+import AccountCancellationOrder from './components/AccountCancellationOrder';
 
 const SOPs = () => {
 	const [view, setView] = useState('index');
@@ -31,6 +32,8 @@ const SOPs = () => {
 				<VoiceCancellationOrder />
 			) : view === 'cco' ? (
 				<CircuitCancellationOrder />
+			) : view === 'aco' ? (
+				<AccountCancellationOrder />
 			) : (
 				view === 'index' && (
 					<div className='sop-list'>
@@ -45,6 +48,9 @@ const SOPs = () => {
 						</h3>
 						<h3 onClick={() => handleClick('cco')}>
 							How to Process a Circuit Cancellation Order
+						</h3>
+						<h3 onClick={() => handleClick('aco')}>
+							How to Process an Account Cancellation Order
 						</h3>
 					</div>
 				)
