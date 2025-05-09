@@ -53,25 +53,14 @@ const BottomNav = () => {
 				</p>
 				<h6>QRG</h6>
 			</IconButton>
-			{/* <IconButton
-				className={currentLocation === 'todo' ? 'nav-btn active' : 'nav-btn'}
-				onClick={() => handleClick('todo')}
-			>
-				<p className={isIOS || isSafari ? '' : 'noto-color-emoji-regular'}>
-					📋
-				</p>
-				<h6>ToDo</h6>
-			</IconButton> */}
 			<IconButton
-				className={
-					currentLocation === 'projects' ? 'nav-btn active' : 'nav-btn'
-				}
-				onClick={() => handleClick('projects')}
+				className={currentLocation === 'notes' ? 'nav-btn active' : 'nav-btn'}
+				onClick={() => handleClick('notes')}
 			>
 				<p className={isIOS || isSafari ? '' : 'noto-color-emoji-regular'}>
-					📋
+					✍️
 				</p>
-				<h6>Projects</h6>
+				<h6>Notes</h6>
 			</IconButton>
 			<IconButton
 				className={

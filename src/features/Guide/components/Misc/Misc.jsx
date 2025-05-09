@@ -104,7 +104,7 @@ const Misc = () => {
 				/>
 			</Divider>
 			<div id='num-formatter'>
-				<FormControl fullWidth>
+				<FormControl style={{ alignSelf: 'center', width: '55%' }}>
 					<TextInput
 						multiline
 						rows={5}

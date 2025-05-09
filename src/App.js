@@ -9,7 +9,7 @@ import ResetPassword from './features/ResetPassword';
 import Home from './features/Home';
 import Generator from './features/Generator';
 import Guide from './features/Guide';
-import Projects from './features/Projects';
+import Notes from './features/Notes';
 import Settings from './features/Settings';
 // import UnderConstruction from './components/UnderConstruction';
 
@@ -69,11 +69,9 @@ function App() {
 						/>
 					)}
 					<Route
-						path='/projects'
+						path='/notes'
 						element={
-							<ProtectedRoute
-								element={<MainLayout children={<Projects />} />}
-							/>
+							<ProtectedRoute element={<MainLayout children={<Notes />} />} />
 						}
 					/>
 					<Route
