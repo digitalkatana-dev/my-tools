@@ -4,12 +4,16 @@ import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 
 const TextInput = ({
+	fullWidth,
 	style,
+	containerClass,
 	label,
 	leftIcon,
 	rightIcon,
 	disabled,
 	type,
+	multiline,
+	rows,
 	placeholder,
 	value,
 	onChange,
@@ -18,19 +22,41 @@ const TextInput = ({
 }) => {
 	const [show, setShow] = useState(false);
 
+	const inputStyle = {
+		width: fullWidth ? '100%' : '',
+		...style,
+	};
+
 	return (
-		<div className='text-input' style={style}>
+		<div className='text-input' style={inputStyle}>
 			{label && <label>{label}</label>}
-			<div className='input-container'>
+			<div
+				className={
+					containerClass
+						? `input-container ${containerClass}`
+						: 'input-container'
+				}
+			>
 				{leftIcon}
-				<input
-					disabled={disabled}
-					type={show ? 'text' : type}
-					placeholder={placeholder}
-					value={value}
-					onChange={onChange}
-					onFocus={onFocus}
-				/>
+				{multiline ? (
+					<textarea
+						disabled={disabled}
+						placeholder={placeholder}
+						rows={rows}
+						value={value}
+						onChange={onChange}
+						onFocus={onFocus}
+					/>
+				) : (
+					<input
+						disabled={disabled}
+						type={show ? 'text' : type}
+						placeholder={placeholder}
+						value={value}
+						onChange={onChange}
+						onFocus={onFocus}
+					/>
+				)}
 				{type === 'password' ? (
 					<>
 						{show ? (
