@@ -12,6 +12,13 @@
 		width: 30%;
 	}
 
+	&.new-note-trigger {
+		position: absolute;
+		top: 25px;
+		right: 25px;
+		z-index: 5;
+	}
+
 	&:hover {
 		box-shadow: var(--elevation);
 	}

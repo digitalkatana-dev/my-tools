@@ -1,0 +1,12 @@
+#notes {
+	width: inherit;
+	height: 100%;
+	padding: 25px;
+	padding-top: 75px;
+	// position: relative;
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
+	overflow-y: scroll;
+	border: 2px solid dodgerblue;
+}
