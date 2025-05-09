@@ -6,8 +6,10 @@
 	padding: 5px;
 	align-self: center;
 
-	label {
+	label,
+	textarea {
 		margin-left: 10px;
+		resize: none;
 	}
 
 	.input-container {
@@ -17,7 +19,8 @@
 		border: 1px solid;
 		padding: 5px;
 
-		input {
+		input,
+		textarea {
 			width: 100%;
 			text-align: center;
 			padding: 5px;
@@ -28,7 +31,7 @@
 		}
 
 		.hide {
-			color: var(--txt-secondary);
+			color: grey;
 		}
 	}
 

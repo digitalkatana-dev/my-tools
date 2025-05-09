@@ -104,8 +104,16 @@ const Misc = () => {
 				/>
 			</Divider>
 			<div id='num-formatter'>
-				<textarea onChange={(e) => setNumbersToFormat(e.target.value)} />
-				<Button onClick={handleFormat}>Format</Button>
+				<FormControl fullWidth>
+					<TextInput
+						multiline
+						rows={5}
+						onChange={(e) => setNumbersToFormat(e.target.value)}
+					/>
+				</FormControl>
+				<FormControl>
+					<Button onClick={handleFormat}>Format</Button>
+				</FormControl>
 			</div>
 			<p>{formattedNumbers}</p>
 		</div>
