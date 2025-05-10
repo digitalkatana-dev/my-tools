@@ -32,6 +32,18 @@ export const login = createAsyncThunk(
 	}
 );
 
+export const getProfile = createAsyncThunk(
+	'user/get_profile',
+	async (data, { rejectWithValue }) => {
+		try {
+			const res = await toolsApi.get('/profiles');
+			return res.data;
+		} catch (err) {
+			return rejectWithValue(err.response.data);
+		}
+	}
+);
+
 export const updateProfile = createAsyncThunk(
 	'profile/update',
 	async (data, { rejectWithValue, dispatch }) => {
@@ -72,6 +84,36 @@ export const resetWithToken = createAsyncThunk(
 			return res.data;
 		} catch (err) {
 			console.log(err);
+			return rejectWithValue(err.response.data);
+		}
+	}
+);
+
+export const createNote = createAsyncThunk(
+	'user/create_note',
+	async (data, { dispatch, rejectWithValue }) => {
+		try {
+			const res = await toolsApi.post('/notes', data);
+			const { success } = res.data;
+			success && dispatch(getProfile());
+			return res.data;
+		} catch (err) {
+			return rejectWithValue(err.response.data);
+		}
+	}
+);
+
+export const updateNote = createAsyncThunk();
+
+export const deleteNote = createAsyncThunk(
+	'user/delete_note',
+	async (data, { dispatch, rejectWithValue }) => {
+		try {
+			const res = await toolsApi.delete(`/notes/${data}`);
+			const { success } = res.data;
+			success && dispatch(getProfile());
+			return res.data;
+		} catch (err) {
 			return rejectWithValue(err.response.data);
 		}
 	}
@@ -161,6 +203,19 @@ export const userSlice = createSlice({
 				state.loading = false;
 				state.errors = action.payload;
 			})
+			.addCase(getProfile.pending, (state) => {
+				state.loading = true;
+				state.errors = null;
+			})
+			.addCase(getProfile.fulfilled, (state, action) => {
+				state.loading = false;
+				state.activeUser = action.payload;
+				state.errors = null;
+			})
+			.addCase(getProfile.rejected, (state, action) => {
+				state.loading = false;
+				state.errors = action.payload;
+			})
 			.addCase(updateProfile.pending, (state) => {
 				state.loading = true;
 				state.errors = null;
@@ -204,6 +259,32 @@ export const userSlice = createSlice({
 				state.password = '';
 			})
 			.addCase(resetWithToken.rejected, (state, action) => {
+				state.loading = false;
+				state.errors = action.payload;
+			})
+			.addCase(createNote.pending, (state) => {
+				state.loading = true;
+				state.errors = null;
+			})
+			.addCase(createNote.fulfilled, (state, action) => {
+				state.loading = false;
+				state.success = action.payload.success;
+				state.errors = null;
+			})
+			.addCase(createNote.rejected, (state, action) => {
+				state.loading = false;
+				state.errors = action.payload;
+			})
+			.addCase(deleteNote.pending, (state) => {
+				state.loading = true;
+				state.errors = null;
+			})
+			.addCase(deleteNote.fulfilled, (state, action) => {
+				state.loading = false;
+				state.success = action.payload.success;
+				state.errors = null;
+			})
+			.addCase(deleteNote.rejected, (state, action) => {
 				state.loading = false;
 				state.errors = action.payload;
 			});
