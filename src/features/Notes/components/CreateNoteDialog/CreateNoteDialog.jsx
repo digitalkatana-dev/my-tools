@@ -7,14 +7,22 @@ import {
 	DialogContent,
 	DialogTitle,
 } from '@mui/material';
-import { createNote } from '../../../../redux/slices/userSlice';
+import {
+	createNote,
+	clearErrors_User,
+} from '../../../../redux/slices/userSlice';
 import TextInput from '../../../../components/TextInput';
 
 const CreateNoteDialog = ({ showDialog, onClose }) => {
-	const { activeUser, success } = useSelector((state) => state.user);
+	const { theme } = useSelector((state) => state.app);
+	const { activeUser, success, errors } = useSelector((state) => state.user);
 	const [topic, setTopic] = useState('');
 	const [content, setContent] = useState('');
 	const dispatch = useDispatch();
+
+	const handleFocus = () => {
+		dispatch(clearErrors_User());
+	};
 
 	const handleChange = (input, value) => {
 		const actionMap = {
@@ -51,20 +59,30 @@ const CreateNoteDialog = ({ showDialog, onClose }) => {
 	}, [handleSuccess]);
 
 	return (
-		<Dialog open={showDialog} onClose={onClose} maxWidth='sm' fullWidth>
+		<Dialog
+			open={showDialog}
+			onClose={onClose}
+			maxWidth='sm'
+			className={theme === 'dark' ? 'dark' : ''}
+			fullWidth
+		>
 			<DialogTitle>Create New Note</DialogTitle>
 			<DialogContent>
 				<TextInput
 					placeholder='Topic'
 					value={topic}
+					onFocus={handleFocus}
 					onChange={(e) => handleChange('topic', e.target.value)}
+					error={errors?.topic}
 				/>
 				<TextInput
 					multiline
 					rows={10}
 					placeholder='Enter Note'
 					value={content}
+					onFocus={handleFocus}
 					onChange={(e) => handleChange('content', e.target.value)}
+					error={errors?.content}
 				/>
 			</DialogContent>
 			<DialogActions>
