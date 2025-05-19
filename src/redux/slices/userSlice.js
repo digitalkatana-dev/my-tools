@@ -89,36 +89,6 @@ export const resetWithToken = createAsyncThunk(
 	}
 );
 
-export const createNote = createAsyncThunk(
-	'user/create_note',
-	async (data, { dispatch, rejectWithValue }) => {
-		try {
-			const res = await toolsApi.post('/notes', data);
-			const { success } = res.data;
-			success && dispatch(getProfile());
-			return res.data;
-		} catch (err) {
-			return rejectWithValue(err.response.data);
-		}
-	}
-);
-
-export const updateNote = createAsyncThunk();
-
-export const deleteNote = createAsyncThunk(
-	'user/delete_note',
-	async (data, { dispatch, rejectWithValue }) => {
-		try {
-			const res = await toolsApi.delete(`/notes/${data}`);
-			const { success } = res.data;
-			success && dispatch(getProfile());
-			return res.data;
-		} catch (err) {
-			return rejectWithValue(err.response.data);
-		}
-	}
-);
-
 export const userAdapter = createEntityAdapter();
 const initialState = userAdapter.getInitialState({
 	loading: false,
@@ -259,32 +229,6 @@ export const userSlice = createSlice({
 				state.password = '';
 			})
 			.addCase(resetWithToken.rejected, (state, action) => {
-				state.loading = false;
-				state.errors = action.payload;
-			})
-			.addCase(createNote.pending, (state) => {
-				state.loading = true;
-				state.errors = null;
-			})
-			.addCase(createNote.fulfilled, (state, action) => {
-				state.loading = false;
-				state.success = action.payload.success;
-				state.errors = null;
-			})
-			.addCase(createNote.rejected, (state, action) => {
-				state.loading = false;
-				state.errors = action.payload;
-			})
-			.addCase(deleteNote.pending, (state) => {
-				state.loading = true;
-				state.errors = null;
-			})
-			.addCase(deleteNote.fulfilled, (state, action) => {
-				state.loading = false;
-				state.success = action.payload.success;
-				state.errors = null;
-			})
-			.addCase(deleteNote.rejected, (state, action) => {
 				state.loading = false;
 				state.errors = action.payload;
 			});

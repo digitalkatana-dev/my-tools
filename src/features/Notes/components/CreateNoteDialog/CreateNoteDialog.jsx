@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react';
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
 	Button,
@@ -8,20 +8,21 @@ import {
 	DialogTitle,
 } from '@mui/material';
 import {
+	setTopic,
+	setContent,
 	createNote,
-	clearErrors_User,
-} from '../../../../redux/slices/userSlice';
+	clearNoteErrors,
+} from '../../../../redux/slices/noteSlice';
 import TextInput from '../../../../components/TextInput';
 
 const CreateNoteDialog = ({ showDialog, onClose }) => {
 	const { theme } = useSelector((state) => state.app);
-	const { activeUser, success, errors } = useSelector((state) => state.user);
-	const [topic, setTopic] = useState('');
-	const [content, setContent] = useState('');
+	const { activeUser } = useSelector((state) => state.user);
+	const { topic, content, errors } = useSelector((state) => state.note);
 	const dispatch = useDispatch();
 
 	const handleFocus = () => {
-		dispatch(clearErrors_User());
+		dispatch(clearNoteErrors());
 	};
 
 	const handleChange = (input, value) => {
@@ -32,7 +33,7 @@ const CreateNoteDialog = ({ showDialog, onClose }) => {
 
 		const action = actionMap[input];
 
-		action && action(value);
+		action && dispatch(action(value));
 	};
 
 	const handleSubmit = (e) => {
@@ -46,17 +47,6 @@ const CreateNoteDialog = ({ showDialog, onClose }) => {
 
 		dispatch(createNote(data));
 	};
-
-	const handleSuccess = useCallback(() => {
-		if (success) {
-			setTopic('');
-			setContent('');
-		}
-	}, [success]);
-
-	useEffect(() => {
-		handleSuccess();
-	}, [handleSuccess]);
 
 	return (
 		<Dialog
