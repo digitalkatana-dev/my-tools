@@ -13,6 +13,7 @@ import storage from 'redux-persist/lib/storage';
 import appReducer from './slices/appSlice';
 import userReducer from './slices/userSlice';
 import securityReducer from './slices/securitySlice';
+import noteReducer from './slices/noteSlice';
 import ProjectReducer from './slices/projectSlice';
 
 const appPersistConfig = {
@@ -38,6 +39,7 @@ export const store = configureStore({
 		app: persistReducer(appPersistConfig, appReducer),
 		user: persistReducer(userPersistConfig, userReducer),
 		security: securityReducer,
+		note: noteReducer,
 		project: persistReducer(projectPersistConfig, ProjectReducer),
 	},
 	middleware: (getDefaultMiddleware) =>

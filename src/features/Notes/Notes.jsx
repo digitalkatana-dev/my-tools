@@ -1,13 +1,14 @@
 import { useCallback, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { clearSuccess_User } from '../../redux/slices/userSlice';
+import { clearNoteSuccess } from '../../redux/slices/noteSlice';
 import './notes.scss';
 import Button from '../../components/Button';
 import NoteItem from './components/NoteItem';
 import CreateNoteDialog from './components/CreateNoteDialog';
 
 const Notes = () => {
-	const { activeUser, success } = useSelector((state) => state.user);
+	const { activeUser } = useSelector((state) => state.user);
+	const { success } = useSelector((state) => state.note);
 	const [showDialog, setShowDialog] = useState(false);
 	const dispatch = useDispatch();
 	const userNotes = activeUser?.notes;
@@ -24,7 +25,7 @@ const Notes = () => {
 		if (success) {
 			setShowDialog(false);
 			setTimeout(() => {
-				dispatch(clearSuccess_User());
+				dispatch(clearNoteSuccess());
 			}, 5000);
 		}
 	}, [success, dispatch]);

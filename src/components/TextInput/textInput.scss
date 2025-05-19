@@ -28,6 +28,10 @@
 			border: none;
 			background-color: transparent;
 			color: var(--txt-primary);
+
+			&.edit-input {
+				color: inherit;
+			}
 		}
 
 		.hide {

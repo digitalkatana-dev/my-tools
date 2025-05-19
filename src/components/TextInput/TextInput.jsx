@@ -7,6 +7,7 @@ const TextInput = ({
 	fullWidth,
 	style,
 	containerClass,
+	inputClass,
 	label,
 	leftIcon,
 	rightIcon,
@@ -40,6 +41,7 @@ const TextInput = ({
 				{leftIcon}
 				{multiline ? (
 					<textarea
+						className={inputClass}
 						disabled={disabled}
 						placeholder={placeholder}
 						rows={rows}
@@ -49,6 +51,7 @@ const TextInput = ({
 					/>
 				) : (
 					<input
+						className={inputClass}
 						disabled={disabled}
 						type={show ? 'text' : type}
 						placeholder={placeholder}
