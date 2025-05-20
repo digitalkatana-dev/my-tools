@@ -51,7 +51,6 @@ export const deleteNote = createAsyncThunk(
 export const noteAdapter = createEntityAdapter();
 const initialState = noteAdapter.getInitialState({
 	loading: false,
-	edit: false,
 	topic: '',
 	content: '',
 	success: null,
@@ -62,9 +61,6 @@ export const noteSlice = createSlice({
 	name: 'note',
 	initialState,
 	reducers: {
-		toggleEdit: (state) => {
-			state.edit = !state.edit;
-		},
 		setTopic: (state, action) => {
 			state.topic = action.payload;
 		},
@@ -131,7 +127,6 @@ export const noteSlice = createSlice({
 });
 
 export const {
-	toggleEdit,
 	setTopic,
 	setContent,
 	populateNote,
