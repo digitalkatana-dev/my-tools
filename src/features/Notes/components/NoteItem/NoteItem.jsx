@@ -45,6 +45,12 @@ const NoteItem = ({ data }) => {
 		setEdit(true);
 	};
 
+	const handleCancel = () => {
+		setEdit(false);
+		dispatch(setTopic(''));
+		dispatch(setContent(''));
+	};
+
 	const handleUpdateClick = () => {
 		const updateData = {
 			_id: data?._id,
@@ -97,10 +103,19 @@ const NoteItem = ({ data }) => {
 				)}
 			</AccordionDetails>
 			<AccordionActions>
-				<Button onClick={edit ? handleUpdateClick : handleEditClick}>
-					{edit ? 'Update' : 'Edit'}
-				</Button>
-				<Button onClick={handleDelete}>Delete</Button>
+				{edit ? (
+					<>
+						<Button color='error' onClick={handleCancel}>
+							Cancel
+						</Button>
+						<Button onClick={handleUpdateClick}>Update</Button>
+					</>
+				) : (
+					<>
+						<Button onClick={handleEditClick}>Edit</Button>
+						<Button onClick={handleDelete}>Delete</Button>
+					</>
+				)}
 			</AccordionActions>
 		</Accordion>
 	);
