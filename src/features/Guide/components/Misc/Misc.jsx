@@ -27,7 +27,7 @@ const Misc = () => {
 		const processed = numbersToFormat
 			.split(',')
 			.map((num) => num.trim())
-			.map((num) => num.replace(/-/g, ''))
+			.map((num) => num.replace(/\D/g, ''))
 			.filter((num) => /^\d{10}$/.test(num))
 			.map((num) => '1' + num);
 		setFormattedNumbers(processed.join(', '));
