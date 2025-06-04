@@ -51,13 +51,15 @@ const CircuitCancellationOrder = () => {
 					column next to the correct core router. CTRL-F and search for the
 					client name or VLAN ID
 				</Levels>
+				<SopImageBig imageUrl='circuit_cancel_2_b_1.png' />
 				<Levels level='2' identifier='ii.'>
 					Copy interface configuration to cancellation order notes
 				</Levels>
 				<Levels level='2' identifier='iii.'>
 					Find route statement by adding 1 to the last octet of the IP shown on
-					the interface and searching via CTRL-F
+					the interface and searching via CTRL-F. Example:
 				</Levels>
+				<SopImageBig imageUrl='circuit_cancel_2_b_3.png' />
 				<Levels level='1' identifier='c.'>
 					Locate appropriate core closeout template on share drive:
 					L/Operations/Service Delivery/Templates/Configurations/Closeout and
@@ -111,36 +113,10 @@ const CircuitCancellationOrder = () => {
 					VLAN - None
 				</Levels>
 				<Levels level='4' identifier='c.'>
-					Description - remove description
-				</Levels>
-				<Levels level='4' identifier='d.'>
-					'Active' to "False"
-				</Levels>
-				<Levels level='4' identifier='e.'>
-					'SNMP' to "False"
-				</Levels>
-				<Levels level='4' identifier='f.'>
 					Save changes
 				</Levels>
 				<Levels level='2' identifier='iv.'>
-					VLAN monitoring (<span className='red'>NNI only</span>)
-				</Levels>
-				<Levels level='3' identifier='1.'>
-					In HOMIR, navigate to Co-Lo ➜ VLANs
-				</Levels>
-				<Levels level='4' identifier='a.'>
-					CTRL-F for client name or VLAN ID and click 'edit' to the right and
-					set the following:
-				</Levels>
-				<Levels level='5' identifier='i.'>
-					'Active' to "False"
-				</Levels>
-				<Levels level='5' identifier='i.'>
-					Save changes
-				</Levels>
-				<Levels level='2' identifier='v.'>
-					LibreNMS monitoring (<span className='red'>NNI and DIA circuits</span>
-					)
+					LibreNMS monitoring (<span className='red'>DIA circuits only</span>)
 				</Levels>
 				<Levels level='3' identifier='1.'>
 					Log in to LibreNMS (

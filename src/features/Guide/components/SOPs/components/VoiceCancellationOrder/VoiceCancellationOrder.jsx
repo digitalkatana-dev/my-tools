@@ -27,7 +27,7 @@ const VoiceCancellationOrder = () => {
 				<div className='section-title'>
 					2. Removal of Specific Configuration Items
 				</div>
-				<Levels level='1' identifier='a'>
+				<Levels level='1' identifier='a.'>
 					NMS admin -
 				</Levels>
 				<Levels level='2' identifier='i.'>
