@@ -99,7 +99,7 @@ const NoteItem = ({ data }) => {
 						/>
 					</FormControl>
 				) : (
-					data?.content
+					<pre>{data?.content}</pre>
 				)}
 			</AccordionDetails>
 			<AccordionActions>
