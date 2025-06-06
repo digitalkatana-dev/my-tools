@@ -6,6 +6,7 @@ import {
 	DialogActions,
 	DialogContent,
 	DialogTitle,
+	FormControl,
 } from '@mui/material';
 import {
 	setTopic,
@@ -14,6 +15,8 @@ import {
 	clearNoteErrors,
 } from '../../../../redux/slices/noteSlice';
 import TextInput from '../../../../components/TextInput';
+import Editor from '../Editor';
+import './noteDialog.scss';
 
 const CreateNoteDialog = ({ showDialog, onClose }) => {
 	const { theme } = useSelector((state) => state.app);
@@ -50,6 +53,7 @@ const CreateNoteDialog = ({ showDialog, onClose }) => {
 
 	return (
 		<Dialog
+			id='note-dialog'
 			open={showDialog}
 			onClose={onClose}
 			maxWidth='sm'
@@ -57,23 +61,24 @@ const CreateNoteDialog = ({ showDialog, onClose }) => {
 			fullWidth
 		>
 			<DialogTitle>Create New Note</DialogTitle>
-			<DialogContent>
-				<TextInput
-					placeholder='Topic'
-					value={topic}
-					onFocus={handleFocus}
-					onChange={(e) => handleChange('topic', e.target.value)}
-					error={errors?.topic}
-				/>
-				<TextInput
-					multiline
-					rows={10}
-					placeholder='Enter Note'
-					value={content}
-					onFocus={handleFocus}
-					onChange={(e) => handleChange('content', e.target.value)}
-					error={errors?.content}
-				/>
+			<DialogContent id='note-dialog-content'>
+				<FormControl fullWidth>
+					<TextInput
+						placeholder='Topic'
+						value={topic}
+						onFocus={handleFocus}
+						onChange={(e) => handleChange('topic', e.target.value)}
+						error={errors?.topic}
+					/>
+				</FormControl>
+				<FormControl fullWidth>
+					<Editor
+						value={content}
+						onFocus={handleFocus}
+						onChange={(value) => handleChange('content', value)}
+						error={errors?.content}
+					/>
+				</FormControl>
 			</DialogContent>
 			<DialogActions>
 				<Button onClick={handleSubmit}>Submit</Button>

@@ -1,0 +1,12 @@
+#note-dialog {
+	.MuiPaper-root {
+		min-height: 360px !important;
+
+		#note-dialog-content {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+		}
+	}
+}
