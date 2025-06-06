@@ -19,6 +19,7 @@ import {
 } from '../../../../redux/slices/noteSlice';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import TextInput from '../../../../components/TextInput';
+import Editor from '../Editor';
 
 const NoteItem = ({ data }) => {
 	const { topic, content, errors } = useSelector((state) => state.note);
@@ -87,19 +88,18 @@ const NoteItem = ({ data }) => {
 			<AccordionDetails>
 				{edit ? (
 					<FormControl fullWidth>
-						<TextInput
-							inputClass='edit-input'
-							multiline
-							rows={10}
-							placeholder='Enter Note'
+						<Editor
 							value={content}
 							onFocus={handleFocus}
-							onChange={(e) => handleChange('content', e.target.value)}
+							onChange={(value) => handleChange('content', value)}
 							error={errors?.content}
 						/>
 					</FormControl>
 				) : (
-					<pre>{data?.content}</pre>
+					<div
+						className='note-content'
+						dangerouslySetInnerHTML={{ __html: data?.content }}
+					/>
 				)}
 			</AccordionDetails>
 			<AccordionActions>

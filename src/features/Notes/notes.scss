@@ -7,4 +7,8 @@
 	flex-direction: column;
 	gap: 15px;
 	overflow-y: scroll;
+
+	.note-content {
+		padding: 0 25px;
+	}
 }

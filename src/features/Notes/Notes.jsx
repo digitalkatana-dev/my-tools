@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { clearNoteSuccess } from '../../redux/slices/noteSlice';
+import { clearNoteSuccess, setContent } from '../../redux/slices/noteSlice';
 import './notes.scss';
 import Button from '../../components/Button';
 import NoteItem from './components/NoteItem';
@@ -19,6 +19,7 @@ const Notes = () => {
 
 	const handleClose = () => {
 		setShowDialog(false);
+		dispatch(setContent(''));
 	};
 
 	const handleSuccess = useCallback(() => {
