@@ -28,7 +28,7 @@ const SubTable = ({ rowData }) => {
 									key={i}
 									sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
 								>
-									<TableCell align='center'>{row.number}</TableCell>
+									<TableCell align='center'>{row.network}</TableCell>
 									<TableCell align='center'>{row.range}</TableCell>
 									<TableCell align='center'>{row.broadcast}</TableCell>
 								</TableRow>

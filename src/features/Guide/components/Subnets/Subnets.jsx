@@ -1,5 +1,6 @@
 import { useSelector } from 'react-redux';
 import {
+	slash_24,
 	slash_25,
 	slash_26,
 	slash_27,
@@ -17,6 +18,10 @@ const Subnets = () => {
 	let rowData;
 
 	switch (slash) {
+		case '/24':
+			rowData = slash_24;
+			break;
+
 		case '/25':
 			rowData = slash_25;
 			break;
