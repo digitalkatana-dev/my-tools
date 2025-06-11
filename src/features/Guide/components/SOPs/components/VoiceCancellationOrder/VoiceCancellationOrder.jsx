@@ -96,11 +96,27 @@ const VoiceCancellationOrder = () => {
 				</Levels>
 				<Levels level='2' identifier='iii.'>
 					Check 'Voice' section on client page to confirm no numbers are
-					present. If numbers are present, submit ticket to engineering to
-					remove.
+					present.
 				</Levels>
 				<SopImage imageUrl='number_check.png' />
 				<Levels level='2' identifier='iv.'>
+					If numbers are present, please search in HOMIR under Voice ➜ Number
+					Search ➜ Search by Client for numbers assigned:
+				</Levels>
+				<Levels level='3' identifier='•'>
+					<span className='bold'>Reassign</span> all client numbers (TN, TF,
+					Fax)
+				</Levels>
+				<Levels level='4' identifier='a.'>
+					Select the appropriate 'tobecancelled' domain based on voice server
+				</Levels>
+				<Levels level='4' identifier='b.'>
+					Assign to ext. 2000
+				</Levels>
+				<Levels level='4' identifier='c.'>
+					Add a note 'Removed from [client name] on [date]'
+				</Levels>
+				<Levels level='2' identifier='v.'>
 					Decommission of CRM, SMS, Fax
 				</Levels>
 				<Levels level='3' identifier='•'>
@@ -118,7 +134,7 @@ const VoiceCancellationOrder = () => {
 					Responsible - Provisioning OTRS
 				</Levels>
 				<SopImage imageUrl='service_cancel_otrs.png' />
-				<Levels level='2' identifier='v.'>
+				<Levels level='2' identifier='vi.'>
 					Deactivate Domain
 				</Levels>
 				<Levels level='3' identifier='1.'>
