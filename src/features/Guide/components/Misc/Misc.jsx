@@ -24,13 +24,24 @@ const Misc = () => {
 	let selectedTemplate;
 
 	const handleFormat = () => {
-		const processed = numbersToFormat
-			.split(',')
-			.map((num) => num.trim())
-			.map((num) => num.replace(/\D/g, ''))
-			.filter((num) => /^\d{10}$/.test(num))
-			.map((num) => '1' + num);
-		setFormattedNumbers(processed.join(', '));
+		// const processed = numbersToFormat
+		// 	.split(',')
+		// 	.map((num) => num.trim())
+		// 	.map((num) => num.replace(/\D/g, ''))
+		// 	.filter((num) => /^\d{10}$/.test(num))
+		// 	.map((num) => '1' + num);
+		const processed = (input) => {
+			const phoneRegex = /\b(\d{3})-(\d{3})-(\d{4})\b/g;
+			let matches = [...input.matchAll(phoneRegex)];
+			let cleanedNumbers = matches.map((match) => {
+				let number = match[0].replace(/-/g, '');
+				return '1' + number;
+			});
+
+			return cleanedNumbers.join(',');
+		};
+		// setFormattedNumbers(processed.join(', '));
+		setFormattedNumbers(processed(numbersToFormat));
 	};
 
 	switch (ipType) {
