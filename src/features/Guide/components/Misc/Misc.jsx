@@ -31,12 +31,12 @@ const Misc = () => {
 		// 	.filter((num) => /^\d{10}$/.test(num))
 		// 	.map((num) => '1' + num);
 		const processed = (input) => {
-			const phoneRegex = /\b(?:\((\d{3})\)|(\d{3}))[-\s]?(\d{3})-(\d{4})\b/g;
-			let matches = [...input.matchAll(phoneRegex)];
+			const phoneRegex =
+				/(?:\((\d{3})\)\s*\d{3}[-\s]?\d{4}|\d{3}-\d{3}-\d{4})/g;
+			let matches = [...input.matchAll(phoneRegex)] || [];
 			let cleanedNumbers = matches.map((match) => {
-				let areaCode = match[1] || match[2];
-				let number = areaCode + match[3] + match[4];
-				return '1' + number;
+				let digits = match.replace(/\D/g, '');
+				return '1' + digits;
 			});
 
 			return cleanedNumbers.join(',');
