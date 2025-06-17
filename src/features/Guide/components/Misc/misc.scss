@@ -22,6 +22,17 @@
 		gap: 10px;
 	}
 
+	.formatted-numbers {
+		height: fit-content;
+		padding: 10px;
+
+		p {
+			word-wrap: break-word;
+			overflow-wrap: break-word;
+			white-space: normal;
+		}
+	}
+
 	&.dark {
 		.MuiDivider-root::before,
 		.MuiDivider-root::after {
