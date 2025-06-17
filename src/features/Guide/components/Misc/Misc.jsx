@@ -35,7 +35,7 @@ const Misc = () => {
 				/(?:\((\d{3})\)\s*\d{3}[-\s]?\d{4}|\d{3}-\d{3}-\d{4})/g;
 			let matches = [...input.matchAll(phoneRegex)] || [];
 			let cleanedNumbers = matches.map((match) => {
-				let digits = match.replace(/\D/g, '');
+				let digits = match[0].replace(/\D/g, '');
 				return '1' + digits;
 			});
 
@@ -127,7 +127,9 @@ const Misc = () => {
 					<Button onClick={handleFormat}>Format</Button>
 				</FormControl>
 			</div>
-			<p>{formattedNumbers}</p>
+			<div className='formatted-numbers'>
+				<p>{formattedNumbers}</p>
+			</div>
 		</div>
 	);
 };
