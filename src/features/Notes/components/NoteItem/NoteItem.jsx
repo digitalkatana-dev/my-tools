@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
 	Accordion,
@@ -10,6 +10,7 @@ import {
 	Stack,
 	Typography,
 } from '@mui/material';
+import { getProfile } from '../../../../redux/slices/userSlice';
 import {
 	populateNote,
 	toggleIsPublic,
@@ -76,6 +77,16 @@ const NoteItem = ({ data }) => {
 		dispatch(deleteNote(data?._id));
 	};
 
+	const checkForNewNotes = useCallback(() => {
+		dispatch(getProfile());
+	}, [dispatch]);
+
+	useEffect(() => {
+		const intervalId = setInterval(checkForNewNotes, 60000);
+
+		return () => clearInterval(intervalId);
+	}, [checkForNewNotes]);
+
 	return (
 		<Accordion>
 			<AccordionSummary expandIcon={<ExpandMoreIcon />}>
@@ -128,21 +139,23 @@ const NoteItem = ({ data }) => {
 					/>
 				)}
 			</AccordionDetails>
-			<AccordionActions>
-				{edit ? (
-					<>
-						<Button color='error' onClick={handleCancel}>
-							Cancel
-						</Button>
-						<Button onClick={handleUpdateClick}>Update</Button>
-					</>
-				) : (
-					<>
-						<Button onClick={handleEditClick}>Edit</Button>
-						<Button onClick={handleDelete}>Delete</Button>
-					</>
-				)}
-			</AccordionActions>
+			{data.user === activeUser._id && (
+				<AccordionActions>
+					{edit ? (
+						<>
+							<Button color='error' onClick={handleCancel}>
+								Cancel
+							</Button>
+							<Button onClick={handleUpdateClick}>Update</Button>
+						</>
+					) : (
+						<>
+							<Button onClick={handleEditClick}>Edit</Button>
+							<Button onClick={handleDelete}>Delete</Button>
+						</>
+					)}
+				</AccordionActions>
+			)}
 		</Accordion>
 	);
 };
