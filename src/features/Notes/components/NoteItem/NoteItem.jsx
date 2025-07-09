@@ -7,10 +7,12 @@ import {
 	AccordionSummary,
 	Button,
 	FormControl,
+	Stack,
 	Typography,
 } from '@mui/material';
 import {
 	populateNote,
+	toggleIsPublic,
 	setTopic,
 	setContent,
 	updateNote,
@@ -19,10 +21,14 @@ import {
 } from '../../../../redux/slices/noteSlice';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import TextInput from '../../../../components/TextInput';
+import Switch from '../../../../components/Switch';
 import Editor from '../Editor';
 
 const NoteItem = ({ data }) => {
-	const { topic, content, errors } = useSelector((state) => state.note);
+	const { activeUser } = useSelector((state) => state.user);
+	const { isPublic, topic, content, errors } = useSelector(
+		(state) => state.note
+	);
 	const [edit, setEdit] = useState(false);
 	const dispatch = useDispatch();
 
@@ -32,6 +38,7 @@ const NoteItem = ({ data }) => {
 
 	const handleChange = (input, value) => {
 		const actionMap = {
+			public: toggleIsPublic,
 			topic: setTopic,
 			content: setContent,
 		};
@@ -48,6 +55,7 @@ const NoteItem = ({ data }) => {
 
 	const handleCancel = () => {
 		setEdit(false);
+		dispatch(toggleIsPublic(false));
 		dispatch(setTopic(''));
 		dispatch(setContent(''));
 	};
@@ -55,6 +63,7 @@ const NoteItem = ({ data }) => {
 	const handleUpdateClick = () => {
 		const updateData = {
 			_id: data?._id,
+			...(data?.isPublic !== isPublic && { isPublic }),
 			...(data?.topic !== topic && { topic }),
 			...(data?.content !== content && { content }),
 		};
@@ -86,6 +95,23 @@ const NoteItem = ({ data }) => {
 				)}
 			</AccordionSummary>
 			<AccordionDetails>
+				{edit && data.user === activeUser._id && (
+					<FormControl fullWidth>
+						<Stack
+							direction='row'
+							alignItems='center'
+							alignSelf='center'
+							marginBottom='10px'
+						>
+							<Typography>Private</Typography>
+							<Switch
+								checked={isPublic}
+								onChange={(e) => handleChange('public', e.target.checked)}
+							/>
+							<Typography>Public</Typography>
+						</Stack>
+					</FormControl>
+				)}
 				{edit ? (
 					<FormControl fullWidth>
 						<Editor

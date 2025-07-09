@@ -51,6 +51,7 @@ export const deleteNote = createAsyncThunk(
 export const noteAdapter = createEntityAdapter();
 const initialState = noteAdapter.getInitialState({
 	loading: false,
+	isPublic: false,
 	topic: '',
 	content: '',
 	success: null,
@@ -61,6 +62,9 @@ export const noteSlice = createSlice({
 	name: 'note',
 	initialState,
 	reducers: {
+		toggleIsPublic: (state) => {
+			state.isPublic = !state.isPublic;
+		},
 		setTopic: (state, action) => {
 			state.topic = action.payload;
 		},
@@ -68,6 +72,7 @@ export const noteSlice = createSlice({
 			state.content = action.payload;
 		},
 		populateNote: (state, action) => {
+			state.isPublic = action.payload.isPublic;
 			state.topic = action.payload.topic;
 			state.content = action.payload.content;
 		},
@@ -87,6 +92,7 @@ export const noteSlice = createSlice({
 			.addCase(createNote.fulfilled, (state, action) => {
 				state.loading = false;
 				state.success = action.payload.success;
+				state.isPublic = false;
 				state.topic = '';
 				state.content = '';
 				state.errors = null;
@@ -102,6 +108,7 @@ export const noteSlice = createSlice({
 			.addCase(updateNote.fulfilled, (state, action) => {
 				state.loading = false;
 				state.success = action.payload.success;
+				state.isPublic = false;
 				state.topic = '';
 				state.content = '';
 				state.errors = null;
@@ -127,6 +134,7 @@ export const noteSlice = createSlice({
 });
 
 export const {
+	toggleIsPublic,
 	setTopic,
 	setContent,
 	populateNote,
