@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
 	Accordion,
@@ -10,7 +10,6 @@ import {
 	Stack,
 	Typography,
 } from '@mui/material';
-import { getProfile } from '../../../../redux/slices/userSlice';
 import {
 	populateNote,
 	toggleIsPublic,
@@ -76,16 +75,6 @@ const NoteItem = ({ data }) => {
 	const handleDelete = () => {
 		dispatch(deleteNote(data?._id));
 	};
-
-	const checkForNewNotes = useCallback(() => {
-		dispatch(getProfile());
-	}, [dispatch]);
-
-	useEffect(() => {
-		const intervalId = setInterval(checkForNewNotes, 60000);
-
-		return () => clearInterval(intervalId);
-	}, [checkForNewNotes]);
 
 	return (
 		<Accordion>
