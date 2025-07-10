@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { getProfile } from '../../redux/slices/userSlice';
 import { clearNoteSuccess, setContent } from '../../redux/slices/noteSlice';
 import './notes.scss';
 import Button from '../../components/Button';
@@ -22,6 +23,10 @@ const Notes = () => {
 		dispatch(setContent(''));
 	};
 
+	const checkForNewNotes = useCallback(() => {
+		dispatch(getProfile());
+	}, [dispatch]);
+
 	const handleSuccess = useCallback(() => {
 		if (success) {
 			setShowDialog(false);
@@ -30,6 +35,12 @@ const Notes = () => {
 			}, 5000);
 		}
 	}, [success, dispatch]);
+
+	useEffect(() => {
+		const intervalId = setInterval(checkForNewNotes, 300000);
+
+		return () => clearInterval(intervalId);
+	}, [checkForNewNotes]);
 
 	useEffect(() => {
 		handleSuccess();

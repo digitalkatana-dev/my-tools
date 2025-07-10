@@ -1,4 +1,14 @@
+import { useState } from 'react';
 import { useSelector } from 'react-redux';
+import {
+	Chip,
+	Divider,
+	FormControl,
+	FormControlLabel,
+	FormLabel,
+	Radio,
+	RadioGroup,
+} from '@mui/material';
 import {
 	slash_24,
 	slash_25,
@@ -8,12 +18,15 @@ import {
 	slash_29,
 	slash_30,
 } from '../../../../util/data';
+import { DIA, NNI, SDWAN, Wireless } from '../Misc/components/Templates';
 import MasterTable from './components/MasterTable';
 import SubTable from './components/SubTable';
 import './subnets.scss';
 
 const Subnets = () => {
 	const { slash } = useSelector((state) => state.app);
+	const [ipType, setIPType] = useState('dia');
+	let selectedTemplate;
 
 	let rowData;
 
@@ -51,6 +64,27 @@ const Subnets = () => {
 			break;
 	}
 
+	switch (ipType) {
+		case 'dia':
+			selectedTemplate = <DIA />;
+			break;
+
+		case 'nni':
+			selectedTemplate = <NNI />;
+			break;
+
+		case 'sdwan':
+			selectedTemplate = <SDWAN />;
+			break;
+
+		case 'wireless':
+			selectedTemplate = <Wireless />;
+			break;
+
+		default:
+			break;
+	}
+
 	return (
 		<div id='subnets'>
 			<div className='master-wrapper'>
@@ -59,6 +93,32 @@ const Subnets = () => {
 			<div className='sub-wrapper'>
 				<SubTable rowData={rowData} />
 			</div>
+			{/* <Divider>
+				<Chip label='IP Template' size='small' className='divider-chip' />
+			</Divider> */}
+			{/* <div>
+				<FormControl>
+					<FormLabel className='radio-label'>IP Type</FormLabel>
+					<RadioGroup
+						row
+						value={ipType}
+						onChange={(e) => setIPType(e.target.value)}
+					>
+						<FormControlLabel value='dia' control={<Radio />} label='DIA' />
+						<FormControlLabel value='nni' control={<Radio />} label='NNI' />
+						<FormControlLabel value='sdwan' control={<Radio />} label='SDWAN' />
+						<FormControlLabel
+							value='wireless'
+							control={<Radio />}
+							label='Wireless'
+						/>
+					</RadioGroup>
+				</FormControl>
+			</div>
+			{selectedTemplate}
+			<div className='example'>
+				<img src='ip-example.png' alt='' />
+			</div> */}
 		</div>
 	);
 };
