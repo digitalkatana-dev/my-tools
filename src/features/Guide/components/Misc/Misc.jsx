@@ -45,6 +45,11 @@ const Misc = () => {
 		setFormattedNumbers(processed(numbersToFormat));
 	};
 
+	const handleClearNumbers = () => {
+		setNumbersToFormat('');
+		setFormattedNumbers('');
+	};
+
 	switch (ipType) {
 		case 'dia':
 			selectedTemplate = <DIA />;
@@ -120,11 +125,16 @@ const Misc = () => {
 					<TextInput
 						multiline
 						rows={5}
+						value={numbersToFormat}
 						onChange={(e) => setNumbersToFormat(e.target.value)}
 					/>
 				</FormControl>
 				<FormControl>
-					<Button onClick={handleFormat}>Format</Button>
+					<Button
+						onClick={formattedNumbers ? handleClearNumbers : handleFormat}
+					>
+						{formattedNumbers ? 'Clear' : 'Format'}
+					</Button>
 				</FormControl>
 			</div>
 			<div className='formatted-numbers'>
