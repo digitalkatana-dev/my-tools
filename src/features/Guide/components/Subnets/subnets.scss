@@ -1,45 +1,74 @@
 #subnets {
-	// height: calc(100vh - 164px);
 	height: inherit;
 	display: flex;
 	flex-direction: column;
 	padding: 20px;
 	position: relative;
 	overflow-y: scroll;
-	// border: 2px solid green;
 
-	.master-wrapper {
+	.main-container {
+		height: fit-content;
 		margin-bottom: 10px;
-		// height: 40%;
-		// overflow: scroll;
-		// border: 1px solid dodgerblue;
 
-		.slash {
-			cursor: pointer;
+		.master-wrapper {
+			margin-bottom: 10px;
 
-			&.active {
-				color: crimson;
-				background-color: black;
-				font-weight: bold;
-				padding: 1px;
-				border-radius: 20px;
+			.slash {
+				cursor: pointer;
+
+				&.active {
+					color: crimson;
+					background-color: black;
+					font-weight: bold;
+					padding: 1px;
+					border-radius: 20px;
+				}
+			}
+		}
+
+		.sub-wrapper {
+			max-height: 65%;
+			overflow: scroll;
+
+			.sub-table {
+				display: flex;
+				flex-direction: column;
+
+				.sub-paper {
+					width: 100%;
+					overflow: hidden;
+				}
 			}
 		}
 	}
 
-	.sub-wrapper {
-		max-height: 59%;
-		overflow: scroll;
-		// border: 1px solid red;
+	.template-container {
+		min-height: fit-content;
+		display: flex;
+		flex-direction: column;
+		gap: 15px;
+		align-items: center;
+		margin-top: 10px;
 
-		.sub-table {
-			display: flex;
-			flex-direction: column;
+		.radio-label {
+			text-align: left;
+			color: var(--txt-primary);
+		}
 
-			.sub-paper {
-				width: 100%;
-				overflow: hidden;
-			}
+		.example {
+			margin: 15px 0;
+		}
+	}
+
+	&.dark {
+		.MuiDivider-root::before,
+		.MuiDivider-root::after {
+			border-color: rgba(255, 255, 255, 0.12);
+		}
+
+		.divider-chip {
+			background-color: var(--txt-heading-shadow);
+			color: var(--txt-heading);
 		}
 	}
 }

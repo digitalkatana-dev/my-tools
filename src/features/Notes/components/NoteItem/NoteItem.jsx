@@ -95,7 +95,7 @@ const NoteItem = ({ data }) => {
 				)}
 			</AccordionSummary>
 			<AccordionDetails>
-				{edit && data.user === activeUser._id && (
+				{edit && data.user?._id === activeUser._id && (
 					<FormControl fullWidth>
 						<Stack
 							direction='row'
@@ -128,7 +128,7 @@ const NoteItem = ({ data }) => {
 					/>
 				)}
 			</AccordionDetails>
-			{data.user === activeUser._id && (
+			{data.user?._id === activeUser._id && (
 				<AccordionActions>
 					{edit ? (
 						<>
