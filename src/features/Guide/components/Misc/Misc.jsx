@@ -1,16 +1,6 @@
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
-import {
-	Chip,
-	Divider,
-	FormControl,
-	FormControlLabel,
-	FormLabel,
-	Radio,
-	RadioGroup,
-	Stack,
-} from '@mui/material';
-import { DIA, NNI, SDWAN, Wireless } from './components/Templates';
+import { Chip, Divider, FormControl, Stack } from '@mui/material';
 import TextInput from '../../../../components/TextInput';
 import Button from '../../../../components/Button';
 import './misc.scss';
@@ -18,10 +8,8 @@ import './misc.scss';
 const Misc = () => {
 	const { theme } = useSelector((state) => state.app);
 	const [counter, setCounter] = useState('');
-	const [ipType, setIPType] = useState('dia');
 	const [numbersToFormat, setNumbersToFormat] = useState('');
 	const [formattedNumbers, setFormattedNumbers] = useState('');
-	let selectedTemplate;
 
 	const handleFormat = () => {
 		// const processed = numbersToFormat
@@ -50,27 +38,6 @@ const Misc = () => {
 		setFormattedNumbers('');
 	};
 
-	switch (ipType) {
-		case 'dia':
-			selectedTemplate = <DIA />;
-			break;
-
-		case 'nni':
-			selectedTemplate = <NNI />;
-			break;
-
-		case 'sdwan':
-			selectedTemplate = <SDWAN />;
-			break;
-
-		case 'wireless':
-			selectedTemplate = <Wireless />;
-			break;
-
-		default:
-			break;
-	}
-
 	return (
 		<div id='misc' className={theme === 'dark' ? 'dark' : ''}>
 			<Divider>
@@ -88,34 +55,8 @@ const Misc = () => {
 				<h5>{counter.length}</h5>
 			</Stack>
 			<Divider>
-				<Chip label='IP Template' size='small' className='divider-chip' />
-			</Divider>
-			<div>
-				<FormControl>
-					<FormLabel className='radio-label'>IP Type</FormLabel>
-					<RadioGroup
-						row
-						value={ipType}
-						onChange={(e) => setIPType(e.target.value)}
-					>
-						<FormControlLabel value='dia' control={<Radio />} label='DIA' />
-						<FormControlLabel value='nni' control={<Radio />} label='NNI' />
-						<FormControlLabel value='sdwan' control={<Radio />} label='SDWAN' />
-						<FormControlLabel
-							value='wireless'
-							control={<Radio />}
-							label='Wireless'
-						/>
-					</RadioGroup>
-				</FormControl>
-			</div>
-			{selectedTemplate}
-			<div className='example'>
-				<img src='ip-example.png' alt='' />
-			</div>
-			<Divider>
 				<Chip
-					label='Cancellation Number Converter'
+					label='Cancellation Number Formatter'
 					size='small'
 					className='divider-chip'
 				/>

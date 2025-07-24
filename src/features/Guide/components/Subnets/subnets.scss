@@ -7,7 +7,7 @@
 	overflow-y: scroll;
 
 	.main-container {
-		min-height: fit-content;
+		height: fit-content;
 		margin-bottom: 10px;
 
 		.master-wrapper {
@@ -27,7 +27,7 @@
 		}
 
 		.sub-wrapper {
-			max-height: 59%;
+			max-height: 65%;
 			overflow: scroll;
 
 			.sub-table {
@@ -44,7 +44,16 @@
 
 	.template-container {
 		min-height: fit-content;
+		display: flex;
+		flex-direction: column;
+		gap: 15px;
+		align-items: center;
 		margin-top: 10px;
+
+		.radio-label {
+			text-align: left;
+			color: var(--txt-primary);
+		}
 
 		.example {
 			margin: 15px 0;

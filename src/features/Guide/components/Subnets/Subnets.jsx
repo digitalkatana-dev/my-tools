@@ -18,7 +18,7 @@ import {
 	slash_29,
 	slash_30,
 } from '../../../../util/data';
-import { DIA, NNI, SDWAN, Wireless } from '../Misc/components/Templates';
+import { DIA, NNI, SDWAN, Wireless } from './components/Templates';
 import MasterTable from './components/MasterTable';
 import SubTable from './components/SubTable';
 import './subnets.scss';
@@ -86,7 +86,7 @@ const Subnets = () => {
 	}
 
 	return (
-		<div id='subnets' className={theme === 'dark' && 'dark'}>
+		<div id='subnets' className={theme === 'dark' ? 'dark' : ''}>
 			<div className='main-container'>
 				<div className='master-wrapper'>
 					<MasterTable />
