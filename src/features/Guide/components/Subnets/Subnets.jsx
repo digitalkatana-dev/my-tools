@@ -24,7 +24,7 @@ import SubTable from './components/SubTable';
 import './subnets.scss';
 
 const Subnets = () => {
-	const { slash } = useSelector((state) => state.app);
+	const { theme, slash } = useSelector((state) => state.app);
 	const [ipType, setIPType] = useState('dia');
 	let selectedTemplate;
 
@@ -86,17 +86,19 @@ const Subnets = () => {
 	}
 
 	return (
-		<div id='subnets'>
-			<div className='master-wrapper'>
-				<MasterTable />
+		<div id='subnets' className={theme === 'dark' && 'dark'}>
+			<div className='main-container'>
+				<div className='master-wrapper'>
+					<MasterTable />
+				</div>
+				<div className='sub-wrapper'>
+					<SubTable rowData={rowData} />
+				</div>
 			</div>
-			<div className='sub-wrapper'>
-				<SubTable rowData={rowData} />
-			</div>
-			{/* <Divider>
+			<Divider>
 				<Chip label='IP Template' size='small' className='divider-chip' />
-			</Divider> */}
-			{/* <div>
+			</Divider>
+			<div className='template-container'>
 				<FormControl>
 					<FormLabel className='radio-label'>IP Type</FormLabel>
 					<RadioGroup
@@ -114,11 +116,11 @@ const Subnets = () => {
 						/>
 					</RadioGroup>
 				</FormControl>
+				{selectedTemplate}
+				<div className='example'>
+					<img src='ip-example.png' alt='' />
+				</div>
 			</div>
-			{selectedTemplate}
-			<div className='example'>
-				<img src='ip-example.png' alt='' />
-			</div> */}
 		</div>
 	);
 };
