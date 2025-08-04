@@ -1,10 +1,45 @@
-import React from 'react';
+import { useState } from 'react';
+import { useSelector } from 'react-redux';
+import { Chip, Divider, FormControl } from '@mui/material';
 import { SopImage, SopImageBig } from '../../../../../../components/Images';
 import Levels from '../../../../../../components/Levels';
+import TextInput from '../../../../../../components/TextInput';
+import Button from '../../../../../../components/Button';
 
 const VoiceCancellationOrder = () => {
+	const { theme } = useSelector((state) => state.app);
+	const [numbersToFormat, setNumbersToFormat] = useState('');
+	const [formattedNumbers, setFormattedNumbers] = useState('');
+
+	const handleFormat = () => {
+		// const processed = numbersToFormat
+		// 	.split(',')
+		// 	.map((num) => num.trim())
+		// 	.map((num) => num.replace(/\D/g, ''))
+		// 	.filter((num) => /^\d{10}$/.test(num))
+		// 	.map((num) => '1' + num);
+		const processed = (input) => {
+			const phoneRegex =
+				/(?:\((\d{3})\)\s*\d{3}[-\s]?\d{4}|\d{3}-\d{3}-\d{4})/g;
+			let matches = [...input.matchAll(phoneRegex)] || [];
+			let cleanedNumbers = matches.map((match) => {
+				let digits = match[0].replace(/\D/g, '');
+				return '1' + digits;
+			});
+
+			return cleanedNumbers.join(',');
+		};
+		// setFormattedNumbers(processed.join(', '));
+		setFormattedNumbers(processed(numbersToFormat));
+	};
+
+	const handleClearNumbers = () => {
+		setNumbersToFormat('');
+		setFormattedNumbers('');
+	};
+
 	return (
-		<div id='voice-cancel'>
+		<div id='voice-cancel' className={theme === 'dark' ? 'dark' : ''}>
 			<div className='title'>
 				<h2>How to Process a Voice Disconnect/Closeout/Cancellation Order</h2>
 			</div>
@@ -66,7 +101,44 @@ const VoiceCancellationOrder = () => {
 					</span>
 					) Submit an OTRS ticket to remove any phone numbers from Sansay switch
 				</Levels>
+				<Levels level='3' identifier='•'>
+					<strong>Queue</strong> - Carrier Services
+				</Levels>
+				<Levels level='3' identifier='•'>
+					<strong>Owner</strong> - Carrier Services
+				</Levels>
+				<Levels level='3' identifier='•'>
+					<strong>Responsible</strong> - Carrier Services
+				</Levels>
 				<SopImageBig imageUrl='sansay_number_removal.png' />
+				<Divider>
+					<Chip
+						label='Cancellation Number Formatter'
+						size='small'
+						className='divider-chip'
+					/>
+				</Divider>
+				<div id='num-formatter'>
+					<FormControl style={{ alignSelf: 'center', width: '55%' }}>
+						<TextInput
+							multiline
+							rows={5}
+							value={numbersToFormat}
+							onChange={(e) => setNumbersToFormat(e.target.value)}
+						/>
+					</FormControl>
+					<FormControl>
+						<Button
+							onClick={formattedNumbers ? handleClearNumbers : handleFormat}
+						>
+							{formattedNumbers ? 'Clear' : 'Format'}
+						</Button>
+					</FormControl>
+				</div>
+				<div className='formatted-numbers'>
+					<p>{formattedNumbers}</p>
+				</div>
+
 				<Levels level='2' identifier='ii.'>
 					Reassign all numbers on domain:
 				</Levels>
