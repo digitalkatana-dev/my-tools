@@ -34,41 +34,6 @@
 		}
 	}
 
-	#voice-cancel {
-		#num-formatter {
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-			gap: 10px;
-			margin: 20px auto;
-		}
-
-		.formatted-numbers {
-			height: fit-content;
-			padding: 10px;
-			margin: 20px auto;
-
-			p {
-				word-wrap: break-word;
-				overflow-wrap: break-word;
-				white-space: normal;
-			}
-		}
-
-		&.dark {
-			.MuiDivider-root::before,
-			.MuiDivider-root::after {
-				border-color: rgba(255, 255, 255, 0.12);
-			}
-
-			.divider-chip {
-				background-color: var(--txt-heading-shadow);
-				color: var(--txt-heading);
-				margin: 20px auto;
-			}
-		}
-	}
-
 	.sop-list {
 		flex: 1;
 		display: flex;
