@@ -23,7 +23,7 @@ const VoiceCancellationOrder = () => {
 					domains dial translations) and email Client Services with Joel CC'd to
 					determine if the closeout is valid.
 				</Levels>
-				<Levels level='3' identifer='•'>
+				<Levels level='3' identifier='•'>
 					Follow directions of Client Services.
 				</Levels>
 				<Levels level='2' identifier='ii.'>
