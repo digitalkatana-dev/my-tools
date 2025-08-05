@@ -116,6 +116,21 @@ const CircuitCancellationOrder = () => {
 					Save changes
 				</Levels>
 				<Levels level='2' identifier='iv.'>
+					VLAN Monitoring
+				</Levels>
+				<Levels level='3' identifier='1.'>
+					In HOMIR, navigate to Co-Lo ➜ VLANs
+				</Levels>
+				<Levels level='3' identifier='2.'>
+					CTRL-F for VLAN ID, click 'Edit' to the right and set the following:
+				</Levels>
+				<Levels level='4' identifier='a.'>
+					Active - False
+				</Levels>
+				<Levels level='4' identifier='b.'>
+					Save Changes
+				</Levels>
+				<Levels level='2' identifier='v.'>
 					LibreNMS monitoring (<span className='red'>DIA circuits only</span>)
 				</Levels>
 				<Levels level='3' identifier='1.'>
