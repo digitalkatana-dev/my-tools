@@ -18,6 +18,18 @@ const VoiceCancellationOrder = () => {
 						in HOMIR.
 					</span>
 				</Levels>
+				<Levels level='2' identifier='i.'>
+					If there is usage, lock the domain (unless it is dependant on other
+					domains dial translations) and email Client Services with Joel CC'd to
+					determine if the closeout is valid.
+				</Levels>
+				<Levels level='3' identifer='•'>
+					Follow directions of Client Services.
+				</Levels>
+				<Levels level='2' identifier='ii.'>
+					If there is no response within 2 business days, proceed with the
+					closeout.
+				</Levels>
 				<Levels level='1' identifier='b.'>
 					Pay careful attention to the domain name and be sure you are canceling
 					the correct domain. Some customer domains are very similar, i.e.
