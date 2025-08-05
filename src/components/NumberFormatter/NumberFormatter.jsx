@@ -20,7 +20,7 @@ const NumberFormatter = () => {
 		const processed = (input) => {
 			const phoneRegex =
 				/(?:\((\d{3})\)\s*\d{3}[-\s]?\d{4}|\d{3}-\d{3}-\d{4})/g;
-			let matches = [...input.matchAll(phoneRegex)] || [];
+			let matches = Set([...input.matchAll(phoneRegex)]) || [];
 			let cleanedNumbers = matches.map((match) => {
 				let digits = match[0].replace(/\D/g, '');
 				return '1' + digits;
