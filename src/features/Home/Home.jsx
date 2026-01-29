@@ -150,7 +150,7 @@ const Home = () => {
 			{show && (
 				<div className='hidden-data'>
 					<h3>Micorsoft Account:</h3>
-					<h4>et9aUQq^vE$feC</h4>
+					{activeUser?.msAcct && <h4>{atob(activeUser?.msAcct)}</h4>}
 					<h3>Windows:</h3>
 					{activeUser?.windows && <h4>{atob(activeUser?.windows)}</h4>}
 					<h3>BitWarden:</h3>
