@@ -9,43 +9,46 @@ import toolsApi from '../../api/toolsApi';
 export const createNote = createAsyncThunk(
 	'note/create_note',
 	async (data, { dispatch, rejectWithValue }) => {
+		const { user } = data;
 		try {
 			const res = await toolsApi.post('/notes', data);
 			const { success } = res.data;
-			success && dispatch(getProfile());
+			success && dispatch(getProfile(user));
 			return res.data;
 		} catch (err) {
 			return rejectWithValue(err.response.data);
 		}
-	}
+	},
 );
 
 export const updateNote = createAsyncThunk(
 	'note/update_note',
 	async (data, { dispatch, rejectWithValue }) => {
+		const { user } = data;
 		try {
 			const res = await toolsApi.put(`/notes/${data._id}`, data);
 			const { success } = res.data;
-			success && dispatch(getProfile());
+			success && dispatch(getProfile(user));
 			return res.data;
 		} catch (err) {
 			return rejectWithValue(err.response.data);
 		}
-	}
+	},
 );
 
 export const deleteNote = createAsyncThunk(
 	'note/delete_note',
 	async (data, { dispatch, rejectWithValue }) => {
+		const { noteId, user } = data;
 		try {
-			const res = await toolsApi.delete(`/notes/${data}`);
+			const res = await toolsApi.delete(`/notes/${noteId}`);
 			const { success } = res.data;
-			success && dispatch(getProfile());
+			success && dispatch(getProfile(user));
 			return res.data;
 		} catch (err) {
 			return rejectWithValue(err.response.data);
 		}
-	}
+	},
 );
 
 export const noteAdapter = createEntityAdapter();

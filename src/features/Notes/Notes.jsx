@@ -24,8 +24,9 @@ const Notes = () => {
 	};
 
 	const checkForNewNotes = useCallback(() => {
-		dispatch(getProfile());
-	}, [dispatch]);
+		const user = activeUser?._id;
+		dispatch(getProfile(user));
+	}, [dispatch, activeUser]);
 
 	const handleSuccess = useCallback(() => {
 		if (success) {

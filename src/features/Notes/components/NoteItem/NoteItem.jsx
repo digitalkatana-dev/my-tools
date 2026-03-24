@@ -27,7 +27,7 @@ import Editor from '../Editor';
 const NoteItem = ({ data }) => {
 	const { activeUser } = useSelector((state) => state.user);
 	const { isPublic, topic, content, errors } = useSelector(
-		(state) => state.note
+		(state) => state.note,
 	);
 	const [edit, setEdit] = useState(false);
 	const dispatch = useDispatch();
@@ -66,6 +66,7 @@ const NoteItem = ({ data }) => {
 			...(data?.isPublic !== isPublic && { isPublic }),
 			...(data?.topic !== topic && { topic }),
 			...(data?.content !== content && { content }),
+			user: activeUser?._id,
 		};
 
 		dispatch(updateNote(updateData));
@@ -73,7 +74,11 @@ const NoteItem = ({ data }) => {
 	};
 
 	const handleDelete = () => {
-		dispatch(deleteNote(data?._id));
+		const delData = {
+			noteId: data?._id,
+			user: activeUser?._id,
+		};
+		dispatch(deleteNote(delData));
 	};
 
 	return (
