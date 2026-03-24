@@ -29,19 +29,19 @@ export const login = createAsyncThunk(
 		} catch (err) {
 			return rejectWithValue(err.response.data);
 		}
-	}
+	},
 );
 
 export const getProfile = createAsyncThunk(
 	'user/get_profile',
 	async (data, { rejectWithValue }) => {
 		try {
-			const res = await toolsApi.get('/profiles');
+			const res = await toolsApi.get(`/profiles/${data}`);
 			return res.data;
 		} catch (err) {
 			return rejectWithValue(err.response.data);
 		}
-	}
+	},
 );
 
 export const updateProfile = createAsyncThunk(
@@ -61,7 +61,7 @@ export const updateProfile = createAsyncThunk(
 		} catch (err) {
 			return rejectWithValue(err.response.data);
 		}
-	}
+	},
 );
 
 export const generatePasswordToken = createAsyncThunk(
@@ -73,7 +73,7 @@ export const generatePasswordToken = createAsyncThunk(
 		} catch (err) {
 			return rejectWithValue(err.response.data);
 		}
-	}
+	},
 );
 
 export const resetWithToken = createAsyncThunk(
@@ -86,7 +86,7 @@ export const resetWithToken = createAsyncThunk(
 			console.log(err);
 			return rejectWithValue(err.response.data);
 		}
-	}
+	},
 );
 
 export const userAdapter = createEntityAdapter();
