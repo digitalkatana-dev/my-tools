@@ -1,13 +1,12 @@
 import { Box, Tabs, Tab } from '@mui/material';
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
-import './guide.scss';
+import './circuits.scss';
 import TabPanel from './components/TabPanel';
-import SOPs from './components/SOPs';
-import Plans from './components/Plans';
-import Misc from './components/Misc';
+import ConfigHelper from './components/ConfigHelper';
+import Subnets from './components/Subnets';
 
-const Guide = () => {
+const Circuits = () => {
   const { theme } = useSelector((state) => state.app);
   const [value, setValue] = useState(0);
 
@@ -23,7 +22,7 @@ const Guide = () => {
   };
 
   return (
-    <div id='guides'>
+    <div id='circuits'>
       <Box>
         <Tabs
           value={value}
@@ -33,29 +32,23 @@ const Guide = () => {
           indicatorColor='secondary'
         >
           <Tab
-            label='SOPs'
+            label='Configs'
             {...a11yProps(0)}
-            className={theme === 'dark' ? 'label dark' : 'label'}
+            className={`label${theme === 'dark' ? ' dark' : ''}`}
           />
           <Tab
-            label='Plans'
+            label='Subnets'
             {...a11yProps(1)}
-            className={theme === 'dark' ? 'label dark' : 'label'}
-          />
-          <Tab
-            label='Misc'
-            {...a11yProps(2)}
-            className={theme === 'dark' ? 'label dark' : 'label'}
+            className={`label${theme === 'dark' ? ' dark' : ''}`}
           />
         </Tabs>
       </Box>
       <div className='tab-data'>
-        <TabPanel value={value} index={0} children={<SOPs />} />
-        <TabPanel value={value} index={1} children={<Plans />} />
-        <TabPanel value={value} index={2} children={<Misc />} />
+        <TabPanel value={value} index={0} children={<ConfigHelper />} />
+        <TabPanel value={value} index={1} children={<Subnets />} />
       </div>
     </div>
   );
 };
 
-export default Guide;
+export default Circuits;

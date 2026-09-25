@@ -1,0 +1,28 @@
+#circuits {
+  width: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  overflow: hidden;
+
+  .MuiTab-root {
+    &.dark {
+      color: var(--muted);
+    }
+  }
+
+  .Mui-selected {
+    &.dark {
+      color: #9c27b0;
+    }
+  }
+
+  .tab-data {
+    height: calc(100vh - 166px);
+    // flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+  }
+}
