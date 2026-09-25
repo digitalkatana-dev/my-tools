@@ -9,83 +9,92 @@ import ResetPassword from './features/ResetPassword';
 import Home from './features/Home';
 import Generator from './features/Generator';
 import Guide from './features/Guide';
+import Circuits from './features/Circuits';
 import Notes from './features/Notes';
 import Settings from './features/Settings';
 // import UnderConstruction from './components/UnderConstruction';
 
 function App() {
-	const { theme, showHome, showGenerator } = useSelector((state) => state.app);
-	const { activeUser } = useSelector((state) => state.user);
+  const { theme, showHome, showGenerator } = useSelector((state) => state.app);
+  const { activeUser } = useSelector((state) => state.user);
 
-	return (
-		<div className='app' data-theme={theme}>
-			<Router>
-				<Routes>
-					<Route
-						path='/'
-						element={
-							activeUser ? (
-								<ProtectedRoute
-									element={
-										showHome ? (
-											<MainLayout children={<Home />} />
-										) : !showHome && showGenerator ? (
-											<MainLayout children={<Generator />} />
-										) : (
-											!showHome &&
-											!showGenerator && <MainLayout children={<Guide />} />
-										)
-									}
-								/>
-							) : (
-								<MainLayout children={<Auth />} />
-							)
-						}
-					/>
-					<Route
-						path='/forgot'
-						element={<MainLayout children={<ForgotPassword />} />}
-					/>
-					<Route
-						path='/reset-password/:id'
-						element={<MainLayout children={<ResetPassword />} />}
-					/>
-					{showHome && (
-						<Route
-							path='/generator'
-							element={
-								<ProtectedRoute
-									element={<MainLayout children={<Generator />} />}
-								/>
-							}
-						/>
-					)}
-					{(showHome || showGenerator) && (
-						<Route
-							path='/guides'
-							element={
-								<ProtectedRoute element={<MainLayout children={<Guide />} />} />
-							}
-						/>
-					)}
-					<Route
-						path='/notes'
-						element={
-							<ProtectedRoute element={<MainLayout children={<Notes />} />} />
-						}
-					/>
-					<Route
-						path='/settings'
-						element={
-							<ProtectedRoute
-								element={<MainLayout children={<Settings />} />}
-							/>
-						}
-					/>
-				</Routes>
-			</Router>
-		</div>
-	);
+  return (
+    <div className='app' data-theme={theme}>
+      <Router>
+        <Routes>
+          <Route
+            path='/'
+            element={
+              activeUser ? (
+                <ProtectedRoute
+                  element={
+                    showHome ? (
+                      <MainLayout children={<Home />} />
+                    ) : !showHome && showGenerator ? (
+                      <MainLayout children={<Generator />} />
+                    ) : (
+                      !showHome &&
+                      !showGenerator && <MainLayout children={<Guide />} />
+                    )
+                  }
+                />
+              ) : (
+                <MainLayout children={<Auth />} />
+              )
+            }
+          />
+          <Route
+            path='/forgot'
+            element={<MainLayout children={<ForgotPassword />} />}
+          />
+          <Route
+            path='/reset-password/:id'
+            element={<MainLayout children={<ResetPassword />} />}
+          />
+          {showHome && (
+            <Route
+              path='/generator'
+              element={
+                <ProtectedRoute
+                  element={<MainLayout children={<Generator />} />}
+                />
+              }
+            />
+          )}
+          {(showHome || showGenerator) && (
+            <Route
+              path='/guides'
+              element={
+                <ProtectedRoute element={<MainLayout children={<Guide />} />} />
+              }
+            />
+          )}
+          <Route
+            path='/circuits'
+            element={
+              <ProtectedRoute
+                element={<MainLayout children={<Circuits />} />}
+              />
+            }
+          />
+          <Route
+            path='/notes'
+            element={
+              <ProtectedRoute element={<MainLayout children={<Notes />} />} />
+            }
+          />
+          <Route
+            path='/settings'
+            element={
+              <ProtectedRoute
+                element={<MainLayout children={<Settings />} />}
+              />
+            }
+          />
+        </Routes>
+      </Router>
+    </div>
+  );
 }
 
 export default App;
