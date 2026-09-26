@@ -325,7 +325,7 @@ export const configSlice = createSlice({
     builder
       .addCase(getTimeZone.pending, (state) => {
         state.loading = true;
-        state.appErrors = null;
+        state.configErrors = null;
       })
       .addCase(getTimeZone.fulfilled, (state, action) => {
         state.loading = false;
@@ -333,7 +333,7 @@ export const configSlice = createSlice({
       })
       .addCase(getTimeZone.rejected, (state, action) => {
         state.loading = false;
-        state.appErrors = action.payload;
+        state.configErrors = action.payload;
       })
       .addCase(saveConfig.pending, (state) => {
         state.loading = true;
