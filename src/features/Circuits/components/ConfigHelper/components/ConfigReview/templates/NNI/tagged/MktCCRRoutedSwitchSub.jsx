@@ -9,8 +9,8 @@ import {
 import '../../template.scss';
 
 const MktCCRRoutedSwitchSub = () => {
+  const { theme } = useSelector((state) => state.app);
   const {
-    theme,
     carrier,
     clientName,
     speedUp,

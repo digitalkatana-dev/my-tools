@@ -9,8 +9,8 @@ import {
 import '../../template.scss';
 
 const Mkt5009RoutedSwitchSub = () => {
+  const { theme } = useSelector((state) => state.app);
   const {
-    theme,
     clientName,
     carrier,
     speedUp,

@@ -7,8 +7,8 @@ import {
 import '../../template.scss';
 
 const CoxMkt5009BridgedPrivateTP = () => {
+  const { theme } = useSelector((state) => state.app);
   const {
-    theme,
     clientName,
     carrier,
     speedDn,

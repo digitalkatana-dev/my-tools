@@ -8,8 +8,8 @@ import {
 import '../../template.scss';
 
 const Mkt5009RoutedVDHCPVBTP = () => {
+  const { theme } = useSelector((state) => state.app);
   const {
-    theme,
     clientName,
     carrier,
     speedUp,
