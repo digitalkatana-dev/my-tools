@@ -7,8 +7,8 @@ import {
 import '../template.scss';
 
 const MktCCRBridgedPrivate = () => {
+  const { theme } = useSelector((state) => state.app);
   const {
-    theme,
     clientName,
     carrier,
     speedDn,
