@@ -65,9 +65,10 @@ export const deleteConfig = createAsyncThunk(
   },
 );
 
-export const configAdapter = createEntityAdapter();
-const initialState = configAdapter.getInitialState({
+export const circuitAdapter = createEntityAdapter();
+const initialState = circuitAdapter.getInitialState({
   loading: false,
+  tabValue: 0,
   view: 'form',
   update: false,
   circuitType: '',
@@ -107,14 +108,17 @@ const initialState = configAdapter.getInitialState({
   gateway: '',
   ipTemplate: null,
   selectedConfig: null,
-  configSuccess: null,
-  configErrors: null,
+  circuitSuccess: null,
+  circuitErrors: null,
 });
 
-export const configSlice = createSlice({
-  name: 'config',
+export const circuitSlice = createSlice({
+  name: 'circuit',
   initialState,
   reducers: {
+    setCircuitTabValue: (state, action) => {
+      state.tabValue = action.payload;
+    },
     setView: (state, action) => {
       state.view = action.payload;
     },
@@ -271,8 +275,8 @@ export const configSlice = createSlice({
       state.tpLink = action.payload.tpLink;
       state.selectedConfig = action.payload;
     },
-    setConfigErrors: (state, action) => {
-      state.configErrors = action.payload;
+    setCircuitErrors: (state, action) => {
+      state.circuitErrors = action.payload;
     },
     clearForm: (state) => {
       state.update = false;
@@ -314,18 +318,18 @@ export const configSlice = createSlice({
       state.ipTemplate = null;
       state.selectedConfig = null;
     },
-    clearConfigSuccess: (state) => {
-      state.configSuccess = null;
+    clearCircuitSuccess: (state) => {
+      state.circuitSuccess = null;
     },
-    clearConfigErrors: (state) => {
-      state.configErrors = null;
+    clearCircuitErrors: (state) => {
+      state.circuitErrors = null;
     },
   },
   extraReducers: (builder) => {
     builder
       .addCase(getTimeZone.pending, (state) => {
         state.loading = true;
-        state.configErrors = null;
+        state.circuitErrors = null;
       })
       .addCase(getTimeZone.fulfilled, (state, action) => {
         state.loading = false;
@@ -333,51 +337,52 @@ export const configSlice = createSlice({
       })
       .addCase(getTimeZone.rejected, (state, action) => {
         state.loading = false;
-        state.configErrors = action.payload;
+        state.circuitErrors = action.payload;
       })
       .addCase(saveConfig.pending, (state) => {
         state.loading = true;
-        state.configErrors = null;
+        state.circuitErrors = null;
       })
       .addCase(saveConfig.fulfilled, (state, action) => {
         state.loading = false;
-        state.configSuccess = action.payload;
-        state.configErrors = null;
+        state.circuitSuccess = action.payload;
+        state.circuitErrors = null;
       })
       .addCase(saveConfig.rejected, (state, action) => {
         state.loading = false;
-        state.configErrors = action.payload;
+        state.circuitErrors = action.payload ?? null;
       })
       .addCase(updateConfig.pending, (state) => {
         state.loading = true;
-        state.configErrors = null;
+        state.circuitErrors = null;
       })
       .addCase(updateConfig.fulfilled, (state, action) => {
         state.loading = false;
-        state.configSuccess = action.payload;
-        state.configErrors = null;
+        state.circuitSuccess = action.payload;
+        state.circuitErrors = null;
       })
       .addCase(updateConfig.rejected, (state, action) => {
         state.loading = false;
-        state.configErrors = action.payload;
+        state.circuitErrors = action.payload;
       })
       .addCase(deleteConfig.pending, (state) => {
         state.loading = true;
-        state.configErrors = null;
+        state.circuitErrors = null;
       })
       .addCase(deleteConfig.fulfilled, (state, action) => {
         state.loading = false;
-        state.configSuccess = action.payload;
-        state.configErrors = null;
+        state.circuitSuccess = action.payload;
+        state.circuitErrors = null;
       })
       .addCase(deleteConfig.rejected, (state, action) => {
         state.loading = false;
-        state.configErrors = action.payload;
+        state.circuitErrors = action.payload;
       });
   },
 });
 
 export const {
+  setCircuitTabValue,
   setView,
   toggleUpdate,
   setClientName,
@@ -417,10 +422,10 @@ export const {
   setTPLink,
   setIPTemplate,
   populateForm,
-  setConfigErrors,
+  setCircuitErrors,
   clearForm,
-  clearConfigSuccess,
-  clearConfigErrors,
-} = configSlice.actions;
+  clearCircuitSuccess,
+  clearCircuitErrors,
+} = circuitSlice.actions;
 
-export default configSlice.reducer;
+export default circuitSlice.reducer;

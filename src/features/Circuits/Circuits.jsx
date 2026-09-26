@@ -1,6 +1,7 @@
+import React from 'react';
 import { Box, Tabs, Tab } from '@mui/material';
-import { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { setCircuitTabValue } from '../../redux/slices/circuitSlice';
 import './circuits.scss';
 import TabPanel from './components/TabPanel';
 import ConfigHelper from './components/ConfigHelper';
@@ -8,7 +9,8 @@ import Subnets from './components/Subnets';
 
 const Circuits = () => {
   const { theme } = useSelector((state) => state.app);
-  const [value, setValue] = useState(0);
+  const { tabValue } = useSelector((state) => state.circuit);
+  const dispatch = useDispatch();
 
   const a11yProps = (index) => {
     return {
@@ -18,14 +20,14 @@ const Circuits = () => {
   };
 
   const handleTabChange = (e, newValue) => {
-    setValue(newValue);
+    dispatch(setCircuitTabValue(newValue));
   };
 
   return (
     <div id='circuits'>
       <Box>
         <Tabs
-          value={value}
+          value={tabValue}
           onChange={handleTabChange}
           variant='fullWidth'
           textColor='secondary'
@@ -44,8 +46,8 @@ const Circuits = () => {
         </Tabs>
       </Box>
       <div className='tab-data'>
-        <TabPanel value={value} index={0} children={<ConfigHelper />} />
-        <TabPanel value={value} index={1} children={<Subnets />} />
+        <TabPanel value={tabValue} index={0} children={<ConfigHelper />} />
+        <TabPanel value={tabValue} index={1} children={<Subnets />} />
       </div>
     </div>
   );

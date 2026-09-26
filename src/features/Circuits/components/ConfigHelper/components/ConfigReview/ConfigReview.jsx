@@ -31,7 +31,7 @@ const ConfigReview = () => {
     isTagged,
     tpLink,
     ipTemplate,
-  } = useSelector((state) => state.config);
+  } = useSelector((state) => state.circuit);
 
   let configDisplay;
 

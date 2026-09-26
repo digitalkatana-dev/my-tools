@@ -27,7 +27,7 @@ const Mkt5009RoutedTPSub = () => {
     zipCode,
     timeZone,
     ipTemplate,
-  } = useSelector((state) => state.config);
+  } = useSelector((state) => state.circuit);
 
   const wan = `${ipTemplate?.verveRouterWan + cidr_1}`;
   const lan = `${ipTemplate?.clientGateway + cidr_2}`;

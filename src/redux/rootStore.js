@@ -13,7 +13,7 @@ import storage from 'redux-persist/lib/storage';
 import appReducer from './slices/appSlice';
 import userReducer from './slices/userSlice';
 import securityReducer from './slices/securitySlice';
-import configReducer from './slices/configSlice';
+import circuitReducer from './slices/circuitSlice';
 import noteReducer from './slices/noteSlice';
 
 const appPersistConfig = {
@@ -28,8 +28,8 @@ const userPersistConfig = {
   whitelist: ['activeUser'],
 };
 
-const configPersistConfig = {
-  key: 'config',
+const circuitPersistConfig = {
+  key: 'circuit',
   storage,
 };
 
@@ -39,7 +39,7 @@ export const store = configureStore({
     user: persistReducer(userPersistConfig, userReducer),
     security: securityReducer,
     note: noteReducer,
-    config: persistReducer(configPersistConfig, configReducer),
+    circuit: persistReducer(circuitPersistConfig, circuitReducer),
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
