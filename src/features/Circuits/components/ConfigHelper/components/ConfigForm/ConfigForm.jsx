@@ -107,7 +107,7 @@ const ConfigForm = () => {
     dnsS,
     tpLink,
     selectedConfig,
-    appErrors,
+    configErrors,
   } = useSelector((state) => state.config);
   const dispatch = useDispatch();
 
@@ -352,14 +352,14 @@ const ConfigForm = () => {
             value={dnsP}
             onFocus={handleFocus}
             onChange={(e) => handleChange('dns1', e.target.value)}
-            error={appErrors?.dnsP}
+            error={configErrors?.dnsP}
           />
           <TextInput
             placeholder='Secondary DNS'
             value={dnsS}
             onFocus={handleFocus}
             onChange={(e) => handleChange('dns2', e.target.value)}
-            error={appErrors?.dnsS}
+            error={configErrors?.dnsS}
           />
         </div>
       );
@@ -385,7 +385,7 @@ const ConfigForm = () => {
               options={circuitTypes}
               value={circuitType}
               onChange={(e) => handleChange('circuit', e.target.value)}
-              error={appErrors?.circuitType}
+              error={configErrors?.circuitType}
             />
             <Select
               fullWidth
@@ -393,7 +393,7 @@ const ConfigForm = () => {
               options={entryTypes}
               value={entryType}
               onChange={(e) => handleChange('entry', e.target.value)}
-              error={appErrors?.entryType}
+              error={configErrors?.entryType}
             />
             <div className='q-row'>
               <div className='txt'>
@@ -403,7 +403,7 @@ const ConfigForm = () => {
                   options={carriers}
                   value={carrier}
                   onChange={(e) => handleChange('carrier', e.target.value)}
-                  error={appErrors?.carrier}
+                  error={configErrors?.carrier}
                 />
               </div>
               <div className='radio'>
@@ -439,7 +439,7 @@ const ConfigForm = () => {
                 value={speedDn}
                 onFocus={handleFocus}
                 onChange={(e) => handleChange('dn', e.target.value)}
-                error={appErrors?.speedDn}
+                error={configErrors?.speedDn}
               />
               <Select
                 fullWidth
@@ -447,7 +447,7 @@ const ConfigForm = () => {
                 options={speedMeasurements}
                 value={measurement}
                 onChange={(e) => handleChange('measure', e.target.value)}
-                error={appErrors?.measurement}
+                error={configErrors?.measurement}
               />
             </div>
             {circuitType === 'nni' && (
@@ -468,7 +468,7 @@ const ConfigForm = () => {
                       value={vlanId}
                       onFocus={handleFocus}
                       onChange={(e) => handleChange('vlan', e.target.value)}
-                      error={appErrors?.vlanId}
+                      error={configErrors?.vlanId}
                     />
                   </div>
                 )}
@@ -480,7 +480,7 @@ const ConfigForm = () => {
                 value={ipAddress_1}
                 onFocus={handleFocus}
                 onChange={(e) => handleChange('ip1', e.target.value)}
-                error={appErrors?.ipAddress_1}
+                error={configErrors?.ipAddress_1}
               />
               <Select
                 style={{ width: '30%' }}
@@ -488,7 +488,7 @@ const ConfigForm = () => {
                 options={cidrOptions}
                 value={cidr_1}
                 onChange={(e) => handleChange('cidr1', e.target.value)}
-                error={appErrors?.cidr_1}
+                error={configErrors?.cidr_1}
               />
             </div>
             {circuitType === 'nni' && entryType === 'manual' && (
@@ -520,7 +520,7 @@ const ConfigForm = () => {
                   value={ipAddress_2}
                   onFocus={handleFocus}
                   onChange={(e) => handleChange('ip2', e.target.value)}
-                  error={appErrors?.ipAddress_2}
+                  error={configErrors?.ipAddress_2}
                 />
                 <Select
                   style={{ width: '30%' }}
@@ -528,7 +528,7 @@ const ConfigForm = () => {
                   options={cidrOptions}
                   value={cidr_2}
                   onChange={(e) => handleChange('cidr2', e.target.value)}
-                  error={appErrors?.cidr_2}
+                  error={configErrors?.cidr_2}
                 />
               </div>
             )}
@@ -614,7 +614,7 @@ const ConfigForm = () => {
               value={clientName}
               onFocus={handleFocus}
               onChange={(e) => handleChange('name', e.target.value)}
-              error={appErrors?.clientName}
+              error={configErrors?.clientName}
             />
             <div className='address'>
               <TextInput
@@ -622,7 +622,7 @@ const ConfigForm = () => {
                 value={address_1}
                 onFocus={handleFocus}
                 onChange={(e) => handleChange('add1', e.target.value)}
-                error={appErrors?.address_1}
+                error={configErrors?.address_1}
               />
               <TextInput
                 placeholder='Address 2'
@@ -636,7 +636,7 @@ const ConfigForm = () => {
                   value={city}
                   onFocus={handleFocus}
                   onChange={(e) => handleChange('city', e.target.value)}
-                  error={appErrors?.city}
+                  error={configErrors?.city}
                 />
                 <Select
                   fullWidth
@@ -644,14 +644,14 @@ const ConfigForm = () => {
                   options={states}
                   value={state}
                   onChange={(e) => handleChange('state', e.target.value)}
-                  error={appErrors?.state}
+                  error={configErrors?.state}
                 />
                 <TextInput
                   placeholder='Zip Code'
                   value={zipCode}
                   onFocus={handleFocus}
                   onChange={(e) => handleChange('zip', e.target.value)}
-                  error={appErrors?.zipCode}
+                  error={configErrors?.zipCode}
                 />
               </div>
             </div>
