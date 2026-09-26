@@ -3,6 +3,7 @@ import {
   createEntityAdapter,
   createSlice,
 } from '@reduxjs/toolkit';
+import { getProfile } from './userSlice';
 import toolsApi from '../../api/toolsApi';
 
 export const getTimeZone = createAsyncThunk(
@@ -11,6 +12,53 @@ export const getTimeZone = createAsyncThunk(
     try {
       const res = await toolsApi.get(`/config/timezone/${data}`);
       return res.data;
+    } catch (err) {
+      return rejectWithValue(err.response.data);
+    }
+  },
+);
+
+export const saveConfig = createAsyncThunk(
+  'config/save_config',
+  async (data, { dispatch, rejectWithValue }) => {
+    const { user } = data;
+    try {
+      const res = await toolsApi.post('/config', data);
+      const { success } = res.data;
+      if (success) dispatch(getProfile(user));
+      return success;
+    } catch (err) {
+      return rejectWithValue(err.response.data);
+    }
+  },
+);
+
+export const updateConfig = createAsyncThunk(
+  'config/update_config',
+  async (data, { dispatch, rejectWithValue }) => {
+    const { _id, user } = data;
+    try {
+      const res = await toolsApi.put(`/config/${_id}`, data);
+      const { success } = res.data;
+      if (success) dispatch(getProfile(user));
+      return success;
+    } catch (err) {
+      return rejectWithValue(err.response.data);
+    }
+  },
+);
+
+export const deleteConfig = createAsyncThunk(
+  'config/delete_config',
+  async (data, { dispatch, rejectWithValue }) => {
+    const { activeUser, configId } = data;
+    try {
+      const res = await toolsApi.delete(`/config/${configId}`);
+      const { success } = res.data;
+      if (success) {
+        dispatch(getProfile(activeUser));
+      }
+      return success;
     } catch (err) {
       return rejectWithValue(err.response.data);
     }
@@ -286,6 +334,45 @@ export const configSlice = createSlice({
       .addCase(getTimeZone.rejected, (state, action) => {
         state.loading = false;
         state.appErrors = action.payload;
+      })
+      .addCase(saveConfig.pending, (state) => {
+        state.loading = true;
+        state.configErrors = null;
+      })
+      .addCase(saveConfig.fulfilled, (state, action) => {
+        state.loading = false;
+        state.configSuccess = action.payload;
+        state.configErrors = null;
+      })
+      .addCase(saveConfig.rejected, (state, action) => {
+        state.loading = false;
+        state.configErrors = action.payload;
+      })
+      .addCase(updateConfig.pending, (state) => {
+        state.loading = true;
+        state.configErrors = null;
+      })
+      .addCase(updateConfig.fulfilled, (state, action) => {
+        state.loading = false;
+        state.configSuccess = action.payload;
+        state.configErrors = null;
+      })
+      .addCase(updateConfig.rejected, (state, action) => {
+        state.loading = false;
+        state.configErrors = action.payload;
+      })
+      .addCase(deleteConfig.pending, (state) => {
+        state.loading = true;
+        state.configErrors = null;
+      })
+      .addCase(deleteConfig.fulfilled, (state, action) => {
+        state.loading = false;
+        state.configSuccess = action.payload;
+        state.configErrors = null;
+      })
+      .addCase(deleteConfig.rejected, (state, action) => {
+        state.loading = false;
+        state.configErrors = action.payload;
       });
   },
 });
