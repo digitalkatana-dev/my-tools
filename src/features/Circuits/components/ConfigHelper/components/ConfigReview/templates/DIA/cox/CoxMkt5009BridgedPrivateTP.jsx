@@ -22,7 +22,7 @@ const CoxMkt5009BridgedPrivateTP = () => {
     zipCode,
     timeZone,
     ipTemplate,
-  } = useSelector((state) => state.config);
+  } = useSelector((state) => state.circuit);
 
   const wan = `${ipTemplate?.verveRouter + cidr_1}`;
 

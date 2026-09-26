@@ -42,11 +42,10 @@ import {
   setTPLink,
   setIPTemplate,
   saveConfig,
-  populateForm,
   updateConfig,
-  setConfigErrors,
-  clearConfigErrors,
-} from '../../../../../../redux/slices/configSlice';
+  setCircuitErrors,
+  clearCircuitErrors,
+} from '../../../../../../redux/slices/circuitSlice';
 import { processIPs } from '../../../../../../util/helpers';
 import { validateConfigData } from '../../../../../../util/validator';
 import {
@@ -107,8 +106,8 @@ const ConfigForm = () => {
     dnsS,
     tpLink,
     selectedConfig,
-    configErrors,
-  } = useSelector((state) => state.config);
+    circuitErrors,
+  } = useSelector((state) => state.circuit);
   const dispatch = useDispatch();
 
   const handleIP = () => {
@@ -127,7 +126,7 @@ const ConfigForm = () => {
   };
 
   const handleFocus = () => {
-    dispatch(clearConfigErrors());
+    dispatch(clearCircuitErrors());
   };
 
   const handleChange = (input, value) => {
@@ -175,8 +174,11 @@ const ConfigForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    let data;
+    let configData;
+
     if (entryType === 'auto') {
-      const data = {
+      data = {
         circuitType,
         carrier,
         isSymmetrical,
@@ -201,17 +203,8 @@ const ConfigForm = () => {
         ...(vlanId && { vlanId }),
       };
 
-      const { valid, errors } = validateConfigData(data);
-
-      if (!valid) {
-        dispatch(setConfigErrors(errors));
-        return;
-      }
-
       ipAddress_1 && handleIP();
     } else if (entryType === 'manual') {
-      let data;
-
       if (circuitType === 'dia') {
         data = {
           network: ipAddress_1,
@@ -239,48 +232,9 @@ const ConfigForm = () => {
 
       dispatch(setIPTemplate(data));
     }
-    if (!update) {
-      const configData = {
-        circuitType,
-        entryType,
-        carrier,
-        handoffType,
-        isSymmetrical,
-        ...(speedUp && { speedUp }),
-        speedDn,
-        measurement,
-        isTagged,
-        ...(vlanId && { vlanId }),
-        ipAddress_1,
-        cidr_1,
-        ...(coreVerveGateway && { coreVerveGateway }),
-        ...(verveRouterWan && { verveRouterWan }),
-        ...(wanMask && { wanMask }),
-        ...(verveRouter && { verveRouter }),
-        ...(available && { available }),
-        ...(subnetMask && { subnetMask }),
-        ...(gateway && { gateway }),
-        ...(ipAddress_2 && { ipAddress_2 }),
-        ...(cidr_2 && { cidr_2 }),
-        ...(clientGateway && { clientGateway }),
-        ...(lanMask && { lanMask }),
-        ...(dnsP && { dnsP }),
-        ...(dnsS && { dnsS }),
-        ...(homeIP && { homeIP }),
-        gatewayLocation,
-        tpLink,
-        clientName,
-        address_1,
-        ...(address_2 && { address_2 }),
-        city,
-        state,
-        zipCode,
-        timeZone,
-        user: activeUser?._id,
-      };
-      dispatch(saveConfig(configData));
-    } else if (update) {
-      const configData = {
+
+    if (update === true) {
+      configData = {
         _id: selectedConfig?._id,
         ...(circuitType !== selectedConfig.circuitType && { circuitType }),
         ...(entryType !== selectedConfig.entryType && { entryType }),
@@ -335,9 +289,66 @@ const ConfigForm = () => {
         ...(timeZone !== selectedConfig.timeZone && { timeZone }),
         user: selectedConfig?.user,
       };
+
+      const { valid, errors } = validateConfigData(configData);
+
+      if (!valid) {
+        dispatch(setCircuitErrors(errors));
+        return;
+      }
+
       dispatch(updateConfig(configData));
+      dispatch(setView('review'));
+    } else {
+      configData = {
+        circuitType,
+        entryType,
+        carrier,
+        handoffType,
+        isSymmetrical,
+        ...(speedUp && { speedUp }),
+        speedDn,
+        measurement,
+        isTagged,
+        ...(vlanId && { vlanId }),
+        ipAddress_1,
+        cidr_1,
+        ...(coreVerveGateway && { coreVerveGateway }),
+        ...(verveRouterWan && { verveRouterWan }),
+        ...(wanMask && { wanMask }),
+        ...(verveRouter && { verveRouter }),
+        ...(available && { available }),
+        ...(subnetMask && { subnetMask }),
+        ...(gateway && { gateway }),
+        ...(ipAddress_2 && { ipAddress_2 }),
+        ...(cidr_2 && { cidr_2 }),
+        ...(clientGateway && { clientGateway }),
+        ...(lanMask && { lanMask }),
+        ...(dnsP && { dnsP }),
+        ...(dnsS && { dnsS }),
+        ...(homeIP && { homeIP }),
+        gatewayLocation,
+        tpLink,
+        clientName,
+        address_1,
+        ...(address_2 && { address_2 }),
+        city,
+        state,
+        zipCode,
+        timeZone,
+        user: activeUser?._id,
+      };
+
+      const { valid, errors } = validateConfigData(configData);
+
+      if (!valid) {
+        dispatch(setCircuitErrors(errors));
+        return;
+      }
+
+      dispatch(saveConfig(configData));
+      dispatch(setView('review'));
     }
-    dispatch(setView('review'));
   };
 
   const DNSInputDisplay = () => {
@@ -352,14 +363,14 @@ const ConfigForm = () => {
             value={dnsP}
             onFocus={handleFocus}
             onChange={(e) => handleChange('dns1', e.target.value)}
-            error={configErrors?.dnsP}
+            error={circuitErrors?.dnsP}
           />
           <TextInput
             placeholder='Secondary DNS'
             value={dnsS}
             onFocus={handleFocus}
             onChange={(e) => handleChange('dns2', e.target.value)}
-            error={configErrors?.dnsS}
+            error={circuitErrors?.dnsS}
           />
         </div>
       );
@@ -385,7 +396,8 @@ const ConfigForm = () => {
               options={circuitTypes}
               value={circuitType}
               onChange={(e) => handleChange('circuit', e.target.value)}
-              error={configErrors?.circuitType}
+              onFocus={handleFocus}
+              error={circuitErrors?.circuitType}
             />
             <Select
               fullWidth
@@ -393,7 +405,8 @@ const ConfigForm = () => {
               options={entryTypes}
               value={entryType}
               onChange={(e) => handleChange('entry', e.target.value)}
-              error={configErrors?.entryType}
+              onFocus={handleFocus}
+              error={circuitErrors?.entryType}
             />
             <div className='q-row'>
               <div className='txt'>
@@ -403,7 +416,8 @@ const ConfigForm = () => {
                   options={carriers}
                   value={carrier}
                   onChange={(e) => handleChange('carrier', e.target.value)}
-                  error={configErrors?.carrier}
+                  onFocus={handleFocus}
+                  error={circuitErrors?.carrier}
                 />
               </div>
               <div className='radio'>
@@ -439,7 +453,7 @@ const ConfigForm = () => {
                 value={speedDn}
                 onFocus={handleFocus}
                 onChange={(e) => handleChange('dn', e.target.value)}
-                error={configErrors?.speedDn}
+                error={circuitErrors?.speedDn}
               />
               <Select
                 fullWidth
@@ -447,7 +461,8 @@ const ConfigForm = () => {
                 options={speedMeasurements}
                 value={measurement}
                 onChange={(e) => handleChange('measure', e.target.value)}
-                error={configErrors?.measurement}
+                onFocus={handleFocus}
+                error={circuitErrors?.measurement}
               />
             </div>
             {circuitType === 'nni' && (
@@ -468,7 +483,7 @@ const ConfigForm = () => {
                       value={vlanId}
                       onFocus={handleFocus}
                       onChange={(e) => handleChange('vlan', e.target.value)}
-                      error={configErrors?.vlanId}
+                      error={circuitErrors?.vlanId}
                     />
                   </div>
                 )}
@@ -480,7 +495,7 @@ const ConfigForm = () => {
                 value={ipAddress_1}
                 onFocus={handleFocus}
                 onChange={(e) => handleChange('ip1', e.target.value)}
-                error={configErrors?.ipAddress_1}
+                error={circuitErrors?.ipAddress_1}
               />
               <Select
                 style={{ width: '30%' }}
@@ -488,7 +503,7 @@ const ConfigForm = () => {
                 options={cidrOptions}
                 value={cidr_1}
                 onChange={(e) => handleChange('cidr1', e.target.value)}
-                error={configErrors?.cidr_1}
+                error={circuitErrors?.cidr_1}
               />
             </div>
             {circuitType === 'nni' && entryType === 'manual' && (
@@ -520,15 +535,16 @@ const ConfigForm = () => {
                   value={ipAddress_2}
                   onFocus={handleFocus}
                   onChange={(e) => handleChange('ip2', e.target.value)}
-                  error={configErrors?.ipAddress_2}
+                  error={circuitErrors?.ipAddress_2}
                 />
                 <Select
                   style={{ width: '30%' }}
                   label='Subnet'
                   options={cidrOptions}
                   value={cidr_2}
+                  onFocus={handleFocus}
                   onChange={(e) => handleChange('cidr2', e.target.value)}
-                  error={configErrors?.cidr_2}
+                  error={circuitErrors?.cidr_2}
                 />
               </div>
             )}
@@ -614,7 +630,7 @@ const ConfigForm = () => {
               value={clientName}
               onFocus={handleFocus}
               onChange={(e) => handleChange('name', e.target.value)}
-              error={configErrors?.clientName}
+              error={circuitErrors?.clientName}
             />
             <div className='address'>
               <TextInput
@@ -622,7 +638,7 @@ const ConfigForm = () => {
                 value={address_1}
                 onFocus={handleFocus}
                 onChange={(e) => handleChange('add1', e.target.value)}
-                error={configErrors?.address_1}
+                error={circuitErrors?.address_1}
               />
               <TextInput
                 placeholder='Address 2'
@@ -636,22 +652,23 @@ const ConfigForm = () => {
                   value={city}
                   onFocus={handleFocus}
                   onChange={(e) => handleChange('city', e.target.value)}
-                  error={configErrors?.city}
+                  error={circuitErrors?.city}
                 />
                 <Select
                   fullWidth
                   label='State'
                   options={states}
                   value={state}
+                  onFocus={handleFocus}
                   onChange={(e) => handleChange('state', e.target.value)}
-                  error={configErrors?.state}
+                  error={circuitErrors?.state}
                 />
                 <TextInput
                   placeholder='Zip Code'
                   value={zipCode}
                   onFocus={handleFocus}
                   onChange={(e) => handleChange('zip', e.target.value)}
-                  error={configErrors?.zipCode}
+                  error={circuitErrors?.zipCode}
                 />
               </div>
             </div>

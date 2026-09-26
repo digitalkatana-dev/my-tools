@@ -5,7 +5,6 @@ import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 
 const TextInput = ({
-  // fullWidth,
   style,
   containerClass,
   inputClass,
@@ -24,14 +23,16 @@ const TextInput = ({
 }) => {
   const [show, setShow] = useState(false);
 
-  const inputStyle = {
-    // width: fullWidth ? '100%' : '',
+  const containerStyle = {
+    marginTop: 0,
+    marginBottom: 10,
+    alignSelf: 'center',
     ...style,
   };
 
   return (
-    <FormControl fullWidth size='small'>
-      <div className='text-input' style={inputStyle}>
+    <FormControl style={containerStyle} fullWidth size='small'>
+      <div className='text-input'>
         {label && <label>{label}</label>}
         <div
           className={
