@@ -1,0 +1,26 @@
+#config-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  padding: 30px;
+
+  .config-link {
+    color: steelblue;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  .del-btn {
+    font-size: smaller;
+    color: red;
+    background-color: whitesmoke;
+    border-radius: 100%;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}

@@ -47,7 +47,7 @@ const Topbar = () => {
       </h3>
       {activeUser && (
         <div id='btn-container'>
-          {currentLocation === 'circuits' && tabValue === 0 && (
+          {currentLocation === 'circuits' && tabValue === 1 && (
             <>
               {view === 'review' && (
                 <Tooltip title='Edit'>

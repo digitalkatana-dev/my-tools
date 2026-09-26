@@ -290,13 +290,6 @@ const ConfigForm = () => {
         user: selectedConfig?.user,
       };
 
-      const { valid, errors } = validateConfigData(configData);
-
-      if (!valid) {
-        dispatch(setCircuitErrors(errors));
-        return;
-      }
-
       dispatch(updateConfig(configData));
       dispatch(setView('review'));
     } else {

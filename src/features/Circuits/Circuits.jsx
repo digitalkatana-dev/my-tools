@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setCircuitTabValue } from '../../redux/slices/circuitSlice';
 import './circuits.scss';
 import TabPanel from './components/TabPanel';
+import ConfigList from './components/ConfigList';
 import ConfigHelper from './components/ConfigHelper';
 import Subnets from './components/Subnets';
 
@@ -39,15 +40,21 @@ const Circuits = () => {
             className={`label${theme === 'dark' ? ' dark' : ''}`}
           />
           <Tab
-            label='Subnets'
+            label='Helper'
             {...a11yProps(1)}
+            className={`label${theme === 'dark' ? ' dark' : ''}`}
+          />
+          <Tab
+            label='Subnets'
+            {...a11yProps(2)}
             className={`label${theme === 'dark' ? ' dark' : ''}`}
           />
         </Tabs>
       </Box>
       <div className='tab-data'>
-        <TabPanel value={tabValue} index={0} children={<ConfigHelper />} />
-        <TabPanel value={tabValue} index={1} children={<Subnets />} />
+        <TabPanel value={tabValue} index={0} children={<ConfigList />} />
+        <TabPanel value={tabValue} index={1} children={<ConfigHelper />} />
+        <TabPanel value={tabValue} index={2} children={<Subnets />} />
       </div>
     </div>
   );
