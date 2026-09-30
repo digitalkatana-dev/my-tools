@@ -35,7 +35,7 @@ const ConfigReview = () => {
 
   let configDisplay;
 
-  const coxCircuits = ['Cox Coax', 'Cox Fiber'];
+  const coxCircuits = ['Cox Coax', 'Cox Fiber', 'Cox Shared Fiber'];
 
   const configViews = () => {
     const isTaggedBool = isTagged === 'yes';

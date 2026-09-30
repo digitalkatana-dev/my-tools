@@ -949,6 +949,10 @@ export const carriers = [
     value: 'Cox Fiber',
   },
   {
+    label: 'Cox Shared Fiber',
+    value: 'Cox Shared Fiber',
+  },
+  {
     label: 'Crown Castle',
     value: 'Crown Castle',
   },
