@@ -1160,3 +1160,54 @@ export const gwayLocOptions = [
     value: 'end',
   },
 ];
+
+export const sopOptions = [
+  {
+    title: 'How to Process a Circuit Order',
+    url: 'https://verve-faq.vervecloud.net/faq/content/27/101/en/1&period3&period1-how-to-process-a-circuit-order.html',
+  },
+  {
+    title: 'How to Process a Voice Order',
+    url: 'https://verve-faq.vervecloud.net/faq/content/27/105/en/1&period3&period2-how-to-process-a-voice-order.html',
+  },
+  {
+    title: 'How to Process a Circuit Cancellation Order',
+    url: 'https://verve-faq.vervecloud.net/faq/content/27/106/en/1&period3&period3-how-to-process-a-circuit-cancellation-order.html',
+  },
+  {
+    title: 'How to Process a Voice Cancellation Order',
+    url: 'https://verve-faq.vervecloud.net/faq/content/27/107/en/1&period3&period4-how-to-process-a-voice-cancellation-order.html',
+  },
+  {
+    title: 'How to Process an Account Cancellation Order',
+    url: 'https://verve-faq.vervecloud.net/faq/content/27/108/en/1&period3&period5-how-to-process-an-account-cancellation-order.html',
+  },
+  {
+    title: 'How to Process an Account Merge Order',
+    url: 'https://verve-faq.vervecloud.net/faq/content/27/109/en/1&period3&period6&period1-how-to-process-an-account-merge-order.html',
+  },
+  {
+    title: 'How to process a Hosted Hospitality Order',
+    url: 'https://verve-faq.vervecloud.net/faq/content/27/110/en/1&period3&period7-how-to-process-a-hosted-hospitality-order.html',
+  },
+  {
+    title: 'How to Process a Sansay SIP Trunk Order',
+    url: 'https://verve-faq.vervecloud.net/faq/content/27/111/en/1&period3&period8-how-to-process-a-sansay-sip-trunk-order.html',
+  },
+  {
+    title: 'How to Process an SDWAN Cancellation Order',
+    url: 'https://verve-faq.vervecloud.net/faq/content/27/112/en/1&period3&period9-how-to-process-a-sdwan-cancellation-order.html',
+  },
+  {
+    title: 'How to Process a BlueLabel Migration Order',
+    url: 'https://verve-faq.vervecloud.net/faq/content/27/113/en/1&period3&period10-how-to-process-a-bluelabel-migration-order.html',
+  },
+  {
+    title: 'How to Process a POTS Replacement Cancellation Order',
+    url: 'https://verve-faq.vervecloud.net/faq/content/27/114/en/1&period3&period12-how-to-process-a-pots-replacement-cancellation-order.html',
+  },
+  {
+    title: 'How to Process a POTS Replacement Order',
+    url: 'https://verve-faq.vervecloud.net/faq/content/27/115/en/1&period3&period11-how-to-process-a-pots-replacement-order.html',
+  },
+];
