@@ -1,48 +1,27 @@
 #sop {
-	height: 100%;
-	display: flex;
-	flex-direction: column;
-	position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
 
-	.back-link {
-		position: absolute;
-		top: 15px;
-		left: 15px;
-		color: var(--txt-primary);
-		cursor: pointer;
-	}
+  .sop-list {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
 
-	#voice,
-	#circuit,
-	#voice-cancel,
-	#circuit-cancel,
-	#acct-cancel {
-		flex: 1;
-		flex-direction: column;
-		padding: 15px 0;
+    a {
+      font-size: 16px;
+      font-weight: 700;
+      text-decoration: none;
+      color: var(--txt-primary);
 
-		.title {
-			margin-top: 40px;
-			margin-bottom: 20px;
-		}
-
-		section {
-			text-align: left;
-			padding: 0 20px;
-			text-wrap: pretty;
-			margin-bottom: 10px;
-		}
-	}
-
-	.sop-list {
-		flex: 1;
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		gap: 20px;
-
-		h3 {
-			cursor: pointer;
-		}
-	}
+      &:hover {
+        text-shadow:
+          0 0 8px dodgerblue,
+          0 0 20px dodgerblue;
+      }
+    }
+  }
 }

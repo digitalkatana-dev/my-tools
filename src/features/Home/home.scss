@@ -1,56 +1,62 @@
 #home {
-	width: 100%;
-	flex: 1;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	position: relative;
-	text-align: center;
+  width: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  text-align: center;
 
-	form {
-		width: 80%;
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		// border: 2px solid crimson;
-	}
+  form {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    // border: 2px solid crimson;
+  }
 
-	.greeting {
-		position: absolute;
-		top: 10px;
-		text-align: center;
-		margin-bottom: 16px;
-		color: var(--txt-primary);
-	}
+  .greeting {
+    position: absolute;
+    top: 10px;
+    text-align: center;
+    margin-bottom: 16px;
+    color: var(--txt-primary);
+  }
 
-	.reveal-btn,
-	.clear-btn {
-		width: 50px;
-		height: 50px;
-		position: absolute;
-		top: 10px;
-		background-color: transparent;
-		border: none;
-	}
+  .reveal-btn,
+  .clear-btn {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 10px;
+    background-color: transparent;
+    border: none;
+  }
 
-	.clear-btn {
-		left: 0;
-	}
+  .clear-btn {
+    left: 0;
+  }
 
-	.reveal-btn {
-		right: 0;
-	}
+  .reveal-btn {
+    right: 0;
+  }
 
-	.my-info,
-	.hidden-data {
-		display: flex;
-		flex-direction: column;
-		gap: 15px;
-	}
+  .my-info,
+  .hidden-data {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
 
-	.hidden-data {
-		margin-top: 30px;
-	}
+  .hidden-data {
+    margin-top: 30px;
+
+    h4 {
+      font-family: 'Courier Prime', monospace;
+      font-weight: 400;
+      font-style: normal;
+    }
+  }
 }
